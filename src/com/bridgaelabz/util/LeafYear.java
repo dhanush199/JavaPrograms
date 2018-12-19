@@ -9,6 +9,9 @@ public class LeafYear {
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter a year");
 		int r=sc.nextInt();
+		
+		
+		
 		FunctionalUtility fu=new FunctionalUtility();
 		fu.getLeaf(r);
 		
