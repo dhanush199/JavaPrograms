@@ -12,8 +12,7 @@ public class replaceString {
 		 System.out.println("enter a name");
 		 String s=sc.nextLine();
 		 fu.checkConcate(s);
-		// TODO Auto-generated m		 
-
+		
 	}
 
 }

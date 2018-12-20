@@ -151,7 +151,7 @@ public class FunctionalUtility {
 	public void getTriplet(int [] a,int n)
 	{ 
 		boolean flag=false;
-		
+
 		for(int i=0;i<n-2;i++)
 		{
 			for(int j=i+1;j<n-1;j++)
@@ -164,13 +164,51 @@ public class FunctionalUtility {
 						System.out.println("true");
 						flag=true;
 					}
-					
+
 				}
 			}
 		}
-		
+
 		if(flag==false){
 			System.out.println("false");
 		}
 	}
+	public double getTemp(double t,double v)
+	{
+
+		double w=35.74+0.6215*t+(0.4275*t-35.75)*Math.pow(v, 0.16);
+		return w;
+	}
+	public void getCoefficients(double a,double b,double c)
+	{
+		double d= b*b - 4*a*c;
+		System.out.println("value of delta=" +d);
+		if(d==0) 
+		{
+			System.out.println("Roots are equal and root1=root2 "+(-b/2*a));
+		}
+		else //if(d<0)
+		{
+			System.out.println("roots are equal root1="+ (-b + (Math.sqrt(Math.abs(d))/(2*a))));
+			System.out.println("root2="+ (-b - (Math.sqrt(Math.abs(d))/(2*a))));
+		}
+
+
+
+	}
+	public void getPerm(char ch[],int n)
+
+	{    
+
+		for(int j=0;j<((n*(n-1))-1);j++)
+		{
+			char temp=ch[j];
+			ch[j]=ch[j+1];
+			ch[j+1]=temp ;
+			System.out.println(ch);
+		}
+
+
+	}
 }
+
