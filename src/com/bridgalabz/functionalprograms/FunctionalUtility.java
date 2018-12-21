@@ -210,5 +210,12 @@ public class FunctionalUtility {
 
 
 	}
+
+/////////////////////////////////////
+public void checkAnagram(String s1,String s2)
+{
+	
+	
+	}
 }
 
