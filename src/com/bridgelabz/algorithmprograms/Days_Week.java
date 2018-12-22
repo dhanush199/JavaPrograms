@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Days_Week {
+
+	public static void main(String[] args) {
+		String[] days= {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+		int d=Integer.parseInt(args[0]);
+		int m=Integer.parseInt(args[1]);
+		int y=Integer.parseInt(args[2]);
+		int y0=0;
+		if(d>0 || d<32) 
+			//System.out.println("enter the valid date");
+			if(m>0 || m<12)
+				//System.out.println("enter the valid month");
+				if(y>000 || y<9999) 
+					//System.out.println("enter the valid year");
+					y0 = y-(14-m)/ 12;
+		int	x = y0 + y0/4-y0/100 + y0/400;
+		int	m0 = m +12*((14-m)/12)-2;
+		int d0 =( (d+ x + ((31*m0)/12)) % 7)-2;
+		if(d0>=0 && d0<=7)
+			System.out.println(days[d0]);
+
+	}
+}
+
