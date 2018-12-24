@@ -1,9 +1,18 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin PrimeChecker.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Functionalprograms str1, str2
+ *  
+ *  Purpose: Program to read and to print 2D array.
+ *
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   20-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.functionalprograms;
 
-import java.io.PrintWriter;
 import java.util.Scanner;
 
-import com.bridgelabz.utility.FunctionalUtility;
 
 public class Array2D {
 
@@ -11,22 +20,20 @@ public class Array2D {
 
 		//E[][] intArray = new int[100][100];
 		Scanner sc=new Scanner(System.in);
-		FunctionalUtility fu=new FunctionalUtility();
 		System.out.println("Enter the number of row required");
-		int m=sc.nextInt();//read number of Row
+		int row=sc.nextInt();//read number of Row
 		System.out.println("Enter the number of column required");
-		int n=sc.nextInt();//read number of Column
-		//Integer[][] intArray=new Integer[m][n];
+		int col=sc.nextInt();//read number of Column
 		System.out.println("select array type 1.  2.Integer Boolean 3.Double 4.String");
-		int selection =sc.nextInt();
+		int selection =sc.nextInt(); //read array type
 		while(true){
 			switch(selection){
-			case 1: System.out.println("Enter "+(m*n)+"enteger numbers");
-			Character [][] charArra=new Character[m][n];
+			case 1: System.out.println("Enter "+(row*col)+"enteger numbers"); //To read/print Character array
+			Character [][] charArra=new Character[row][col];
 
-			for(int i=0;i<m;i++)
+			for(int i=0;i<row;i++)
 			{
-				for(int j=0;j<n;j++)
+				for(int j=0;j<col;j++)
 				{
 					charArra[i][j]=sc.next().charAt(0) ;//read array elements
 
@@ -34,12 +41,12 @@ public class Array2D {
 			}
 		//	fu.display(charArra,m,n);
 			break;
-			case 2: System.out.println("Enter "+(m*n)+"enteger numbers");
-			Integer [][] intArra=new Integer[m][n];
+			case 2: System.out.println("Enter "+(row*col)+"enteger numbers");//To read/print integer array
+			Integer [][] intArra=new Integer[row][col];
 
-			for(int i=0;i<m;i++)
+			for(int i=0;i<row;i++)
 			{
-				for(int j=0;j<n;j++)
+				for(int j=0;j<col;j++)
 				{
 					intArra[i][j]=sc.nextInt() ;//read array elements
 
@@ -47,12 +54,12 @@ public class Array2D {
 			}
 		//	fu.display(intArra,m,n);
 			break;
-			case 3: System.out.println("Enter "+(m*n)+"enteger numbers");
-			Double [][] doubleArr=new Double[m][n];
+			case 3: System.out.println("Enter "+(row*col)+"enteger numbers");
+			Double [][] doubleArr=new Double[row][col];
 
-			for(int i=0;i<m;i++)
+			for(int i=0;i<col;i++)
 			{
-				for(int j=0;j<n;j++)
+				for(int j=0;j<col;j++)
 				{
 					doubleArr[i][j]=sc.nextDouble() ;//read array elements
 
@@ -60,12 +67,12 @@ public class Array2D {
 			}
 		//	fu.display(doubleArr,m,n);
 			break;
-			case 4: System.out.println("Enter "+(m*n)+"enteger numbers");
-			String [][] stringArr=new String[m][n];
+			case 4: System.out.println("Enter "+(row*col)+"enteger numbers");//To read/print string array
+			String [][] stringArr=new String[row][col];
 
-			for(int i=0;i<m;i++)
+			for(int i=0;i<row;i++)
 			{
-				for(int j=0;j<n;j++)
+				for(int j=0;j<col;j++)
 				{
 					stringArr[i][j]=sc.nextLine() ;//read array elements
 

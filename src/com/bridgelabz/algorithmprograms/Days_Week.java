@@ -1,4 +1,7 @@
-import java.util.Scanner;
+
+package com.bridgelabz.algorithmprograms;
+
+
 
 public class Days_Week {
 

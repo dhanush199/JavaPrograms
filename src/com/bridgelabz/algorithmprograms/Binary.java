@@ -3,7 +3,6 @@ package com.bridgelabz.algorithmprograms;
 import java.util.Scanner;
 
 import com.bridgelabz.utility.AlgorithmUtility;
-import com.bridgelabz.utility.FunctionalUtility;
 
 public class Binary {
 

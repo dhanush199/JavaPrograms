@@ -1,6 +1,5 @@
-import java.util.Scanner;
-
-import com.bridgalabz.util.FunctionalLogic;
+package com.bridgelabz.algorithmprograms;
+import com.bridgelabz.utility.AlgorithmUtility;
 
 public class Monthy_Payment {
 
@@ -11,7 +10,7 @@ public class Monthy_Payment {
 		double P=Double.parseDouble(i);
 		double R=Double.parseDouble(j);
 		double Y=Double.parseDouble(k);
-		FunctionalLogic<?> fl=new FunctionalLogic<Object>();
+		AlgorithmUtility fl=new AlgorithmUtility();
 		double payment=fl.calPayment(P,R,Y);
 		System.out.println("MontghlyPayment is == "+Math.abs(payment));
 

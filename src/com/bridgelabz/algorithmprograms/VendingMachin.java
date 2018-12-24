@@ -1,14 +1,14 @@
+
+package com.bridgelabz.algorithmprograms;
 import java.util.Scanner;
-
-import com.bridgalabz.util.FunctionalLogic;
-
+import com.bridgelabz.utility.AlgorithmUtility;
 //Program to convert temperature from Farenheat to degree celcius
-
+	
 
 public class VendingMachin {
 	public static void main(String[] args) {
 
-		FunctionalLogic<?> a1= new FunctionalLogic<Object>();
+		AlgorithmUtility a1= new AlgorithmUtility();
 		System.out.println("enter the money in Rs");
 		Scanner sc=new Scanner(System.in);
 		int money=sc.nextInt();

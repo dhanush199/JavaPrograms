@@ -1,7 +1,6 @@
 package com.bridgelabz.utility;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class FunctionalUtility {
 	public	void checkConcate(String s)
@@ -13,22 +12,22 @@ public class FunctionalUtility {
 	}
 	public void getCount(int count)
 	{   int head=0,tail=0;
-	int c=count;
+	int temp=count;   //keep copy of NumToss to calculate percentage
 	Random r=new Random();	
 	while(count!=0)
 	{
-		double rn=r.nextDouble();
-		if(rn>.5){
+		double rn=r.nextDouble(); //generate a decimal random number between 0 to 1.
+		if(rn>.5){ //if rn>.5 increment head count
 			++head;
 		}
 		else 
 		{
-			++tail;
+			++tail;//if rn<.5 increment head count
 		}
 		count--;
 	}
-	System.out.println("perc of Head="+ head*100/c);
-	System.out.println("perc of Tail="+ tail*100/c);
+	System.out.println("perc of Head="+ head*100/temp);//print the percentage head
+	System.out.println("perc of Tail="+ tail*100/temp);//print the percentage Tail
 
 	}
 	public void getLeap(int x)
@@ -213,9 +212,9 @@ public class FunctionalUtility {
 	}
 
 /////////////////////////////////////
-public void checkAnagram(String s1,String s2)
+public static double calDistatce(double a,double b)
 {
-	
+	return (Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)));
 	
 	}
 

@@ -1,6 +1,7 @@
+package com.bridgelabz.algorithmprograms;
+import com.bridgelabz.utility.AlgorithmUtility;
 import java.util.Scanner;
 
-import com.bridgalabz.util.FunctionalLogic;
 
 public class Sqrt_Newton {
 
@@ -11,7 +12,7 @@ public class Sqrt_Newton {
 		c=Math.abs(c);
 		double t=c;
 		double epsilon = 1e-15;
-		FunctionalLogic<?> fl=new FunctionalLogic<Object>();
+		AlgorithmUtility fl=new AlgorithmUtility();
 		double d=fl.calSqrt(epsilon,c);
 		System.out.println("Exact Sqrt of "+c+" is = "+d);
 

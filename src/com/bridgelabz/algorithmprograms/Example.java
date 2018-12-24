@@ -1,6 +1,12 @@
+
+package com.bridgelabz.algorithmprograms;
+import com.bridgelabz.utility.AlgorithmUtility;
+
 import java.util.*;
 
-import com.bridgalabz.util.FunctionalLogic;
+import com.bridgelabz.utility.AlgorithmUtility;
+import com.bridgelabz.utility.FunctionalUtility;
+import java.util.Scanner;
 
 public class Example 
 {
@@ -9,7 +15,7 @@ public class Example
 	{
 		int temp=0;
 		Scanner sc=new Scanner(System.in);
-		FunctionalLogic<?> fl=new FunctionalLogic<Object>();
+		FunctionalUtility fl=new FunctionalUtility();
 		System.out.println("Enter the array length");
 		int size=sc.nextInt();
 		int k=0;//size of Array

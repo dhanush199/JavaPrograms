@@ -1,6 +1,7 @@
-import java.util.Scanner;
+package com.bridgelabz.algorithmprograms;
 
-import com.bridgalabz.util.FunctionalLogic;
+import com.bridgelabz.utility.AlgorithmUtility;
+import java.util.Scanner;
 
 public class Farento_Tem {
 
@@ -8,7 +9,7 @@ public class Farento_Tem {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("press 1. to covert temparature from celcius to faren   Press 2.o covert temparature from  faren to celcius ");
 		int key=sc.nextInt();
-		FunctionalLogic<?> fl=new FunctionalLogic<Object>();
+		AlgorithmUtility fl=new AlgorithmUtility();
 		switch (key) {
 		case 1:System.out.println("Enter the temparature in Celcius");
 		double d=sc.nextDouble();
