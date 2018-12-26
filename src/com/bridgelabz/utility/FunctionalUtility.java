@@ -1,8 +1,43 @@
 package com.bridgelabz.utility;
 
 import java.util.Random;
+import java.util.Scanner;
+
 
 public class FunctionalUtility {
+
+	static Scanner scanner=new Scanner(System.in);
+	public static int readInteger() {
+		try {
+			return scanner.nextInt();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	public static double readdouble() {
+		try {
+			return scanner.nextDouble();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	public static String readString() {
+		try {
+			return scanner.next();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	public	void checkConcate(String s)
 	{
 		if(s.length()<3)
@@ -30,7 +65,7 @@ public class FunctionalUtility {
 	System.out.println("perc of Tail="+ tail*100/temp);//print the percentage Tail
 
 	}
-	public void getLeap(int x)
+	public void getLeap(int x) // Function to calculate the leaf year
 	{
 		if(x%4==0 || x%400==0 && x%100==0)
 			System.out.println("entered year is a leap year");
@@ -38,10 +73,10 @@ public class FunctionalUtility {
 			System.out.println("entered year is not a leap year");
 	}
 
-	public double getHarmonicNum(int n)
+	public double getHarmonicNum(int n) // function to calculate harmonic value of a number
 	{
 		double sum=0.0;
-		if(n==1)
+		if(n==1)   // user input is 1
 			return 1;
 		else{
 			for(double i=1;i<=n;i++)
@@ -93,14 +128,14 @@ public class FunctionalUtility {
 
 	//Gambler
 
-	public void getResult(int s,int g,int t)
+	public void getResult(int s,int g,int t) // function for gambler
 	{
 		int win =0,loss=0,j=t;
 		Random r=new Random();
 
 		while(g-->0 && t-->0)
 		{
-			int n=r.nextInt(2);
+			int n=r.nextInt(2); // if n==0 then lost & if n==1 player wins
 			if(n==0)
 			{
 				s--;
@@ -200,7 +235,7 @@ public class FunctionalUtility {
 	{    
 
 		for(int j=0;j<n;j++)
-		//for(int j=0;j<n*n;j++)
+			//for(int j=0;j<n*n;j++)
 		{
 			char temp=ch[j];
 			ch[j]=ch[j+1];
@@ -211,12 +246,45 @@ public class FunctionalUtility {
 
 	}
 
-/////////////////////////////////////
-public static double calDistatce(double a,double b)
-{
-	return (Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)));
-	
+	/////////////////////////////////////
+	public static double calDistatce(double a,double b)
+	{
+		return (Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)));
+
 	}
-
+	public static String[] sortArray(String str[]) {
+        int length=str.length;
+        for(int i=1;i<length;i++)
+        {
+            String key=str[i];
+            int j=i-1;
+            while(j>=0 && ((str[j].compareTo(key))>0))
+            {
+                str[j+1]=str[j];
+                j=j-1;
+            }
+            str[j+1]=key;
+        }
+       return str;
+		
+    }
+	static long starttime,endtime;
+    
+    public static long start()
+    {
+       starttime= System.currentTimeMillis();
+     
+      return(starttime);
+    }
+    public static long end()
+    {
+     endtime= System.currentTimeMillis();
+    return(endtime);
+    }
+ 
+    public static long elapse() {
+ 
+ long elaspedtime= endtime-  starttime ;
+     return(elaspedtime);
+ }
 }
-

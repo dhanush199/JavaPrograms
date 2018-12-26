@@ -5,11 +5,14 @@ import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
-public class AlgorithmUtility {
+public class AlgorithmUtility <E>{
 
 	public void checkAnagram(int len,String str1,String str2)
 	{
@@ -40,12 +43,14 @@ public class AlgorithmUtility {
 			System.out.print("Strings are Anagram");
 	}
 	//Prime Numbers
-	public boolean checkPrime(long n) 
+	public static boolean checkPrime(long n) 
 	{ 
 		// Converting long to BigInteger 
+		boolean flag=false;
 		BigInteger b = new BigInteger(String.valueOf(n)); 
+		long[] arr=new long[10000];
+		return(b.isProbablePrime(1));
 
-		return b.isProbablePrime(1); 
 	} 
 
 	public int searchInt(LinkedList l,int size) {
@@ -108,7 +113,7 @@ public class AlgorithmUtility {
 		double r=R/(12*100);
 		return (P*r/1-Math.pow((1+r),-n));
 	}
-	public double calSqrt(double e,double c) {
+	public static double calSqrt(double e,double c) {
 		double t=c;
 		while(Math.abs(t - c/t) > e*t ) {
 			t=((c/t)+t)/2;
@@ -489,7 +494,7 @@ public class AlgorithmUtility {
 			array[low +k]=temparr[k];
 		}
 	}
-	public int[] toNibbleBinary(int n) {
+	public static int[] toNibbleBinary(int n) {
 		int i=0;
 		int binary[]=new int[100];
 		while(n>0)
@@ -508,48 +513,334 @@ public class AlgorithmUtility {
 	}
 	public static int swapNibbles(int x) 
 	{ 
-		System.out.println("first value "+ (x & 0x0F));
-		System.out.println("first value "+ (x & 0xF0));
-
-	    return ((x & 0x0F) << 4 | (x & 0xF0) >> 4); 
+		return ((x & 0x0F) << 4 | (x & 0xF0) >> 4); 
 	} 
 	public static int binarySearch(String [] str,String key)
-    {
-        //int n=str.length;
-        int first  = 0;
-        int last   = str.length - 1;
-        int middle = (first + last)/2;
-    
-        while( first <= last )
-        {
-          if ( str[middle].compareTo(key)<0 )
-            first = middle + 1;    
-          else if ( str[middle].equalsIgnoreCase(key) )
-          {
-           return middle;
-          }
-          else
-             last = middle - 1;
-    
-          middle = (first + last)/2;
-       }
-     return -1;
-    }
-	public static String []  sort(String [] str)
-    {
-        int len=str.length;
-        for (int i = 0; i < len; i++){
-            for (int j = i+1; j < len; j++) {
-                if (str[i].compareTo(str[j])>0) {
-                    String temp;
-                    temp=str[i];
-                    str[i]=str[j];
-                    str[j]=temp;
-                }
-            }
-        }
-        return str;
-    }
+	{
+		//int n=str.length;
+		int first  = 0;
+		int last   = str.length - 1;
+		int middle = (first + last)/2;
 
+		while( first <= last )
+		{
+			if ( str[middle].compareTo(key)<0 )
+				first = middle + 1;    
+			else if ( str[middle].equalsIgnoreCase(key) )
+			{
+				return middle;
+			}
+			else
+				last = middle - 1;
+
+			middle = (first + last)/2;
+		}
+		return -1;
+	}
+	public static String []  sort(String [] str)
+	{
+		int len=str.length;
+		for (int i = 0; i < len; i++){
+			for (int j = i+1; j < len; j++) {
+				if (str[i].compareTo(str[j])>0) {
+					String temp;
+					temp=str[i];
+					str[i]=str[j];
+					str[j]=temp;
+				}
+			}
+		}
+		return str;
+	}
+	static int range,count,lower,upper,middle;
+	private static int[] arr;
+
+	public  static int findNumber(int lower,int upper,int middle,int count,String input1,int n)
+	{
+		Scanner rc=new Scanner(System.in);
+		System.out.println("Is your number:"+middle);
+		System.out.println();
+		System.out.println("Enter your answer in 'yes' or 'high' or 'low'");
+		input1=rc.nextLine();
+		do
+		{
+			if (input1.equals("high"))
+			{
+				lower= middle;
+				count++;
+			}
+			else if (input1.equals("yes"))
+			{
+				System.out.println("The number you thought was: "+middle);
+				int no=count+1;
+				System.out.println("It takes "+no+" times to find your exact number");
+				break;
+			}
+
+			else if(input1.equals("low"))
+			{
+				upper=middle;
+				count++;
+			}
+			if(count<n)
+			{
+				middle=(lower+ upper+1)/2;
+				System.out.println("Is your number "+middle+":");
+				input1=rc.nextLine();
+			}
+		}
+		while(lower<=upper);
+		if (count>n)
+		{
+			System.out.println("Number not found");
+		}
+		else
+		{
+			System.exit(0);
+		}
+		return middle;
+	}
+
+	public static int binarySearch(int arr[], int l, int r, int x) 
+	{ 
+		if (r >= l) { 
+			int mid = l + (r - l) / 2; 
+
+			// If the element is present at the 
+			// middle itself 
+			if (arr[mid] == x) 
+				return mid; 
+
+			// If element is smaller than mid, then 
+			// it can only be present in left subarray 
+			if (arr[mid] > x) 
+				return binarySearch(arr, l, mid - 1, x); 
+
+			// Else the element can only be present 
+			// in right subarray 
+			return binarySearch(arr, mid + 1, r, x); 
+		} 
+
+		// We reach here when element is not present 
+		// in array 
+
+		return -1; 
+
+	} 
+
+	public static int binarySearch(String arr[], int l, int r, String x) 
+	{ 
+
+		if (r >= l) { 
+			int mid = l + (r - l) / 2; 
+
+			// If the element is present at the 
+			// middle itself 
+			if (arr[mid].compareTo(x)==0)
+				return mid; 
+
+			// If element is smaller than mid, then 
+			// it can only be present in left subarray 
+			if (arr[mid].compareTo(x)>0) 
+				return binarySearch(arr, l, mid - 1, x); 
+
+			// Else the element can only be present 
+			// in right subarray 
+			return binarySearch(arr, mid + 1, r, x); 
+		} 
+
+		// We reach here when element is not present 
+		// in array 
+
+		return -1; 
+
+	} 
+	public static void prime(int range)
+	{
+
+		for(int i=1; i < 100; i++){
+
+			int flag = 1;
+
+			for(int j=2;j<i;j++){
+
+				if(i % j == 0){
+					flag = 0;
+					break;
+
+				}
+			}
+			if(flag==1)
+			{
+				System.out.println(i);
+			}
+		}
+
+
+	}
+	static int[] l=new int[100];
+	static int k;
+	public static Set<Integer>  prime1()
+	{
+
+		Set<Integer> set=new HashSet<>();
+		int flag = 1;
+		for(int i=1; i< 100; i++) {
+			flag =1;
+			for(int j=2;j<i;j++)
+			{
+				if(i%j == 0){
+					flag=0;
+					break;
+				}
+			}
+
+			if(flag==1) {
+				System.out.println("Prime Number" +i);
+				set.add(i);
+			}
+		}
+
+		System.out.println(set);
+		int len=set.size();
+		return set;
+
+	}
+	static int player = 0;
+	static int[][] BOARD = new int[3][3];
+	static boolean isEmpty = true;
+
+	public static void initBoard() {
+		System.out.println("TIC TAC TOE GAME\nComputer is o\nPlayer  is x ");
+		for (int i = 0; i < BOARD.length; i++) {
+			for (int j = 0; j < BOARD[i].length; j++) {
+				BOARD[i][j] = -10;
+			}
+		}
+		System.out.println("Board is this :");
+		dispBoard();
+	}
+
+	public static void dispBoard() {
+		int count = 0;
+		for (int i = 0; i < BOARD.length; i++) {
+			System.out.println("---------------");
+			System.out.print("||");
+			for (int j = 0; j < BOARD[i].length; j++) {
+				if (BOARD[i][j] == 0) {
+					count++;
+					System.out.print(" o |");
+				} else if (BOARD[i][j] == 1) {
+					count++;
+					System.out.print(" x |");
+				} else
+					System.out.print("   |");
+			}
+			System.out.println("|");
+		}
+		if (count == 9) {
+			isEmpty = false;
+		}
+		System.out.println("---------------");
+	}
+	/*
+	 * static void putVal(int i, int j, int player) { if if (player % 2 == 0) {
+	 * BOARD[i][j] = 0; } else BOARD[i][j] = 1; }
+	 */
+
+	public static void putVal() {
+		int i;
+		int j;
+		if (player % 2 == 1) {
+			i = (int) (Math.random() * 10) % 3;
+			j = (int) (Math.random() * 10) % 3;
+		} else {
+			Scanner s = new Scanner(System.in);
+			System.out.println("enter value of x and y by space");
+			i = s.nextInt();
+			j = s.nextInt();
+		}
+		if (BOARD[i][j] == -10) {
+			if (player % 2 == 0) {
+				BOARD[i][j] = 0;
+			} else {
+				BOARD[i][j] = 1;
+				System.out.println("Coumputer Choosing " + i + " " + j);
+			}
+		} else
+			putVal();
+
+	}
+
+	public static boolean win() {
+		return ((BOARD[0][0] + BOARD[0][1] + BOARD[0][2] == player * 3)
+				|| (BOARD[1][0] + BOARD[1][1] + BOARD[1][2] == player * 3)
+				|| (BOARD[2][0] + BOARD[2][1] + BOARD[2][2] == player * 3)
+				|| (BOARD[0][0] + BOARD[1][0] + BOARD[2][0] == player * 3)
+				|| (BOARD[0][1] + BOARD[1][1] + BOARD[2][1] == player * 3)
+				|| (BOARD[0][2] + BOARD[1][2] + BOARD[2][2] == player * 3)
+				|| (BOARD[0][0] + BOARD[1][1] + BOARD[2][2] == player * 3)
+				|| (BOARD[2][0] + BOARD[1][1] + BOARD[0][2] == player * 3));
+	}
+
+	public static void play() {
+		initBoard();
+		while (isEmpty) {
+			System.out.println("Players turn");
+			putVal();
+			dispBoard();
+			if (win()) {
+				System.out.println("Player won");
+				return;
+			}
+			player = 1;
+			System.out.println("Computers turn");
+			putVal();
+			dispBoard();
+			if (win()) {
+				System.out.println("Computer won");
+				return;
+			}
+			player = 0;
+		}
+	}
+
+	public static void checkAnagram(Set<Integer> set)
+	{
+		int found=0,not_found = 0; // Flag initialization
+		Iterator iter = set.iterator();		
+		while (iter.hasNext()) {
+			System.out.println(iter.next());
+
+			for(int i=0; i<set.size(); i++)
+			{
+
+				for(int j=0; j<set.size(); j++)
+				{
+
+					if(iter.next() == iter.next()) //Check for the presence of all the character of str 1 and str 2
+					{
+						found = 1;
+						break;
+					}
+				}
+				if(found == 0)
+				{
+					not_found = 1;
+					break;
+				}
+			}
+			if(not_found== 1)
+
+				System.out.print("Strings are not Anagram to Each Other");
+			else
+
+				System.out.print("Strings are Anagram");
+		}
+
+	}
 }
+
+
+
 

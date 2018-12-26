@@ -1,6 +1,6 @@
 
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
+ *  Compilation:  javac -d bin CheckAnagram.java
  *  Execution:    java -cp bin com.bridgelabz.util.Functionalprograms str1, str2
  *  
  *  Purpose: Determines whether the given Strings are anagram or not.

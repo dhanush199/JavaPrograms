@@ -1,5 +1,5 @@
 /******************************************************************************
- *  Compilation:  javac -d bin PrimeChecker.java
+ *  Compilation:  javac -d bin Array2D.java
  *  Execution:    java -cp bin com.bridgelabz.util.Functionalprograms str1, str2
  *  
  *  Purpose: Program to read and to print 2D array.
