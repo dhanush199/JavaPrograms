@@ -1,6 +1,15 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin Triplet.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Functionalprograms 
+ *  
+ *  Purpose: Program to find the triplet numbers
+ *
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   22-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.functionalprograms;
-
-import java.util.Scanner;
 
 import com.bridgelabz.utility.FunctionalUtility;
 
@@ -8,20 +17,16 @@ public class Triplet {
 
 	public static void main(String[] args) {
 		System.out.println("Enter the Array size");
-		Scanner sc=new Scanner(System.in);
 		FunctionalUtility fu=new FunctionalUtility();
-		int num=sc.nextInt();
+		int num=FunctionalUtility.readInteger();
 		int a[]=new int[num];
 		for(int i=0;i<num;i++)
 		{
-			a[i]=sc.nextInt();
+			a[i]=FunctionalUtility.readInteger();
 		}
        int n=a.length;
 		fu.getTriplet(a,n);
-		//if(cont==0)
-		//	System.out.println("entered array is has triplet numbers");
-		//else
-		//	System.out.println("entered array is not has any triplet numbers");
+		
 	}
 
 }

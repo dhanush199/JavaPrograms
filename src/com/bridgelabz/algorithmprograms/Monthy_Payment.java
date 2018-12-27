@@ -1,3 +1,14 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin Monthy_Payment.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Functionalprograms 
+ *  
+ *  Purpose: Program for to get monthly payment
+ *
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   22-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 
@@ -10,8 +21,7 @@ public class Monthy_Payment {
 		double P=Double.parseDouble(i);
 		double R=Double.parseDouble(j);
 		double Y=Double.parseDouble(k);
-		AlgorithmUtility fl=new AlgorithmUtility();
-		double payment=fl.calPayment(P,R,Y);
+		double payment=AlgorithmUtility.calPayment(P,R,Y);
 		System.out.println("MontghlyPayment is == "+Math.abs(payment));
 
 	}

@@ -12,14 +12,13 @@
 
 package com.bridgelabz.functionalprograms;
 
-import java.util.Scanner;
+import com.bridgelabz.utility.FunctionalUtility;
 
 public class Power2 {
 
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the power value");
-		double n=sc.nextInt();
+		double n=FunctionalUtility.readdouble();
 		double k= Math.pow(2.0,n);
 		System.out.println("value="+k);
 

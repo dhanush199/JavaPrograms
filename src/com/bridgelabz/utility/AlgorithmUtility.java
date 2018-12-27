@@ -1,10 +1,12 @@
 package com.bridgelabz.utility;
 
+import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -14,9 +16,10 @@ import java.util.Set;
 
 public class AlgorithmUtility <E>{
 
-	public void checkAnagram(int len,String str1,String str2)
-	{
-		int found=0,not_found = 0; // Flag initialization
+	public static void checkAnagram(int len,String str1,String str2)
+	{	
+		//Function to check anagram or not
+		int found=0,not_found = 0; 	// Flag initialization
 
 		for(int i=0; i<len; i++)
 		{
@@ -45,24 +48,20 @@ public class AlgorithmUtility <E>{
 	//Prime Numbers
 	public static boolean checkPrime(long n) 
 	{ 
-		// Converting long to BigInteger 
-		boolean flag=false;
-		BigInteger b = new BigInteger(String.valueOf(n)); 
-		long[] arr=new long[10000];
-		return(b.isProbablePrime(1));
+		//Function to check Prime or not
 
+		BigInteger b = new BigInteger(String.valueOf(n));		// Converting long to BigInteger 
+		return(b.isProbablePrime(1));
 	} 
 
 	public int searchInt(LinkedList l,int size) {
+		//method to search the element entered
 		System.out.println(l);
-		Object o=new Object();
 		int flag=0;
-		Scanner sc=new Scanner(System.in);
 		LinkedList l1=new LinkedList();
 		l1=l;
 		System.out.println("enter the element to be searched");
-		int search=sc.nextInt();
-		Object obj=search;  
+		int search=FunctionalUtility.readInteger();
 		for(int i=0;i<size;i++)
 		{ 
 			if((l.get(i)).equals(search))
@@ -80,6 +79,7 @@ public class AlgorithmUtility <E>{
 	static int money;
 	public static   int calculate(int money,int[]notes)
 	{
+		//Method to calculate the notes to be dispatched
 		int rem;
 		if(money==0)
 		{
@@ -96,24 +96,29 @@ public class AlgorithmUtility <E>{
 				System.out.println(notes[i]+  "rs Notes are  " +calNotes );
 			}
 			i++;
-			return calculate(money, notes);
+			return calculate(money, notes);//method recursion
 		}
 	}
 	public static double getTempCelcius(double d){
+		//Method to convert entered degree temperature to Farenheat
 		double celcius= (d-32)*5/9;
 		return celcius;
 	}
 	public static double getTempFaren(double d){
+		//Method to convert entered Farenheat temperature to degree  
+
 		double faren= (d*9/5)+32;
 		return faren;
 	}
 
-	public double calPayment(double P,double R,double Y) {
+	public static double calPayment(double P,double R,double Y) {
+		//Method to calculate monthyPayment  
 		double n=12*Y;
 		double r=R/(12*100);
 		return (P*r/1-Math.pow((1+r),-n));
 	}
 	public static double calSqrt(double e,double c) {
+		//Method to calculate sqrt of a number using Newtons Method
 		double t=c;
 		while(Math.abs(t - c/t) > e*t ) {
 			t=((c/t)+t)/2;
@@ -122,7 +127,8 @@ public class AlgorithmUtility <E>{
 		return t;
 
 	}
-	public void toBinary(int n) {
+	public static void toBinary(int n) {
+		//Method to convert Decimal number to binary
 		int i=0;
 		int binary[]=new int[100];
 		while(n>0)
@@ -145,7 +151,6 @@ public class AlgorithmUtility <E>{
 			for (int j = 0; j < n-i-1; j++) 
 				if (arr[j] > arr[j+1]) 
 				{ 
-					// swap arr[j+1] and arr[i] 
 					int temp = arr[j]; 
 					arr[j] = arr[j+1]; 
 					arr[j+1] = temp; 
@@ -226,45 +231,7 @@ public class AlgorithmUtility <E>{
 			return sum;
 		}
 
-	}/*
-	public void getPrimefactor(long n)
-	{   
-		int a[]=new int[1000];
-		int b[]=new int[1000];
-		int k=0;
-
-		for(int i=1;i<n;i++)
-		{
-			if(n%i==0)
-			{
-				a[k++]=i;
-			}
-		}
-		for(int j=0;j<a.length;j++)
-		{
-			int large=a[0];
-			if (a[j] > large ) 
-				large = a[j]; 
-
-		}
-
-		for(int i =2;i< large/2;i++)
-
-		{
-
-			if(i%n==0)
-			{
-				b[++k]=a[i];
-
-			}
-		}
-		for(int i=0;a[i]!= 0;i++)
-		{
-			System.out.println("primeFactors are"+b[i]);
-		}
 	}
-	 */
-
 	//Gambler
 
 	public void getResult(int s,int g,int t)
@@ -701,7 +668,7 @@ public class AlgorithmUtility <E>{
 			}
 		}
 
-		System.out.println(set);
+		//System.out.println(set);
 		int len=set.size();
 		return set;
 
@@ -805,41 +772,188 @@ public class AlgorithmUtility <E>{
 		}
 	}
 
-	public static void checkAnagram(Set<Integer> set)
+	public static void checkAnagram12(Set<Integer> set)
 	{
 		int found=0,not_found = 0; // Flag initialization
-		Iterator iter = set.iterator();		
-		while (iter.hasNext()) {
-			System.out.println(iter.next());
+		int arr[]=new int[set.size()];
+		String[] sc=new String[set.size()];
+		String k;
+		Iterator iter = set.iterator();
+		ArrayList<String> arrlist=new ArrayList<String>();
 
-			for(int i=0; i<set.size(); i++)
+		int m=0;
+		while(iter.hasNext()) {
+			//for(Integer n:set)
+			//{
+			k=Integer.toString((int)iter.next());
+			//sc[m]=k;
+			//m++;
+			arrlist.add(k);
+
+
+		}
+		System.out.println(arrlist);
+		palindromString(arrlist);
+		//	for(int n=-0;n<sc.length;n++)
+		//	System.out.println(sc[n]);
+
+		if(arrlist.isEmpty())
+			for(int i=0;i<arrlist.size();i++) {
+				String s1=arrlist.get(i);
+				String s2=arrlist.get(i+1);
+				checkAnagram1(sc[i].length(),s1,s2,arrlist);
+			}
+	}
+
+
+
+	public static void checkAnagram1(int len,String str1,String str2,ArrayList<String> arrlist)
+	{
+		int found=0,not_found = 0; // Flag initialization
+
+		for(int i=0; i<len; i++)
+		{
+
+			for(int j=0; j<len; j++)
 			{
-
-				for(int j=0; j<set.size(); j++)
+				if(str1.charAt(i) == str2.charAt(j)) //Check for the presence of all the character of str 1 and str 2
 				{
-
-					if(iter.next() == iter.next()) //Check for the presence of all the character of str 1 and str 2
-					{
-						found = 1;
-						break;
-					}
-				}
-				if(found == 0)
-				{
-					not_found = 1;
+					found = 1;
 					break;
 				}
 			}
-			if(not_found== 1)
+			if(found == 0)
+			{
+				not_found = 1;
+				break;
+			}
+		}
+		if(not_found== 0) 
+		{
+			//for(int i=0;i<len-1;i++) {
+			//int arry;
+			palindromString(arrlist);
+			//arry=Integer.parseInt(str1) ;
+			//	System.out.println("Anagram numbers are: ");
+			//System.out.println(arry);
+			//String s=arry.t);
+			//}
+		}
 
-				System.out.print("Strings are not Anagram to Each Other");
-			else
 
-				System.out.print("Strings are Anagram");
+	}
+	public static void palindromString(ArrayList<String> arrlist) {
+		String rev = null;
+		//String strr=arry.toString();
+		int length = arrlist.size();
+		String s=null;
+		for ( int i = 0; i<arrlist.size(); i++ )
+		{
+			s=arrlist.get(i);
+			for ( int j = s.length(); j >= 0; j-- ) 
+			{
+				rev+=(s.charAt(j));
+				if ( arrlist.contains(rev))
+					System.out.println("the numbers which are palindrom = "+Integer.parseInt(rev));
+			}
 		}
 
 	}
+	public static Set<String> primeAnagram(List<String> primeList)
+	{   
+
+
+
+		Set<String> primeAnagramSet=new HashSet<>();
+		for(int i=0;i<primeList.size();i++)
+		{
+
+			for(int j=i+1;j<primeList.size();j++)
+			{
+				if(AlgorithmUtility.anagrams(primeList.get(i), primeList.get(j)))
+				{
+					//                    primeAnagramList.add(Integer.toString(i));
+					primeAnagramSet.add(primeList.get(i));
+					primeAnagramSet.add(primeList.get(j));
+					System.out.println(primeList.get(i)+"    "+primeList.get(j) );
+				}
+			}
+		}
+
+		return primeAnagramSet;
+	}
+
+
+	public static Set<String> primePalindrome(Set<String> primeAnagramSet)
+	{
+		Iterator iter = primeAnagramSet.iterator();
+		Set<String> resultSet=new HashSet<>();
+
+		String a;
+		while (iter.hasNext())
+		{
+			a=(String) iter.next();
+			int a1=Integer.parseInt(a);
+			int lk=reverse(a1);
+
+			if(primeAnagramSet.contains(Integer.toString(lk)))
+
+			{
+				String b=Integer.toString(lk);
+				resultSet.add(b);
+			}
+
+
+		}
+		return resultSet;
+	}
+
+
+	public static int reverse(int n)
+	{
+
+		int reverse=0;
+		while(n!=0)
+		{
+			reverse = reverse * 10;
+			reverse = reverse + n%10;
+			n = n/10;
+		}
+		return reverse;
+	}
+
+	public static List<String> findPrime(int num)
+	{
+		int flag=1;
+		int i;
+		List<String> arr=new ArrayList<>();
+		int count=0;
+
+		for( i=2;i<=num;i++)
+		{
+			for(int j=2;j<i;j++)
+			{
+				if(i%j==0)
+				{
+					flag=0;
+					break;
+				}
+				else
+					flag=1;
+			}
+			if(flag==1)
+			{
+				arr.add(String.valueOf(i));
+			}
+		}
+		System.out.println(arr);
+		return arr;
+	}
+	
 }
+
+
+
 
 
 

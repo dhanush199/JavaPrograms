@@ -10,25 +10,19 @@
  *
  ******************************************************************************/
 package com.bridgelabz.functionalprograms;
-
-import java.util.Scanner;
-
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class Gambler {
-
 	public static void main(String[] args) {
-    Scanner sc=new Scanner(System.in);
     System.out.println("Enter the player stack");  
-    int stack=sc.nextInt();                        //read player stack
+    int stack=FunctionalUtility.readInteger();                        //read player stack
     System.out.println("Enter the Goal");
-    int goal=sc.nextInt();                        //goal to be reached to decide a player lost or won
+    int goal=FunctionalUtility.readInteger();                        //goal to be reached to decide a player lost or won
     System.out.println("Enter the totalTimes you want to play");
-    int totalTimes=sc.nextInt();  // total chances given to a player
+    int totalTimes=FunctionalUtility.readInteger();// total chances given to a player
     FunctionalUtility fu=new FunctionalUtility();
      fu.getResult( stack,goal,totalTimes);
 
-    // TODO Auto-generated method stub
 
 	}
 

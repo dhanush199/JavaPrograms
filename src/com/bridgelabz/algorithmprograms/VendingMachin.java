@@ -1,20 +1,27 @@
-
+/******************************************************************************
+ *  Compilation:  javac -d bin VendingMachin.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Algorithmprograms 
+ *  
+ *  Purpose: Program to count minimum number of notes to be dispatched for the given input
+ *
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   27-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
-import java.util.Scanner;
 import com.bridgelabz.utility.AlgorithmUtility;
-//Program to convert temperature from Farenheat to degree celcius
+import com.bridgelabz.utility.FunctionalUtility;
 	
 
 public class VendingMachin {
 	public static void main(String[] args) {
 
-		AlgorithmUtility a1= new AlgorithmUtility();
 		System.out.println("enter the money in Rs");
-		Scanner sc=new Scanner(System.in);
-		int money=sc.nextInt();
+		int money=FunctionalUtility.readInteger();
 		int[] notes = { 2000,500,100,50,10,5,2,1};
 		System.out.println("the different notes present is");
-		a1.calculate(money, notes);
+		AlgorithmUtility.calculate(money, notes);
 
 
 	}

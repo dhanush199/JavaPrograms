@@ -1,3 +1,14 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin String_Permutation.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Functionalprograms 
+ *  
+ *  Purpose: Program to get st
+ *
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   22-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.functionalprograms;
 
 import com.bridgelabz.utility.FunctionalUtility;
@@ -10,13 +21,9 @@ public class String_Permutation {
 		int n=s.length();
 		char ch[]=new char[n*n];
 		ch=s.toCharArray();
-		//char[] a=new char[1000000]
 		FunctionalUtility f=new FunctionalUtility();
-		//a=ch;
 		f.getPerm(ch,n);
-		//do {
-			//f.getPerm(ch,n);
-		//} while(a!=ch);
+		
 
 
 	}

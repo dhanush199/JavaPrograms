@@ -1,5 +1,15 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin Search_timings.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Functionalprograms 
+ *  
+ *  Purpose: Program to implement different sorts and calculate timings for each sorts.
+ *
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   22-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
-
 import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 

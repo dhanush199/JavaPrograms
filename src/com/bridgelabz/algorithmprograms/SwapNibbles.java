@@ -1,7 +1,15 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin Sqrt_Newton.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Algorithmprograms 
+ *  
+ *  Purpose: to read decimal from the user convert to binary and swap the nibble.
+ *
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   22-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
-
-//import java.util.Scanner;
-
 import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 

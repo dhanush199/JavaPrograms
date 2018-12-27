@@ -1,3 +1,14 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin Your_Number.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Algorithmprograms 
+ *  
+ *  Purpose: Program to count minimum number of notes to be dispatched for the given input
+ *
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   27-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
 
 import com.bridgelabz.utility.AlgorithmUtility;

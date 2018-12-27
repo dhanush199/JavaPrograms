@@ -1,8 +1,5 @@
 package com.bridgelabz.functionalprograms;
 
-//import java.math.BigInteger;
-//import java.util.Scanner;
-
 import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 

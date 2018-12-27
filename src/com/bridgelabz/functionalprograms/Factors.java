@@ -18,14 +18,12 @@ import com.bridgelabz.utility.FunctionalUtility;
 public class Factors {
 
 	public static void main(String[] args) {
+		FunctionalUtility f1=new FunctionalUtility();
+		System.out.println("Number to find the prime factor");
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter a positive number");
-		long n=sc.nextLong();                          //read the input store in n
-		FunctionalUtility fu=new FunctionalUtility();
-		//fu.getPrimefactor(n);
-		//for(int i=0;i<m.length;i++)
-			//System.out.println("primeFactors are"+m[i]);
-		
+		int n=sc.nextInt();
+		f1.primeFactors(n);
 	}
 
 }
+

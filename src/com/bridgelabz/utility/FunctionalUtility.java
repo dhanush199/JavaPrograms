@@ -8,35 +8,21 @@ public class FunctionalUtility {
 
 	static Scanner scanner=new Scanner(System.in);
 	public static int readInteger() {
-		try {
-			return scanner.nextInt();
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		return 0;
+
+		return scanner.nextInt();
 	}
+
+
 	public static double readdouble() {
-		try {
-			return scanner.nextDouble();
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		return 0;
+
+		return scanner.nextDouble();
 	}
+
 	public static String readString() {
-		try {
-			return scanner.next();
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		return null;
+
+		return scanner.next();
 	}
+
 
 	public	void checkConcate(String s)
 	{
@@ -46,23 +32,25 @@ public class FunctionalUtility {
 			System.out.println("Hi, "+s+", How are you?");
 	}
 	public void getCount(int count)
-	{   int head=0,tail=0;
-	int temp=count;   //keep copy of NumToss to calculate percentage
-	Random r=new Random();	
-	while(count!=0)
-	{
-		double rn=r.nextDouble(); //generate a decimal random number between 0 to 1.
-		if(rn>.5){ //if rn>.5 increment head count
-			++head;
-		}
-		else 
+	{ 
+		// Method to calculate head and tail count in percentage
+		int head=0,tail=0;
+		int temp=count;   //keep copy of NumToss to calculate percentage
+		Random r=new Random();	
+		while(count!=0)
 		{
-			++tail;//if rn<.5 increment head count
+			double rn=r.nextDouble(); //generate a decimal random number between 0 to 1.
+			if(rn>.5){ //if rn>.5 increment head count
+				++head;
+			}
+			else 
+			{
+				++tail;//if rn<.5 increment head count
+			}
+			count--;
 		}
-		count--;
-	}
-	System.out.println("perc of Head="+ head*100/temp);//print the percentage head
-	System.out.println("perc of Tail="+ tail*100/temp);//print the percentage Tail
+		System.out.println("perc of Head="+ head*100/temp);//print the percentage head
+		System.out.println("perc of Tail="+ tail*100/temp);//print the percentage Tail
 
 	}
 	public void getLeap(int x) // Function to calculate the leaf year
@@ -73,8 +61,9 @@ public class FunctionalUtility {
 			System.out.println("entered year is not a leap year");
 	}
 
-	public double getHarmonicNum(int n) // function to calculate harmonic value of a number
+	public double getHarmonicNum(int n) 
 	{
+		// function to calculate harmonic value of a number
 		double sum=0.0;
 		if(n==1)   // user input is 1
 			return 1;
@@ -87,49 +76,12 @@ public class FunctionalUtility {
 			return sum;
 		}
 
-	}/*
-	public void getPrimefactor(long n)
-	{   
-		int a[]=new int[1000];
-		int b[]=new int[1000];
-		int k=0;
-
-		for(int i=1;i<n;i++)
-		{
-			if(n%i==0)
-			{
-				a[k++]=i;
-			}
-		}
-		for(int j=0;j<a.length;j++)
-		{
-			int large=a[0];
-			if (a[j] > large ) 
-				large = a[j]; 
-
-		}
-
-		for(int i =2;i< large/2;i++)
-
-		{
-
-			if(i%n==0)
-			{
-				b[++k]=a[i];
-
-			}
-		}
-		for(int i=0;a[i]!= 0;i++)
-		{
-			System.out.println("primeFactors are"+b[i]);
-		}
 	}
-	 */
-
 	//Gambler
 
-	public void getResult(int s,int g,int t) // function for gambler
+	public void getResult(int s,int g,int t) 
 	{
+		// function for gambler
 		int win =0,loss=0,j=t;
 		Random r=new Random();
 
@@ -184,6 +136,7 @@ public class FunctionalUtility {
 
 	public void getTriplet(int [] a,int n)
 	{ 
+		//Method to get triplet number
 		boolean flag=false;
 
 		for(int i=0;i<n-2;i++)
@@ -209,7 +162,6 @@ public class FunctionalUtility {
 	}
 	public double getTemp(double t,double v)
 	{
-
 		double w=35.74+0.6215*t+(0.4275*t-35.75)*Math.pow(v, 0.16);
 		return w;
 	}
@@ -253,38 +205,58 @@ public class FunctionalUtility {
 
 	}
 	public static String[] sortArray(String str[]) {
-        int length=str.length;
-        for(int i=1;i<length;i++)
-        {
-            String key=str[i];
-            int j=i-1;
-            while(j>=0 && ((str[j].compareTo(key))>0))
-            {
-                str[j+1]=str[j];
-                j=j-1;
-            }
-            str[j+1]=key;
-        }
-       return str;
-		
-    }
+		int length=str.length;
+		for(int i=1;i<length;i++)
+		{
+			String key=str[i];
+			int j=i-1;
+			while(j>=0 && ((str[j].compareTo(key))>0))
+			{
+				str[j+1]=str[j];
+				j=j-1;
+			}
+			str[j+1]=key;
+		}
+		return str;
+
+	}
 	static long starttime,endtime;
-    
-    public static long start()
-    {
-       starttime= System.currentTimeMillis();
-     
-      return(starttime);
-    }
-    public static long end()
-    {
-     endtime= System.currentTimeMillis();
-    return(endtime);
-    }
- 
-    public static long elapse() {
- 
- long elaspedtime= endtime-  starttime ;
-     return(elaspedtime);
- }
+
+	public static long start()
+	{
+		starttime= System.currentTimeMillis();
+
+		return(starttime);
+	}
+	public static long end()
+	{
+		endtime= System.currentTimeMillis();
+		return(endtime);
+	}
+
+	public static long elapse() {
+
+		long elaspedtime= endtime-  starttime ;
+		return(elaspedtime);
+	}
+	public void primeFactors(int n) {
+		while (n % 2 == 0)   // to check that number is divisible by 2
+		{
+			System.out.print(2 + " ");
+			n /= 2;
+		}
+
+		for (int i = 3; i * i <= n; i += 2) {
+			while (n % i == 0) {
+				System.out.print(i + " "); // number to print
+				n /= i;
+			}
+		}
+		if (n > 2) {
+			System.out.println(n);
+		}
+	}
+
+
+
 }

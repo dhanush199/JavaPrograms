@@ -1,3 +1,14 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin BinarySearch_Word.java
+ *  Execution:    java -cp bin com.bridgelabz.util.Functionalprograms 
+ *  
+ *  Purpose: Program to search a string present in the CSV file
+ *
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   22-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
 
 import java.io.BufferedReader;
@@ -10,7 +21,7 @@ import com.bridgelabz.utility.AlgorithmUtility;
 
 public class BinarySearch_Word {
     public static void main(String[] args) throws FileNotFoundException {
-//        AlgorithmUtility algo = new AlgorithmUtility();
+       
         Scanner sc = new Scanner(System.in);
         // Get scanner instance
         String csvFile = "/home/admin1/Desktop/Example.csv";
