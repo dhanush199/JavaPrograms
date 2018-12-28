@@ -10,17 +10,14 @@
  *
  ******************************************************************************/
 package com.bridgelabz.functionalprograms; 
-
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class LeapYear {
-
 	public static void main(String[] args) {
 		System.out.println("Enter a year");
 		int r=FunctionalUtility.readInteger();
 		FunctionalUtility fu=new FunctionalUtility();
 		fu.getLeap(r);
-
 	}
 
 }

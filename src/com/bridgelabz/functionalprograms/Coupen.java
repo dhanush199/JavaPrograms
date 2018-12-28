@@ -10,17 +10,14 @@
  *
  ******************************************************************************/
 package com.bridgelabz.functionalprograms;
-
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class Coupen {
-
 	public static void main(String[] args) {
 		System.out.println("Enter total number of coupens");
 		int n=FunctionalUtility.readInteger();
 		FunctionalUtility fu=new FunctionalUtility();		
 		System.out.println("total distinct number required are="+ fu.getCoupenNumber(n));
-		
 	}
 }
 

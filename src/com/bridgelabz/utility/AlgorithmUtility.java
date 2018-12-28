@@ -22,7 +22,6 @@ public class AlgorithmUtility <E>{
 	 *
 	 */
 
-
 	public static void checkAnagram(int len,String str1,String str2)
 	{	
 		//Function to check anagram or not
@@ -30,8 +29,7 @@ public class AlgorithmUtility <E>{
 
 		for(int i=0; i<len; i++)
 		{
-
-			for(int j=0; j<len; j++)
+ 			for(int j=0; j<len; j++)
 			{
 				if(str1.charAt(i) == str2.charAt(j)) //Check for the presence of all the character of str 1 and str 2
 				{
@@ -1105,7 +1103,22 @@ public class AlgorithmUtility <E>{
 		System.out.println(arr);
 		return arr;
 	}
-
+	public static boolean isAnagram(String word, String anagram) {
+        boolean isAnagram = false;
+        if (word != null && anagram != null && word.length() == anagram.length()) {
+            char[] arr = word.toCharArray();
+            StringBuilder temp = new StringBuilder(anagram);
+            int wordLength = word.length();
+            for (char ch : arr) {
+                int index = temp.indexOf("" + ch);
+                if (index != -1) {
+                    temp.deleteCharAt(index);
+                }
+            }
+            isAnagram = temp.toString().isEmpty();
+        }
+        return isAnagram;
+    }
 
 }
 

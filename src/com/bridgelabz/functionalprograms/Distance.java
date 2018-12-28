@@ -20,7 +20,6 @@ public class Distance {
 		double x=FunctionalUtility.readdouble();
 		double y=FunctionalUtility.readdouble();
 		double distance=FunctionalUtility.calDistatce(x,y);
-		
 		System.out.println("Calculated distance is "+distance +" cm");
 
 	}

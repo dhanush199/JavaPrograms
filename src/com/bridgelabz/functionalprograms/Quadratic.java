@@ -19,8 +19,7 @@ public class Quadratic {
 		double a=FunctionalUtility.readdouble();
 		double b=FunctionalUtility.readdouble();
 		double c=FunctionalUtility.readdouble();
-		FunctionalUtility f=new FunctionalUtility();
-		f.getCoefficients(a,b,c);
+		FunctionalUtility.getCoefficients(a,b,c);
 	}
 
 }

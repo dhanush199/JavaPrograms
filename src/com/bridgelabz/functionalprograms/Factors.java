@@ -14,13 +14,10 @@ package com.bridgelabz.functionalprograms;
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class Factors {
-
 	public static void main(String[] args) {
-		FunctionalUtility f1=new FunctionalUtility();
 		System.out.println("Number to find the prime factor");
 		int n=FunctionalUtility.readInteger();
-		f1.primeFactors(n);
+		FunctionalUtility.primeFactors(n);
 	}
-
 }
 

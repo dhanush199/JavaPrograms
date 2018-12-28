@@ -13,18 +13,14 @@ package com.bridgelabz.functionalprograms;
 
 import com.bridgelabz.utility.FunctionalUtility;
 
-public class String_Permutation {
+public class StringPermutation {
 
 	public static void main(String[] args) {
-
-		String s= "abc";
+		System.out.println("Enter a string");
+		String s=FunctionalUtility.readString(); 
 		int n=s.length();
 		char ch[]=new char[n*n];
 		ch=s.toCharArray();
-		FunctionalUtility f=new FunctionalUtility();
-		f.getPerm(ch,n);
-		
-
-
+		FunctionalUtility.getPerm(ch,n);
 	}
 }

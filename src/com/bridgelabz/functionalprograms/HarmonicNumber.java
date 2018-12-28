@@ -10,12 +10,9 @@
  *
  ******************************************************************************/
 package com.bridgelabz.functionalprograms;
-
-
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class HarmonicNumber {
-
 	public static void main(String[] args) {
 		System.out.println("Enter the Range");
 		int n=FunctionalUtility.readInteger();

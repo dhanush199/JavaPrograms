@@ -1,30 +1,20 @@
 package com.bridgelabz.utility;
-
 import java.util.Random;
+
 import java.util.Scanner;
-
-
 public class FunctionalUtility {
-
 	static Scanner scanner=new Scanner(System.in);
 	public static int readInteger() {
 
 		return scanner.nextInt();
 	}
-
-
 	public static double readdouble() {
-
 		return scanner.nextDouble();
 	}
-
 	public static String readString() {
-
 		return scanner.next();
 	}
-
-
-	public	String checkConcate(String s1,String s)
+	public	static String checkConcate(String s1,String s)
 	{
 		if(s.length()<3)
 			System.out.println("enter a name with atleast 3 characters");
@@ -32,10 +22,11 @@ public class FunctionalUtility {
 			 s1=s1.replaceAll("<<Name>>", s);
 		return s1;
 	}
-	public void getCount(int count)
+	public static int[] getCount(int count)
 	{ 
 		// Method to calculate head and tail count in percentage
 		int head=0,tail=0;
+		int a[]=new int[2];
 		int temp=count;   //keep copy of NumToss to calculate percentage
 		Random r=new Random();	
 		while(count!=0)
@@ -50,9 +41,9 @@ public class FunctionalUtility {
 			}
 			count--;
 		}
-		System.out.println("perc of Head="+ head*100/temp);//print the percentage head
-		System.out.println("perc of Tail="+ tail*100/temp);//print the percentage Tail
-
+		 a[0]=head;
+		 a[1]=tail;
+		return a;
 	}
 	public void getLeap(int x) // Function to calculate the leaf year
 	{
@@ -61,7 +52,6 @@ public class FunctionalUtility {
 		else
 			System.out.println("entered year is not a leap year");
 	}
-
 	public double getHarmonicNum(int n) 
 	{
 		// function to calculate harmonic value of a number
@@ -76,14 +66,13 @@ public class FunctionalUtility {
 			}
 			return sum;
 		}
-
 	}
 	//Gambler
-
-	public void getResult(int s,int g,int t) 
+	 
+	public static int[] getResult(int s,int g,int t) 
 	{
 		// function for gambler
-		int win =0,loss=0,j=t;
+		int[]arr=new int[2];
 		Random r=new Random();
 
 		while(g-->0 && t-->0)
@@ -92,29 +81,17 @@ public class FunctionalUtility {
 			if(n==0)
 			{
 				s--;
-				loss++;
+				arr[0]++;// stores loss count
 			}
 			else
 			{
-				win++;
 				s++;
+				arr[1]++;// stores win count
 			}
-
 		}
-		System.out.println("Number of win="+win);
-		System.out.println("Number of loss="+loss);
-		System.out.println("win percentage="+win*100/j);
-		System.out.println("win percentage="+loss*100/j);
-		System.out.println("remaining stack"+s);
-		System.out.println("remaining chances="+t);
-		System.out.println("remaining goals"+g);
-
+		return arr;
 	}
-
-
-
 	//Coupen
-
 	public int getCoupenNumber(int n){
 		boolean[] isCollected = new boolean[n];  
 		int count = 0;                           
@@ -129,13 +106,9 @@ public class FunctionalUtility {
 				isCollected[value] = true;
 			}
 		}
-
-
-		return count;
+	return count;
 	}
-
-
-	public void getTriplet(int [] a,int n)
+	public static void getTriplet(int [] a,int n)
 	{ 
 		//Method to get triplet number
 		boolean flag=false;
@@ -144,7 +117,6 @@ public class FunctionalUtility {
 		{
 			for(int j=i+1;j<n-1;j++)
 			{
-
 				for(int k=j+1;k<n;k++)
 				{
 					if(a[i]+a[j]+a[k]==0)
@@ -156,7 +128,6 @@ public class FunctionalUtility {
 				}
 			}
 		}
-
 		if(flag==false){
 			System.out.println("false");
 		}
@@ -166,7 +137,7 @@ public class FunctionalUtility {
 		double w=35.74+0.6215*t+(0.4275*t-35.75)*Math.pow(v, 0.16);
 		return w;
 	}
-	public void getCoefficients(double a,double b,double c)
+	public static void getCoefficients(double a,double b,double c)
 	{
 		double d= b*b - 4*a*c;
 		System.out.println("value of delta=" +d);
@@ -179,29 +150,25 @@ public class FunctionalUtility {
 			System.out.println("roots are equal root1="+ (-b + (Math.sqrt(Math.abs(d))/(2*a))));
 			System.out.println("root2="+ (-b - (Math.sqrt(Math.abs(d))/(2*a))));
 		}
-
-
-
 	}
-	public void getPerm(char ch[],int n)
-
+	public static void getPerm(char ch[],int n)
 	{    
 		for(int i=0;i<n;i++)
 		{
 		for(int j=0;j<n-1;j++)
-			
 		{
 			char temp=ch[j];
 			ch[j]=ch[j+1];
 			ch[j+1]=temp ;
-			System.out.println(ch);
+			displayArray(ch);
 		}
+		
 		}
-
-
 	}
-
-	/////////////////////////////////////
+	public static void displayArray(char[] a){
+		System.out.println(a);
+		
+	}
 	public static double calDistatce(double a,double b)
 	{
 		return (Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)));
@@ -238,17 +205,15 @@ public class FunctionalUtility {
 	}
 
 	public static long elapse() {
-
 		long elaspedtime= endtime-  starttime ;
 		return(elaspedtime);
 	}
-	public void primeFactors(int n) {
+	public static void primeFactors(int n) {
 		while (n % 2 == 0)   // to check that number is divisible by 2
 		{
 			System.out.print(2 + " ");
 			n /= 2;
 		}
-
 		for (int i = 3; i * i <= n; i += 2) {
 			while (n % i == 0) {
 				System.out.print(i + " "); // number to print
@@ -259,7 +224,4 @@ public class FunctionalUtility {
 			System.out.println(n);
 		}
 	}
-
-
-
 }

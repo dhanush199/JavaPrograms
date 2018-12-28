@@ -17,12 +17,15 @@ import com.bridgelabz.utility.FunctionalUtility;
 public class replaceString {
 
 	public static void main(String[] args) {
-		FunctionalUtility fu=new FunctionalUtility();
+		System.out.println("Hi USERNAME,How are you?");
 		String s="Hello!! <<Name>>,How are you?";
-		 System.out.println("enter a name");
+		 System.out.println("enter a UserName");
 		 String s1=FunctionalUtility.readString();
-		 s1=fu.checkConcate(s,s1);
+		 s1=FunctionalUtility.checkConcate(s,s1);
 		 System.out.println(s1);
+		 String ss = "123456789";
+		 String newString = ss.substring(0, 3) + "foobar" + ss.substring(3+3);
+		 System.out.println(newString);
 		
 	}
 
