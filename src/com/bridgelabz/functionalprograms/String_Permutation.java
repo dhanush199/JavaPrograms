@@ -17,7 +17,7 @@ public class String_Permutation {
 
 	public static void main(String[] args) {
 
-		String s= "abcd";
+		String s= "abc";
 		int n=s.length();
 		char ch[]=new char[n*n];
 		ch=s.toCharArray();

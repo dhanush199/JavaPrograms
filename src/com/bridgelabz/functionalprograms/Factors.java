@@ -11,8 +11,6 @@
  ******************************************************************************/
 package com.bridgelabz.functionalprograms;
 
-import java.util.Scanner;
-
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class Factors {
@@ -20,8 +18,7 @@ public class Factors {
 	public static void main(String[] args) {
 		FunctionalUtility f1=new FunctionalUtility();
 		System.out.println("Number to find the prime factor");
-		Scanner sc=new Scanner(System.in);
-		int n=sc.nextInt();
+		int n=FunctionalUtility.readInteger();
 		f1.primeFactors(n);
 	}
 

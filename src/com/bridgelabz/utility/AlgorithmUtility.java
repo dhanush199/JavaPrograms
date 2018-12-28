@@ -1,20 +1,27 @@
 package com.bridgelabz.utility;
 
-import java.awt.List;
+import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.Set;
+//import java.util.ArrayList;
+//import java.util.HashSet;
+//import java.util.Iterator;
+//import java.util.LinkedList;
+//import java.util.Random;
+//import java.util.Scanner;
+//import java.util.Set;
+
 
 public class AlgorithmUtility <E>{
+
+	/** 
+	 * static function to checkAnagram
+	 *
+	 */
+
 
 	public static void checkAnagram(int len,String str1,String str2)
 	{	
@@ -46,6 +53,10 @@ public class AlgorithmUtility <E>{
 			System.out.print("Strings are Anagram");
 	}
 	//Prime Numbers
+	/** 
+	 * static function to checkPrime
+	 *
+	 */
 	public static boolean checkPrime(long n) 
 	{ 
 		//Function to check Prime or not
@@ -74,9 +85,15 @@ public class AlgorithmUtility <E>{
 		return flag;
 
 	}
+	/** 
+	 * static function to checkPrime
+	 * @param i is used to store index value of array Money
+	 * @param total is to get the sum of notes
+	 */
+
 	static int i=0;
 	static int total=0;
-	static int money;
+	//static int money;
 	public static   int calculate(int money,int[]notes)
 	{
 		//Method to calculate the notes to be dispatched
@@ -99,24 +116,34 @@ public class AlgorithmUtility <E>{
 			return calculate(money, notes);//method recursion
 		}
 	}
+	/** 
+	 * static function to convert temperature from farehinite to celcius 
+	 *
+	 */
 	public static double getTempCelcius(double d){
 		//Method to convert entered degree temperature to Farenheat
 		double celcius= (d-32)*5/9;
 		return celcius;
 	}
+	/** 
+	 * static function to convert temperature from celcius to farehinite 
+	 */
 	public static double getTempFaren(double d){
-		//Method to convert entered Farenheat temperature to degree  
 
 		double faren= (d*9/5)+32;
 		return faren;
 	}
-
+	/** 
+	 * static function to calculate payment
+	 */
 	public static double calPayment(double P,double R,double Y) {
-		//Method to calculate monthyPayment  
 		double n=12*Y;
 		double r=R/(12*100);
 		return (P*r/1-Math.pow((1+r),-n));
 	}
+	/** 
+	 * static function to calculate sqrt of a numjber using newtons method
+	 */
 	public static double calSqrt(double e,double c) {
 		//Method to calculate sqrt of a number using Newtons Method
 		double t=c;
@@ -127,6 +154,9 @@ public class AlgorithmUtility <E>{
 		return t;
 
 	}
+	/** 
+	 * static function to convert decimal number to binary
+	 */
 	public static void toBinary(int n) {
 		//Method to convert Decimal number to binary
 		int i=0;
@@ -144,6 +174,9 @@ public class AlgorithmUtility <E>{
 
 		}
 	}
+	/** 
+	 * static function to implement bubble sort
+	 */
 	public void bubbleSort(int arr[]) 
 	{ 
 		int n = arr.length; 
@@ -156,12 +189,18 @@ public class AlgorithmUtility <E>{
 					arr[j+1] = temp; 
 				} 
 	} 
+	/** 
+	 * static function to printthe array element
+	 */
 	public static void printArray(int arr[]) 
 	{ 
 		int n = arr.length; 
 		for (int i=0; i<n; ++i) 
 			System.out.println(arr[i] + " "); 
-	} 
+	}  
+	/** 
+	 * static function to swap the nibbles of a binary number
+	 */
 	public void swapNibble(int n) {
 		int i=0;
 		int binary[]=new int[100];
@@ -181,14 +220,20 @@ public class AlgorithmUtility <E>{
 	}
 
 	///////////////////////////////////////////////////
+	/** 
+	 * static function to insert the name at a specified locatoion of a gven string
+	 */
 
-	public	void checkConcate(String s)
+	public	void checkConcate(String s,String username)
 	{
 		if(s.length()<3)
 			System.out.println("enter a name with atleast 3 characters");
 		else 
 			System.out.println("Hi, "+s+", How are you?");
 	}
+	/** 
+	 * static function to calculate percentage of head and tail in a given count
+	 */
 	public void getCount(int count)
 	{   int head=0,tail=0;
 	int c=count;
@@ -209,6 +254,9 @@ public class AlgorithmUtility <E>{
 	System.out.println("perc of Tail="+ tail*100/c);
 
 	}
+	/** 
+	 * static function to check weather the entered year is leaf year or not
+	 */
 	public void getLeap(int x)
 	{
 		if(x%4==0 || x%400==0 && x%100==0)
@@ -216,7 +264,9 @@ public class AlgorithmUtility <E>{
 		else
 			System.out.println("entered year is not a leap year");
 	}
-
+	/** 
+	 * static function to calculate haremoinic number
+	 */
 	public double getHarmonicNum(int n)
 	{
 		double sum=0.0;
@@ -233,7 +283,13 @@ public class AlgorithmUtility <E>{
 
 	}
 	//Gambler
-
+	/**
+	 * static function to coupon
+	 *
+	 * @param stake the amount that is at stake
+	 * @param goal*(g) the amount to be obtained
+	 * @param no_of_times(t) the number of times gambled
+	 */
 	public void getResult(int s,int g,int t)
 	{
 		int win =0,loss=0,j=t;
@@ -267,6 +323,9 @@ public class AlgorithmUtility <E>{
 
 
 	//Coupen
+	 /**
+	 * static function to assign distinct values fo0r a given set of coupens
+	 */
 
 	public int getCoupenNumber(int n){
 		boolean[] isCollected = new boolean[n];  
@@ -286,7 +345,9 @@ public class AlgorithmUtility <E>{
 
 		return count;
 	}
-
+	/**
+	 * static function to check whether the array contains triplet number or not
+	 */
 
 	public void getTriplet(int [] a,int n)
 	{ 
@@ -313,12 +374,18 @@ public class AlgorithmUtility <E>{
 			System.out.println("false");
 		}
 	}
+	/**
+	 * static function to calculate the temparature  
+	 */
 	public double getTemp(double t,double v)
 	{
 
 		double w=35.74+0.6215*t+(0.4275*t-35.75)*Math.pow(v, 0.16);
 		return w;
 	}
+	/**
+	 * static function to get the co-efficiemnts of a quadratic equation
+	 */
 	public void getCoefficients(double a,double b,double c)
 	{
 		double d= b*b - 4*a*c;
@@ -336,6 +403,9 @@ public class AlgorithmUtility <E>{
 
 
 	}
+	/**
+	 *  function to idsplay permutation of a string
+	 */
 	public void getPerm(char ch[],int n)
 
 	{    
@@ -351,6 +421,9 @@ public class AlgorithmUtility <E>{
 
 
 	}
+	/**
+	 * static function to implementg bubble sort
+	 */
 
 	public static int[] bubbleStringSort(String codes[]) 
 	{   
@@ -378,6 +451,9 @@ public class AlgorithmUtility <E>{
 		return intarray;
 
 	}
+	/**
+	 * static function to implementg merge sort
+	 */
 
 	public static void merge(int arr[], int beg, int mid, int end)  
 	{  
@@ -423,6 +499,10 @@ public class AlgorithmUtility <E>{
 			k++;  
 		}  
 	}  
+	/**
+	 * static function to implementg merge sort
+	 */
+
 
 	void sort(int arr[], int beg, int end)  
 	{  
@@ -434,6 +514,10 @@ public class AlgorithmUtility <E>{
 			merge(arr, beg, mid, end);  
 		}  
 	} 
+	/**
+	 * static function to implementg bubble sort
+	 */
+
 	public static void mergeSort(String array[],int low,int high)
 	{
 		int n=high-low;
@@ -461,6 +545,10 @@ public class AlgorithmUtility <E>{
 			array[low +k]=temparr[k];
 		}
 	}
+	/**
+	 * static function to convert decimal to binary
+	 */
+
 	public static int[] toNibbleBinary(int n) {
 		int i=0;
 		int binary[]=new int[100];
@@ -478,10 +566,18 @@ public class AlgorithmUtility <E>{
 		}
 		return binary;
 	}
+	/**
+	 * static function to swap binary number nibbles
+	 */
+
 	public static int swapNibbles(int x) 
 	{ 
 		return ((x & 0x0F) << 4 | (x & 0xF0) >> 4); 
 	} 
+	/**
+	 * static function to implementg binary search
+	 */
+
 	public static int binarySearch(String [] str,String key)
 	{
 		//int n=str.length;
@@ -504,6 +600,10 @@ public class AlgorithmUtility <E>{
 		}
 		return -1;
 	}
+	/**
+	 * static function to isertion sort
+	 */
+
 	public static String []  sort(String [] str)
 	{
 		int len=str.length;
@@ -519,16 +619,19 @@ public class AlgorithmUtility <E>{
 		}
 		return str;
 	}
+	/**
+	 * static function to guess the number
+	 *@param range is used to restric the user number
+	 */
 	static int range,count,lower,upper,middle;
-	private static int[] arr;
+	//private static int[] arr;
 
 	public  static int findNumber(int lower,int upper,int middle,int count,String input1,int n)
 	{
-		Scanner rc=new Scanner(System.in);
 		System.out.println("Is your number:"+middle);
 		System.out.println();
 		System.out.println("Enter your answer in 'yes' or 'high' or 'low'");
-		input1=rc.nextLine();
+		input1=FunctionalUtility.readString();
 		do
 		{
 			if (input1.equals("high"))
@@ -553,7 +656,7 @@ public class AlgorithmUtility <E>{
 			{
 				middle=(lower+ upper+1)/2;
 				System.out.println("Is your number "+middle+":");
-				input1=rc.nextLine();
+				input1=FunctionalUtility.readString();
 			}
 		}
 		while(lower<=upper);
@@ -568,6 +671,9 @@ public class AlgorithmUtility <E>{
 		return middle;
 	}
 
+	/**
+	 * static function to implement binary search
+	 */
 	public static int binarySearch(int arr[], int l, int r, int x) 
 	{ 
 		if (r >= l) { 
@@ -594,7 +700,9 @@ public class AlgorithmUtility <E>{
 		return -1; 
 
 	} 
-
+	/**
+	 * static function to implement binary search
+	 */
 	public static int binarySearch(String arr[], int l, int r, String x) 
 	{ 
 
@@ -622,6 +730,9 @@ public class AlgorithmUtility <E>{
 		return -1; 
 
 	} 
+	/**
+	 * static function to get prime numbers withing the given range
+	 */
 	public static void prime(int range)
 	{
 
@@ -645,8 +756,11 @@ public class AlgorithmUtility <E>{
 
 
 	}
-	static int[] l=new int[100];
-	static int k;
+	/**
+	 * static function to get prime numbers withing the given range
+	 */
+	//static int[] l=new int[100];
+	//static int k;
 	public static Set<Integer>  prime1()
 	{
 
@@ -668,11 +782,13 @@ public class AlgorithmUtility <E>{
 			}
 		}
 
-		//System.out.println(set);
-		int len=set.size();
+		
 		return set;
 
 	}
+	/**
+	 * static function to implement binary search
+	 */
 	static int player = 0;
 	static int[][] BOARD = new int[3][3];
 	static boolean isEmpty = true;
@@ -687,6 +803,9 @@ public class AlgorithmUtility <E>{
 		System.out.println("Board is this :");
 		dispBoard();
 	}
+	/**
+	 * static function to implement binary search
+	 */
 
 	public static void dispBoard() {
 		int count = 0;
@@ -710,7 +829,7 @@ public class AlgorithmUtility <E>{
 		}
 		System.out.println("---------------");
 	}
-	/*
+	/**
 	 * static void putVal(int i, int j, int player) { if if (player % 2 == 0) {
 	 * BOARD[i][j] = 0; } else BOARD[i][j] = 1; }
 	 */
@@ -722,10 +841,10 @@ public class AlgorithmUtility <E>{
 			i = (int) (Math.random() * 10) % 3;
 			j = (int) (Math.random() * 10) % 3;
 		} else {
-			Scanner s = new Scanner(System.in);
+
 			System.out.println("enter value of x and y by space");
-			i = s.nextInt();
-			j = s.nextInt();
+			i = FunctionalUtility.readInteger();;
+			j = FunctionalUtility.readInteger();
 		}
 		if (BOARD[i][j] == -10) {
 			if (player % 2 == 0) {
@@ -771,17 +890,20 @@ public class AlgorithmUtility <E>{
 			player = 0;
 		}
 	}
+	/**
+	 * static function to check anagram or not
+	 */
 
 	public static void checkAnagram12(Set<Integer> set)
 	{
-		int found=0,not_found = 0; // Flag initialization
-		int arr[]=new int[set.size()];
+		//int found=0,not_found = 0; // Flag initialization
+		//	int arr[]=new int[set.size()];
 		String[] sc=new String[set.size()];
 		String k;
 		Iterator iter = set.iterator();
 		ArrayList<String> arrlist=new ArrayList<String>();
 
-		int m=0;
+		//	int m=0;
 		while(iter.hasNext()) {
 			//for(Integer n:set)
 			//{
@@ -805,7 +927,9 @@ public class AlgorithmUtility <E>{
 			}
 	}
 
-
+	/**
+	 * static function to check anagram or not
+	 */
 
 	public static void checkAnagram1(int len,String str1,String str2,ArrayList<String> arrlist)
 	{
@@ -830,22 +954,20 @@ public class AlgorithmUtility <E>{
 		}
 		if(not_found== 0) 
 		{
-			//for(int i=0;i<len-1;i++) {
-			//int arry;
+
 			palindromString(arrlist);
-			//arry=Integer.parseInt(str1) ;
-			//	System.out.println("Anagram numbers are: ");
-			//System.out.println(arry);
-			//String s=arry.t);
-			//}
+
 		}
 
 
 	}
+	 /**
+	 * static function to Check given array contains palindrom string or not
+	 */
 	public static void palindromString(ArrayList<String> arrlist) {
 		String rev = null;
-		//String strr=arry.toString();
-		int length = arrlist.size();
+
+		//int length = arrlist.size();
 		String s=null;
 		for ( int i = 0; i<arrlist.size(); i++ )
 		{
@@ -859,7 +981,7 @@ public class AlgorithmUtility <E>{
 		}
 
 	}
-	public static Set<String> primeAnagram(List<String> primeList)
+	/*public static Set<String> primeAnagram(List<String> primeList)
 	{   
 
 
@@ -881,8 +1003,10 @@ public class AlgorithmUtility <E>{
 		}
 
 		return primeAnagramSet;
-	}
-
+	}*/
+	 /**
+	 * static function to given set contains numbers which are prime as well as palindrom oir not
+	 */
 
 	public static Set<String> primePalindrome(Set<String> primeAnagramSet)
 	{
@@ -907,7 +1031,9 @@ public class AlgorithmUtility <E>{
 		}
 		return resultSet;
 	}
-
+	/**
+	 * static function to reverse a number
+	*/
 
 	public static int reverse(int n)
 	{
@@ -922,7 +1048,7 @@ public class AlgorithmUtility <E>{
 		return reverse;
 	}
 
-	public static List<String> findPrime(int num)
+	/*public static List<String> findPrime(int num)
 	{
 		int flag=1;
 		int i;
@@ -948,8 +1074,39 @@ public class AlgorithmUtility <E>{
 		}
 		System.out.println(arr);
 		return arr;
+	}*/
+	/**
+	 * static function to find prime numbers
+	*/
+
+	public static List<String> findPrime1(int num) {
+		int flag=1;
+		int i;
+		List<String> arr=new ArrayList<>();
+		//    int count=0;
+
+		for( i=2;i<=num;i++)
+		{
+			for(int j=2;j<i;j++)
+			{
+				if(i%j==0)
+				{
+					flag=0;
+					break;
+				}
+				else
+					flag=1;
+			}
+			if(flag==1)
+			{
+				arr.add(String.valueOf(i));
+			}
+		}
+		System.out.println(arr);
+		return arr;
 	}
-	
+
+
 }
 
 

@@ -13,7 +13,7 @@ package com.bridgelabz.algorithmprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 
-public class Search_timings {
+public class SearchTimings {
 	public static void main(String args[]) 
 	{  
 		System.out.println("1.binarySearch method for integer 2.binarySearch method for String 3.insertionSort method for integer 4.insertionSort method for String");  
@@ -29,20 +29,20 @@ public class Search_timings {
 				arr[i]= FunctionalUtility.readString();
 			System.out.println("enter the element to be searched ");
 			String x= FunctionalUtility.readString();
-			long a=FunctionalUtility.start();
+			//long a=FunctionalUtility.start();
 			int result = AlgorithmUtility.binarySearch(arr, 0, n-1, x);
 
 
 			if (result == -1) {
 				System.out.println("Element not present");
-				long b=FunctionalUtility.end();
+				//long b=FunctionalUtility.end();
 				long c=FunctionalUtility.elapse();
 				System.out.println("time taken to execute Binary search for integer is "+(c)+ " millisec");
 			}
 			else
 			{
 				System.out.println("Element found at index " + result); 
-				long b=FunctionalUtility.end();
+			//	long b=FunctionalUtility.end();
 				long c=FunctionalUtility.elapse();
 				System.out.println("time taken to execute Binary search for integer is "+(c)+ " millisec");
 			}

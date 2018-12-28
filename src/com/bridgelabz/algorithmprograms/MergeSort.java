@@ -13,7 +13,7 @@ package com.bridgelabz.algorithmprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 
-public class Merge_Sort
+public class MergeSort
 {
 
     public static void main(String[] args)

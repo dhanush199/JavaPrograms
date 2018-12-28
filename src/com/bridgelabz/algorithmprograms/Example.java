@@ -3,8 +3,6 @@ package com.bridgelabz.algorithmprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 
 import java.util.*;
-
-import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 import java.util.Scanner;
 
@@ -37,7 +35,7 @@ public class Example
 			l.add(i,m);
 		}
 		System.out.println(l);
-		 temp=fl.searchInt(l,size);
+	//	 temp=fl.searchInt(l,size);
 		break;
 		
 		case 2: System.out.println("Enter the"+size+" array Elements");

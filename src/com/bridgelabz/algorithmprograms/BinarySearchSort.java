@@ -16,7 +16,7 @@ import com.bridgelabz.utility.AlgorithmUtility;
 
 import java.io.*;
 
-public class BinarySearch_Sort {
+public class BinarySearchSort {
 
 	String [] codes = new String[100];
 	int i = 0;

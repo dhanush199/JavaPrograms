@@ -16,7 +16,7 @@ import java.util.Set;
 
 import com.bridgelabz.utility.AlgorithmUtility;
 
-public class Anagram_Palindrom {
+public class AnagramPalindrom {
 
 
 	public static void main(String[] args) {

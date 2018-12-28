@@ -19,7 +19,7 @@ import java.util.Scanner;
 import com.bridgelabz.utility.AlgorithmUtility;
 
 
-public class BinarySearch_Word {
+public class BinarySearchWord {
     public static void main(String[] args) throws FileNotFoundException {
        
         Scanner sc = new Scanner(System.in);

@@ -24,12 +24,13 @@ public class FunctionalUtility {
 	}
 
 
-	public	void checkConcate(String s)
+	public	String checkConcate(String s1,String s)
 	{
 		if(s.length()<3)
 			System.out.println("enter a name with atleast 3 characters");
 		else 
-			System.out.println("Hi, "+s+", How are you?");
+			 s1=s1.replaceAll("<<Name>>", s);
+		return s1;
 	}
 	public void getCount(int count)
 	{ 
@@ -185,14 +186,16 @@ public class FunctionalUtility {
 	public void getPerm(char ch[],int n)
 
 	{    
-
-		for(int j=0;j<n;j++)
-			//for(int j=0;j<n*n;j++)
+		for(int i=0;i<n;i++)
+		{
+		for(int j=0;j<n-1;j++)
+			
 		{
 			char temp=ch[j];
 			ch[j]=ch[j+1];
 			ch[j+1]=temp ;
 			System.out.println(ch);
+		}
 		}
 
 

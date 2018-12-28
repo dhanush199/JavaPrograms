@@ -11,19 +11,15 @@
  ******************************************************************************/
 package com.bridgelabz.functionalprograms;
 
-import java.util.Scanner;
-
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class CountPercentageHeadTail {
- 
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		FunctionalUtility fu=new FunctionalUtility();
-		Scanner sc = new Scanner(System.in);
-		 System.out.println("enter Number of toss");
-		 int numToss=sc.nextInt(); //read number of tosses
-		 fu.getCount(numToss);
+		System.out.println("enter Number of toss");
+		int numToss=FunctionalUtility.readInteger(); //read number of tosses
+		fu.getCount(numToss);
 	}
 
 }

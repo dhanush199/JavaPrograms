@@ -12,7 +12,7 @@
 package com.bridgelabz.algorithmprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 
-public class Monthy_Payment {
+public class MonthyPayment {
 
 	public static void main(String[] args) {
 		String i=args[0];

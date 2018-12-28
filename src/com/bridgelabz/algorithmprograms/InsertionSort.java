@@ -13,7 +13,7 @@ package com.bridgelabz.algorithmprograms;
 
 import com.bridgelabz.utility.FunctionalUtility;
 
-public class Insertio_Sort {
+public class InsertionSort {
 
 	public static void main(String[] args) {
 

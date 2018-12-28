@@ -18,9 +18,11 @@ public class replaceString {
 
 	public static void main(String[] args) {
 		FunctionalUtility fu=new FunctionalUtility();
+		String s="Hello!! <<Name>>,How are you?";
 		 System.out.println("enter a name");
-		 String s=FunctionalUtility.readString();
-		 fu.checkConcate(s);
+		 String s1=FunctionalUtility.readString();
+		 s1=fu.checkConcate(s,s1);
+		 System.out.println(s1);
 		
 	}
 

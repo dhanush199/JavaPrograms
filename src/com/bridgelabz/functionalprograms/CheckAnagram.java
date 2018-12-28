@@ -14,28 +14,25 @@
 
 package com.bridgelabz.functionalprograms;
 
-import java.util.Scanner;
 import com.bridgelabz.utility.AlgorithmUtility;
-
-
+import com.bridgelabz.utility.FunctionalUtility;
 
 public class CheckAnagram {
 
 	public static void main(String[] args)
 	{
 		String str1, str2;
-		Scanner scan = new Scanner(System.in);
+		//Scanner scan = new Scanner(System.in);
 		System.out.print("Enter First String : ");
-		str1 = scan.nextLine();
+		str1 = FunctionalUtility.readString();
 		System.out.print("Enter Second String : ");
-		str2 = scan.nextLine();
+		str2 = FunctionalUtility.readString();
  		int len1 = str1.length();                          //len1 holds Length of first String
 		int len2 = str2.length();                          //len1 holds Length of first String
-		AlgorithmUtility fl=new AlgorithmUtility();
 
 		if(len1 == len2)                                   // Check for string length are equal or not
 		{
-			fl.checkAnagram(len1,str1,str2);
+			AlgorithmUtility.checkAnagram(len1,str1,str2);
 
 		}
 		else

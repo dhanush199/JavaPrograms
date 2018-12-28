@@ -14,7 +14,7 @@ package com.bridgelabz.algorithmprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 
-public class Your_Number {
+public class YourNumber {
 
 	public static void main(String[] args) {
 		System.out.println("Enter any Number:");

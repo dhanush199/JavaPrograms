@@ -11,7 +11,7 @@
  ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
 
-public class Days_Week {
+public class DaysofWeek {
 
 	public static void main(String[] args) {
 		String[] days= {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
