@@ -9,7 +9,7 @@
  *  @since   22-12-2018
  *
  ******************************************************************************/
-package com.bridgelabz.algorithmprograms;
+/*package com.bridgelabz.algorithmprograms;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,7 +26,7 @@ public class AnagramPalindrom {
 		AlgorithmUtility.checkAnagram(set);
 	}	
 }
-
+*/
 
 
 

@@ -1,4 +1,4 @@
-package com.bridgelabz.algorithmprograms;
+/*package com.bridgelabz.algorithmprograms;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -25,3 +25,4 @@ public class AnagraPalindromFinal {
 	}
 
 }
+*/
