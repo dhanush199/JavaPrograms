@@ -1,27 +1,12 @@
 package com.bridgelabz.utility;
-
 import java.util.*;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.math.BigInteger;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-//import java.util.ArrayList;
-//import java.util.HashSet;
-//import java.util.Iterator;
-//import java.util.LinkedList;
-//import java.util.Random;
-//import java.util.Scanner;
-//import java.util.Set;
-
 
 public class AlgorithmUtility <E>{
-
 	/** 
 	 * static function to checkAnagram
 	 *
 	 */
-
 	public static void checkAnagram(int len,String str1,String str2)
 	{	
 		//Function to check anagram or not
@@ -29,7 +14,7 @@ public class AlgorithmUtility <E>{
 
 		for(int i=0; i<len; i++)
 		{
- 			for(int j=0; j<len; j++)
+			for(int j=0; j<len; j++)
 			{
 				if(str1.charAt(i) == str2.charAt(j)) //Check for the presence of all the character of str 1 and str 2
 				{
@@ -58,11 +43,9 @@ public class AlgorithmUtility <E>{
 	public static boolean checkPrime(long n) 
 	{ 
 		//Function to check Prime or not
-
 		BigInteger b = new BigInteger(String.valueOf(n));		// Converting long to BigInteger 
 		return(b.isProbablePrime(1));
 	} 
-
 	public int searchInt(LinkedList l,int size) {
 		//method to search the element entered
 		System.out.println(l);
@@ -81,7 +64,6 @@ public class AlgorithmUtility <E>{
 
 		}
 		return flag;
-
 	}
 	/** 
 	 * static function to checkPrime
@@ -150,7 +132,6 @@ public class AlgorithmUtility <E>{
 			System.out.println("Approximate sqrt is= "+t);
 		}
 		return t;
-
 	}
 	/** 
 	 * static function to convert decimal number to binary
@@ -175,7 +156,7 @@ public class AlgorithmUtility <E>{
 	/** 
 	 * static function to implement bubble sort
 	 */
-	public void bubbleSort(int arr[]) 
+	public static void bubbleSort(int arr[]) 
 	{ 
 		int n = arr.length; 
 		for (int i = 0; i < n-1; i++) 
@@ -212,11 +193,8 @@ public class AlgorithmUtility <E>{
 		for(int j=i-1;j>=0;j--)
 		{
 			System.out.println(binary[j]);
-
 		}
-
 	}
-
 	///////////////////////////////////////////////////
 	/** 
 	 * static function to insert the name at a specified locatoion of a gven string
@@ -278,7 +256,6 @@ public class AlgorithmUtility <E>{
 			}
 			return sum;
 		}
-
 	}
 	//Gambler
 	/**
@@ -292,7 +269,6 @@ public class AlgorithmUtility <E>{
 	{
 		int win =0,loss=0,j=t;
 		Random r=new Random();
-
 		while(g-->0 && t-->0)
 		{
 			int n=r.nextInt(2);
@@ -306,7 +282,6 @@ public class AlgorithmUtility <E>{
 				win++;
 				s++;
 			}
-
 		}
 		System.out.println("Number of win="+win);
 		System.out.println("Number of loss="+loss);
@@ -315,16 +290,11 @@ public class AlgorithmUtility <E>{
 		System.out.println("remaining stack"+s);
 		System.out.println("remaining chances="+t);
 		System.out.println("remaining goals"+g);
-
 	}
-
-
-
 	//Coupen
-	 /**
+	/**
 	 * static function to assign distinct values fo0r a given set of coupens
 	 */
-
 	public int getCoupenNumber(int n){
 		boolean[] isCollected = new boolean[n];  
 		int count = 0;                           
@@ -339,8 +309,6 @@ public class AlgorithmUtility <E>{
 				isCollected[value] = true;
 			}
 		}
-
-
 		return count;
 	}
 	/**
@@ -377,7 +345,6 @@ public class AlgorithmUtility <E>{
 	 */
 	public double getTemp(double t,double v)
 	{
-
 		double w=35.74+0.6215*t+(0.4275*t-35.75)*Math.pow(v, 0.16);
 		return w;
 	}
@@ -397,9 +364,6 @@ public class AlgorithmUtility <E>{
 			System.out.println("roots are equal root1="+ (-b + (Math.sqrt(Math.abs(d))/(2*a))));
 			System.out.println("root2="+ (-b - (Math.sqrt(Math.abs(d))/(2*a))));
 		}
-
-
-
 	}
 	/**
 	 *  function to idsplay permutation of a string
@@ -407,7 +371,6 @@ public class AlgorithmUtility <E>{
 	public void getPerm(char ch[],int n)
 
 	{    
-
 		for(int j=0;j<n;j++)
 			//for(int j=0;j<n*n;j++)
 		{
@@ -416,13 +379,10 @@ public class AlgorithmUtility <E>{
 			ch[j+1]=temp ;
 			System.out.println(ch);
 		}
-
-
 	}
 	/**
 	 * static function to implementg bubble sort
 	 */
-
 	public static int[] bubbleStringSort(String codes[]) 
 	{   
 		int[] intarray=new int[codes.length];
@@ -452,7 +412,6 @@ public class AlgorithmUtility <E>{
 	/**
 	 * static function to implementg merge sort
 	 */
-
 	public static void merge(int arr[], int beg, int mid, int end)  
 	{  
 
@@ -515,7 +474,6 @@ public class AlgorithmUtility <E>{
 	/**
 	 * static function to implementg bubble sort
 	 */
-
 	public static void mergeSort(String array[],int low,int high)
 	{
 		int n=high-low;
@@ -546,7 +504,6 @@ public class AlgorithmUtility <E>{
 	/**
 	 * static function to convert decimal to binary
 	 */
-
 	public static int[] toNibbleBinary(int n) {
 		int i=0;
 		int binary[]=new int[100];
@@ -575,7 +532,6 @@ public class AlgorithmUtility <E>{
 	/**
 	 * static function to implementg binary search
 	 */
-
 	public static int binarySearch(String [] str,String key)
 	{
 		//int n=str.length;
@@ -601,7 +557,6 @@ public class AlgorithmUtility <E>{
 	/**
 	 * static function to isertion sort
 	 */
-
 	public static String []  sort(String [] str)
 	{
 		int len=str.length;
@@ -623,7 +578,6 @@ public class AlgorithmUtility <E>{
 	 */
 	static int range,count,lower,upper,middle;
 	//private static int[] arr;
-
 	public  static int findNumber(int lower,int upper,int middle,int count,String input1,int n)
 	{
 		System.out.println("Is your number:"+middle);
@@ -644,7 +598,6 @@ public class AlgorithmUtility <E>{
 				System.out.println("It takes "+no+" times to find your exact number");
 				break;
 			}
-
 			else if(input1.equals("low"))
 			{
 				upper=middle;
@@ -668,7 +621,6 @@ public class AlgorithmUtility <E>{
 		}
 		return middle;
 	}
-
 	/**
 	 * static function to implement binary search
 	 */
@@ -676,42 +628,33 @@ public class AlgorithmUtility <E>{
 	{ 
 		if (r >= l) { 
 			int mid = l + (r - l) / 2; 
-
 			// If the element is present at the 
 			// middle itself 
 			if (arr[mid] == x) 
 				return mid; 
-
 			// If element is smaller than mid, then 
 			// it can only be present in left subarray 
 			if (arr[mid] > x) 
 				return binarySearch(arr, l, mid - 1, x); 
-
 			// Else the element can only be present 
 			// in right subarray 
 			return binarySearch(arr, mid + 1, r, x); 
 		} 
-
 		// We reach here when element is not present 
 		// in array 
-
 		return -1; 
-
 	} 
 	/**
 	 * static function to implement binary search
 	 */
 	public static int binarySearch(String arr[], int l, int r, String x) 
 	{ 
-
 		if (r >= l) { 
 			int mid = l + (r - l) / 2; 
-
 			// If the element is present at the 
 			// middle itself 
 			if (arr[mid].compareTo(x)==0)
 				return mid; 
-
 			// If element is smaller than mid, then 
 			// it can only be present in left subarray 
 			if (arr[mid].compareTo(x)>0) 
@@ -721,12 +664,9 @@ public class AlgorithmUtility <E>{
 			// in right subarray 
 			return binarySearch(arr, mid + 1, r, x); 
 		} 
-
 		// We reach here when element is not present 
 		// in array 
-
 		return -1; 
-
 	} 
 	/**
 	 * static function to get prime numbers withing the given range
@@ -751,7 +691,6 @@ public class AlgorithmUtility <E>{
 				System.out.println(i);
 			}
 		}
-
 
 	}
 	/**
@@ -779,23 +718,20 @@ public class AlgorithmUtility <E>{
 				set.add(i);
 			}
 		}
-
-		
 		return set;
-
 	}
 	/**
 	 * static function to implement binary search
 	 */
 	static int player = 0;
-	static int[][] BOARD = new int[3][3];
+	static int[][] B = new int[3][3];
 	static boolean isEmpty = true;
 
 	public static void initBoard() {
 		System.out.println("TIC TAC TOE GAME\nComputer is o\nPlayer  is x ");
-		for (int i = 0; i < BOARD.length; i++) {
-			for (int j = 0; j < BOARD[i].length; j++) {
-				BOARD[i][j] = -10;
+		for (int i = 0; i < B.length; i++) {
+			for (int j = 0; j < B[i].length; j++) {
+				B[i][j] = -100;
 			}
 		}
 		System.out.println("Board is this :");
@@ -804,17 +740,16 @@ public class AlgorithmUtility <E>{
 	/**
 	 * static function to implement binary search
 	 */
-
 	public static void dispBoard() {
 		int count = 0;
-		for (int i = 0; i < BOARD.length; i++) {
+		for (int i = 0; i < B.length; i++) {
 			System.out.println("---------------");
 			System.out.print("||");
-			for (int j = 0; j < BOARD[i].length; j++) {
-				if (BOARD[i][j] == 0) {
+			for (int j = 0; j < B[i].length; j++) {
+				if (B[i][j] == 0) {
 					count++;
 					System.out.print(" o |");
-				} else if (BOARD[i][j] == 1) {
+				} else if (B[i][j] == 1) {
 					count++;
 					System.out.print(" x |");
 				} else
@@ -839,16 +774,15 @@ public class AlgorithmUtility <E>{
 			i = (int) (Math.random() * 10) % 3;
 			j = (int) (Math.random() * 10) % 3;
 		} else {
-
 			System.out.println("enter value of x and y by space");
 			i = FunctionalUtility.readInteger();;
 			j = FunctionalUtility.readInteger();
 		}
-		if (BOARD[i][j] == -10) {
+		if (B[i][j] == -10) {
 			if (player % 2 == 0) {
-				BOARD[i][j] = 0;
+				B[i][j] = 0;
 			} else {
-				BOARD[i][j] = 1;
+				B[i][j] = 1;
 				System.out.println("Coumputer Choosing " + i + " " + j);
 			}
 		} else
@@ -857,14 +791,14 @@ public class AlgorithmUtility <E>{
 	}
 
 	public static boolean win() {
-		return ((BOARD[0][0] + BOARD[0][1] + BOARD[0][2] == player * 3)
-				|| (BOARD[1][0] + BOARD[1][1] + BOARD[1][2] == player * 3)
-				|| (BOARD[2][0] + BOARD[2][1] + BOARD[2][2] == player * 3)
-				|| (BOARD[0][0] + BOARD[1][0] + BOARD[2][0] == player * 3)
-				|| (BOARD[0][1] + BOARD[1][1] + BOARD[2][1] == player * 3)
-				|| (BOARD[0][2] + BOARD[1][2] + BOARD[2][2] == player * 3)
-				|| (BOARD[0][0] + BOARD[1][1] + BOARD[2][2] == player * 3)
-				|| (BOARD[2][0] + BOARD[1][1] + BOARD[0][2] == player * 3));
+		return ((   B[0][0] + B[0][1] + B[0][2] == player * 3)
+				|| (B[1][0] + B[1][1] + B[1][2] == player * 3)
+				|| (B[2][0] + B[2][1] + B[2][2] == player * 3)
+				|| (B[0][0] + B[1][0] + B[2][0] == player * 3)
+				|| (B[0][1] + B[1][1] + B[2][1] == player * 3)
+				|| (B[0][2] + B[1][2] + B[2][2] == player * 3)
+				|| (B[0][0] + B[1][1] + B[2][2] == player * 3)
+				|| (B[2][0] + B[1][1] + B[0][2] == player * 3));
 	}
 
 	public static void play() {
@@ -959,7 +893,7 @@ public class AlgorithmUtility <E>{
 
 
 	}
-	 /**
+	/**
 	 * static function to Check given array contains palindrom string or not
 	 */
 	public static void palindromString(ArrayList<String> arrlist) {
@@ -1002,7 +936,7 @@ public class AlgorithmUtility <E>{
 
 		return primeAnagramSet;
 	}*/
-	 /**
+	/**
 	 * static function to given set contains numbers which are prime as well as palindrom oir not
 	 */
 
@@ -1031,7 +965,7 @@ public class AlgorithmUtility <E>{
 	}
 	/**
 	 * static function to reverse a number
-	*/
+	 */
 
 	public static int reverse(int n)
 	{
@@ -1075,7 +1009,7 @@ public class AlgorithmUtility <E>{
 	}*/
 	/**
 	 * static function to find prime numbers
-	*/
+	 */
 
 	public static List<String> findPrime1(int num) {
 		int flag=1;
@@ -1104,23 +1038,122 @@ public class AlgorithmUtility <E>{
 		return arr;
 	}
 	public static boolean isAnagram(String word, String anagram) {
-        boolean isAnagram = false;
-        if (word != null && anagram != null && word.length() == anagram.length()) {
-            char[] arr = word.toCharArray();
-            StringBuilder temp = new StringBuilder(anagram);
-            int wordLength = word.length();
-            for (char ch : arr) {
-                int index = temp.indexOf("" + ch);
-                if (index != -1) {
-                    temp.deleteCharAt(index);
-                }
-            }
-            isAnagram = temp.toString().isEmpty();
-        }
-        return isAnagram;
-    }
+		boolean isAnagram = false;
+		if (word != null && anagram != null && word.length() == anagram.length()) {
+			char[] arr = word.toCharArray();
+			StringBuilder temp = new StringBuilder(anagram);
+			//int wordLength = FunctionalUtility.readInteger();
+			for (char ch : arr) {
+				int index = temp.indexOf("" + ch);
+				if (index != -1) {
+					temp.deleteCharAt(index);
+				}
+			}
+			isAnagram = temp.toString().isEmpty();
+		}
+		return isAnagram;
+	}
+	//Program to print the pallindrome numbers
+	/**
+	 *
+	 *
+	 * @param n the integer which to check for pallindrome
+	 * @return true if its pallindrome or false if its not
+	 */
 
+	public static boolean Pallindrome(int n) {
+		int temp = n;
+		int sum = 0;
+		while (temp != 0) {
+			int r = temp % 10;
+			sum = sum * 10 + r;
+			temp = temp / 10;
+		}
+		if (sum == n) {
+			return true;
+		}
+		return false;
+	}
+	/**
+	 * to check the values are anagrams or not
+	 *
+	 * @param n1 input number1
+	 * @param n2 input number2
+	 * @return
+	 */
+	public static boolean anagram(int n1, int n2) {
+		int[] n1count = count(n1);
+		int[] n2count = count(n2);
+		for (int i = 0; i < n2count.length; i++) {
+			if (n1count[i] != n2count[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+	public static void primePallindrome() {
+		System.out.println();
+		boolean b;
+		for (int j = 2; j <= 1000; j++) {
+			b = true;
+			for (int i = 2; i < j / 2; i++) {
+				if (j % i == 0) {
+					b = false;
+					break;
+				}
+			}
+			if (b && Pallindrome(j))
+				System.out.print(j + " ");
+		}
+	}
+
+	/**
+	 * Function to check if num is anagram or not
+	 */
+	public static void primeAnagrams() {
+		ArrayList<Integer> ar = new ArrayList<Integer>();
+		System.out.println();
+		boolean b;
+		for (int j = 2; j <= 1000; j++) {
+			b = true;
+			for (int i = 2; i < j / 2; i++) {
+				if (j % i == 0) {
+					b = false;
+					break;
+				}
+			}
+			if (b)
+				ar.add(j);
+		}
+		for (int i = 0; i < ar.size(); i++) {
+			for (int j = i + 1; j < ar.size(); j++) {
+				if (anagram(ar.get(i), ar.get(j))) {
+					System.out.println(ar.get(i) + "  " + ar.get(j));
+				}
+			}
+		}
+	}
+
+
+
+	/**
+	 * Function to count the value in given integer be place
+	 *
+	 * @param n the integer value to count
+	 * @return the integer array for the count value
+	 */
+	public static int[] count(int n) {
+		int[] count = new int[10];
+		int temp = n;
+		while (temp != 0) {
+			int r = temp % 10;
+			count[r]++;
+			temp = temp / 10;
+		}
+		return count;
+	}
 }
+
 
 
 

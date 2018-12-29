@@ -15,7 +15,6 @@ import com.bridgelabz.utility.FunctionalUtility;
 
 public class MergeSort
 {
-
     public static void main(String[] args)
     {
         System.out.println("Merge sort");

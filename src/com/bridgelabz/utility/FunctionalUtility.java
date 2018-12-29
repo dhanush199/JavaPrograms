@@ -1,7 +1,7 @@
 package com.bridgelabz.utility;
 import java.util.Random;
-
 import java.util.Scanner;
+
 public class FunctionalUtility {
 	static Scanner scanner=new Scanner(System.in);
 	public static int readInteger() {
@@ -19,7 +19,7 @@ public class FunctionalUtility {
 		if(s.length()<3)
 			System.out.println("enter a name with atleast 3 characters");
 		else 
-			 s1=s1.replaceAll("<<Name>>", s);
+			s1=s1.replaceAll("<<Name>>", s);
 		return s1;
 	}
 	public static int[] getCount(int count)
@@ -27,7 +27,6 @@ public class FunctionalUtility {
 		// Method to calculate head and tail count in percentage
 		int head=0,tail=0;
 		int a[]=new int[2];
-		int temp=count;   //keep copy of NumToss to calculate percentage
 		Random r=new Random();	
 		while(count!=0)
 		{
@@ -41,8 +40,8 @@ public class FunctionalUtility {
 			}
 			count--;
 		}
-		 a[0]=head;
-		 a[1]=tail;
+		a[0]=head;
+		a[1]=tail;
 		return a;
 	}
 	public void getLeap(int x) // Function to calculate the leaf year
@@ -68,7 +67,7 @@ public class FunctionalUtility {
 		}
 	}
 	//Gambler
-	 
+
 	public static int[] getResult(int s,int g,int t) 
 	{
 		// function for gambler
@@ -106,7 +105,7 @@ public class FunctionalUtility {
 				isCollected[value] = true;
 			}
 		}
-	return count;
+		return count;
 	}
 	public static void getTriplet(int [] a,int n)
 	{ 
@@ -124,7 +123,6 @@ public class FunctionalUtility {
 						System.out.println("true");
 						flag=true;
 					}
-
 				}
 			}
 		}
@@ -155,19 +153,18 @@ public class FunctionalUtility {
 	{    
 		for(int i=0;i<n;i++)
 		{
-		for(int j=0;j<n-1;j++)
-		{
-			char temp=ch[j];
-			ch[j]=ch[j+1];
-			ch[j+1]=temp ;
-			displayArray(ch);
-		}
-		
+			for(int j=0;j<n-1;j++)
+			{
+				char temp=ch[j];
+				ch[j]=ch[j+1];
+				ch[j+1]=temp ;
+				displayArray(ch);
+			}
 		}
 	}
 	public static void displayArray(char[] a){
 		System.out.println(a);
-		
+
 	}
 	public static double calDistatce(double a,double b)
 	{
@@ -224,4 +221,10 @@ public class FunctionalUtility {
 			System.out.println(n);
 		}
 	}
+	public static void powerOf2(int n1) {
+		double k=0;
+		for(int i=0;i<Math.pow(2.0,n1)-1;i++) {
+			k= Math.pow(2.0,i);
+			System.out.println("value="+k);}
+		}
 }

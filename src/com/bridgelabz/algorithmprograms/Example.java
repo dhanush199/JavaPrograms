@@ -1,48 +1,40 @@
 
 package com.bridgelabz.algorithmprograms;
-import com.bridgelabz.utility.AlgorithmUtility;
 
 import java.util.*;
 import com.bridgelabz.utility.FunctionalUtility;
-import java.util.Scanner;
 
 public class Example 
 {
-
 	public static void main(String[] args)
 	{
 		int temp=0;
-		Scanner sc=new Scanner(System.in);
-		FunctionalUtility fl=new FunctionalUtility();
 		System.out.println("Enter the array length");
-		int size=sc.nextInt();
+		int size=FunctionalUtility.readInteger();
 		int k=0;//size of Array
 		System.out.println("select any one of the following option");
-		int select=sc.nextInt();
+		int select=FunctionalUtility.readInteger();
 		LinkedList<Comparable> l=new LinkedList<Comparable>();	
 		int flag=0,i;
 		switch(select) 
 		{
 		case 1: System.out.println("Enter the"+size+" array Elements");
-		k=sc.nextInt();
+		 k=FunctionalUtility.readInteger();
 		System.out.println("enter the element to be searched");
-		int search=sc.nextInt();
-		
-		
+		int search=FunctionalUtility.readInteger();			
 		for(i=0;i<size;i++)
 		{
-			int m=sc.nextInt();
+			int m=FunctionalUtility.readInteger();
 			l.add(i,m);
 		}
 		System.out.println(l);
-	//	 temp=fl.searchInt(l,size);
 		break;
 		
 		case 2: System.out.println("Enter the"+size+" array Elements");
 
 		for(i=0;i<size;i++)
 		{
-			double d=sc.nextDouble();
+			double d=FunctionalUtility.readdouble();
 			l.add(d);
 		}
 		break;
@@ -50,14 +42,12 @@ public class Example
 
 		for(i=0;i<size;i++)
 		{
-			String m=sc.nextLine();
+			String m=FunctionalUtility.readString();
 			l.add(i,m);
 		}
 		System.out.println(l);
 		System.out.println("enter the element to be searched");
-		String d=sc.nextLine();
-		Object o=new Object();
-		Object obj=d;  
+		String d=FunctionalUtility.readString();
 		for(i=0;i<l.size();i++)
 		{ 
 			if((l.get(i)).equals(d))

@@ -14,7 +14,6 @@ import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class ToBinary {
-
 	public static void main(String[] args) {
 		System.out.println("enter the Value of n");
 		int n =FunctionalUtility.readInteger();

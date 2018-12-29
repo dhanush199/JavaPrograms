@@ -12,6 +12,9 @@
 
 package com.bridgelabz.functionalprograms;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class replaceString {
@@ -28,5 +31,17 @@ public class replaceString {
 		 System.out.println(newString);
 		
 	}
+	public static String replace(String str,String uname)
+    {    if (uname.length() < 3)
+            System.out.println("enter string letter which is greater then 3");
+        else {
+            String message;
+            final String REGEX_NAME="<<UserName>>";
+            Pattern p = Pattern.compile(REGEX_NAME);
+            Matcher m = p.matcher(str);
+            message = m.replaceAll(uname);
+            return message;}
+        return uname;
+    }
 
 }

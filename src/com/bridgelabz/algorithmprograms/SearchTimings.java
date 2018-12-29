@@ -23,16 +23,12 @@ public class SearchTimings {
 		int n= FunctionalUtility.readInteger();
 		String arr[] =new String[n];
 		if(opt==1||opt==2) {			
-
 			System.out.println("enter the elements of the array ");
 			for(int i=0;i<n;i++)
 				arr[i]= FunctionalUtility.readString();
 			System.out.println("enter the element to be searched ");
 			String x= FunctionalUtility.readString();
-			//long a=FunctionalUtility.start();
 			int result = AlgorithmUtility.binarySearch(arr, 0, n-1, x);
-
-
 			if (result == -1) {
 				System.out.println("Element not present");
 				//long b=FunctionalUtility.end();
@@ -42,11 +38,9 @@ public class SearchTimings {
 			else
 			{
 				System.out.println("Element found at index " + result); 
-			//	long b=FunctionalUtility.end();
 				long c=FunctionalUtility.elapse();
 				System.out.println("time taken to execute Binary search for integer is "+(c)+ " millisec");
 			}
-
 		}
 		else if(opt==3)
 		{
@@ -60,9 +54,7 @@ public class SearchTimings {
 			for(int i=0;i<n;i++)
 				System.out.println(arr1[i]);
 			System.out.println("Time taken for insertion sort= "+(t4-t3)+" millisec");
-
 		}
-
 	}
 
 } 

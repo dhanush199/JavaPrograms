@@ -13,10 +13,7 @@ package com.bridgelabz.algorithmprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 
-
-
 public class SwapNibbles {
-
 	public static void main(String[] args) {
 		int flag=0;
 		System.out.println("enter the Value of n");
@@ -32,20 +29,14 @@ public class SwapNibbles {
 		for (int i = 1; i < c; i++) {
 
 			if (Math.pow(2, i) == c)
-				flag =1;
-			
+				flag =1;			
 		}
 		if(flag==1)
 			System.out.println("number is power of 2");
 
 		else 
 			System.out.println("number is not a power of 2");
-
-
-
 	}
-
-
 }
 
 

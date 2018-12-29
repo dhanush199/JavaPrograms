@@ -15,7 +15,6 @@ import com.bridgelabz.utility.AlgorithmUtility;
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class TemConversion {
-
 	public static void main(String[] args) {
 		System.out.println("press 1. to covert temparature from celcius to faren   Press 2.o covert temparature from  faren to celcius ");
 		int key=FunctionalUtility.readInteger();
@@ -32,8 +31,5 @@ public class TemConversion {
 		break;
 		default:System.out.println("Invalid selection");
 		break;
-		}
-
-	}
-
+		}	}
 }

@@ -40,7 +40,6 @@ public class CheckAnagram {
 		{
 			System.out.print("length of both Strings should be equal");//print if length ar e not equal
 		}
-
 	}
 }
 

@@ -13,7 +13,6 @@ package com.bridgelabz.algorithmprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 
 public class MonthyPayment {
-
 	public static void main(String[] args) {
 		String i=args[0];
 		String j=args[1];
@@ -23,7 +22,6 @@ public class MonthyPayment {
 		double Y=Double.parseDouble(k);
 		double payment=AlgorithmUtility.calPayment(P,R,Y);
 		System.out.println("MontghlyPayment is == "+Math.abs(payment));
-
 	}
 
 }

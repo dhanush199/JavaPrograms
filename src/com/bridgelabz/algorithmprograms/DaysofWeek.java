@@ -12,7 +12,6 @@
 package com.bridgelabz.algorithmprograms;
 
 public class DaysofWeek {
-
 	public static void main(String[] args) {
 		String[] days= {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
 		int d=Integer.parseInt(args[0]);
@@ -28,7 +27,6 @@ public class DaysofWeek {
 		int d0 =( (d+ x + ((31*m0)/12)) % 7)-2;
 		if(d0>=0 && d0<=7)
 			System.out.println(days[d0]);
-
 	}
 }
 

@@ -10,20 +10,16 @@
  *
  ******************************************************************************/
 package com.bridgelabz.algorithmprograms;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Scanner;
 
 import com.bridgelabz.utility.AlgorithmUtility;
-
+import com.bridgelabz.utility.FunctionalUtility;
 
 public class BinarySearchWord {
     public static void main(String[] args) throws FileNotFoundException {
-       
-        Scanner sc = new Scanner(System.in);
-        // Get scanner instance
+       // Get scanner instance
         String csvFile = "/home/admin1/Desktop/Example.csv";
         BufferedReader fileReader = new BufferedReader(new FileReader(csvFile));
 
@@ -36,16 +32,13 @@ public class BinarySearchWord {
             while ((line = fileReader.readLine()) != null) {
                 // Get all tokens available in line
                 String[] tokens = line.split(DELIMITER);
-                AlgorithmUtility.sort(tokens);
-//                for(int i=0;i<tokens.length;i++) {
-//                    System.out.println(tokens[i]);
-//                }
+                AlgorithmUtility.sort(tokens);          
                 for (String token : tokens) {
                     // Print all tokens
                     System.out.println(token);
                 }
                 System.out.println("enter the key word which has to be searched ");
-                String key = sc.next();
+                String key = FunctionalUtility.readString();
                 int i = AlgorithmUtility.binarySearch(tokens, key);
                 if (i >= 0) {
                     System.out.println(tokens[i] + " is present in " + (i + 1) + " position in the array");
@@ -62,5 +55,4 @@ public class BinarySearchWord {
             }
         }
     }
-
 }
