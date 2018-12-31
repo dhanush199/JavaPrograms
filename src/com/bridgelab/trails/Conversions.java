@@ -4,7 +4,7 @@ public class Conversions {
 	public static void main(String[] args) {
 		try {
 			String s="Dhanuash";
-			int c = Integer.parseInt(s);
+			Integer c = Integer.parseInt(s);
 			System.out.println(c);
 			String c1=String.valueOf(Integer.parseInt(s));
 			System.out.println(c1);	

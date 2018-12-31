@@ -22,16 +22,15 @@ public class BinarySearchWord {
        // Get scanner instance
         String csvFile = "/home/admin1/Desktop/Example.csv";
         BufferedReader fileReader = new BufferedReader(new FileReader(csvFile));
-
         // Delimiter used in CSV file
-        final String DELIMITER = ",";
+        final String commas = ",";
         try {
             String line = "";
             // fileReader = new BufferedReader(new FileReader(csvFile));
             // Read the file line by line
             while ((line = fileReader.readLine()) != null) {
                 // Get all tokens available in line
-                String[] tokens = line.split(DELIMITER);
+                String[] tokens = line.split(commas);
                 AlgorithmUtility.sort(tokens);          
                 for (String token : tokens) {
                     // Print all tokens

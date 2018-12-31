@@ -21,5 +21,4 @@ public class VendingMachin {
 		System.out.println("the different notes present is");
 		AlgorithmUtility.calculate(money, notes);
 	}
-
 }

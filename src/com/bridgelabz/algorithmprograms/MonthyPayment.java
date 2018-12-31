@@ -23,5 +23,4 @@ public class MonthyPayment {
 		double payment=AlgorithmUtility.calPayment(P,R,Y);
 		System.out.println("MontghlyPayment is == "+Math.abs(payment));
 	}
-
 }

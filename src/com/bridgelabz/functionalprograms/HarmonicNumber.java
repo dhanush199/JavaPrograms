@@ -14,7 +14,7 @@ import com.bridgelabz.utility.FunctionalUtility;
 
 public class HarmonicNumber {
 	public static void main(String[] args) {
-		System.out.println("Enter the Range");
+		System.out.println("Enter the number");
 		int n=FunctionalUtility.readInteger();
 		FunctionalUtility functionalUtilityu= new FunctionalUtility();
 		double m= functionalUtilityu.getHarmonicNum(n); // store harmonic value returned by the function

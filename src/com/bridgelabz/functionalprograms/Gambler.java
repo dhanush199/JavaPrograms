@@ -19,11 +19,9 @@ public class Gambler {
 		System.out.println("Enter the Goal");
 		int goal=FunctionalUtility.readInteger();                        //goal to be reached to decide a player lost or won
 		System.out.println("Enter the totalTimes you want to play");
-		int totalTimes=FunctionalUtility.readInteger();// total chances given to a player
+		int totalTimes=FunctionalUtility.readInteger();   // total chances given to a player
 		int arr[]= FunctionalUtility.getResult( stack,goal,totalTimes);
 		System.out.println("win percentage="+arr[1]*100/totalTimes);
-		System.out.println("win percentage="+arr[0]*100/totalTimes);
-
-	}
-
+		System.out.println("win percentage="+arr[0]*100/totalTimes);	
+		}
 }

@@ -14,7 +14,6 @@ package com.bridgelabz.functionalprograms;
 import com.bridgelabz.utility.FunctionalUtility;
 
 public class WindChill {
-
 	public static void main(String[] args) {
 		double n=0.0;
 		System.out.println("Enter the temparature in Farenheat");
@@ -25,15 +24,11 @@ public class WindChill {
 		}
 		System.out.println("Enter the temparature in Farenheat");
 		double t1=(Double.parseDouble(args[1]));
-
 		 n=Math.abs(t1);
 		if(n<120 || n>5)
 		{
 			FunctionalUtility fu=new FunctionalUtility();
 			System.out.println(fu.getTemp(t,n));
-		}
-		
-
+		}	
 	}
-
 }

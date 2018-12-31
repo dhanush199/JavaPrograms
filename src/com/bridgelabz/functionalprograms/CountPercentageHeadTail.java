@@ -17,9 +17,8 @@ public class CountPercentageHeadTail {
 	public static void main(String[] args) {
 		System.out.println("enter Number of toss");
 		int numToss=FunctionalUtility.readInteger(); //read number of tosses
-		int[]b=FunctionalUtility.getCount(numToss);
+		double[]b=FunctionalUtility.getCount(numToss);
 		System.out.println("perc of Head="+ b[0]*100/numToss);//print the percentage head
 		System.out.println("perc of Tail="+ b[1]*100/numToss);//print the percentage Tail
 	}
-
 }

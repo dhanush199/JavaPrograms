@@ -17,6 +17,7 @@ import com.bridgelabz.utility.AlgorithmUtility;
 import java.io.*;
 
 public class BinarySearchSort {
+
 	String [] codes = new String[100];
 	int i = 0;
 	private Scanner readCodes;
@@ -40,4 +41,5 @@ public class BinarySearchSort {
 		readCodes.close();
 	}
 }
+
 

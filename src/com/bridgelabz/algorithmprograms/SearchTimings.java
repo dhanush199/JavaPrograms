@@ -56,7 +56,6 @@ public class SearchTimings {
 			System.out.println("Time taken for insertion sort= "+(t4-t3)+" millisec");
 		}
 	}
-
 } 
 
 

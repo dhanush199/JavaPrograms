@@ -27,8 +27,8 @@ public class replaceString {
 		 s1=FunctionalUtility.checkConcate(s,s1);
 		 System.out.println(s1);
 		 String ss = "123456789";
-		 String newString = ss.substring(0, 3) + "foobar" + ss.substring(3+3);
-		 System.out.println(newString);
+		 //String newString = ss.substring(0, 3) + "foobar" + ss.substring(3+3);
+		 //System.out.println(newString);
 		
 	}
 	public static String replace(String str,String uname)

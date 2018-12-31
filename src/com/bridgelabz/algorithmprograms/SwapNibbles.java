@@ -25,15 +25,12 @@ public class SwapNibbles {
 		{
 			System.out.println(d[j]);
 		}
-
 		for (int i = 1; i < c; i++) {
-
 			if (Math.pow(2, i) == c)
 				flag =1;			
 		}
 		if(flag==1)
 			System.out.println("number is power of 2");
-
 		else 
 			System.out.println("number is not a power of 2");
 	}

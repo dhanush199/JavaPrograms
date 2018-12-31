@@ -74,12 +74,14 @@ public class AlgorithmUtility <E>{
 	static int i=0;
 	static int total=0;
 	//static int money;
-	public static   int calculate(int money,int[]notes)
+	public static int calculate(int money,int[]notes)
 	{
 		//Method to calculate the notes to be dispatched
 		int rem;
 		if(money==0)
 		{
+			System.out.println("Total notes="+total);
+
 			return -1 ;
 		}
 		else
@@ -93,7 +95,7 @@ public class AlgorithmUtility <E>{
 				System.out.println(notes[i]+  "rs Notes are  " +calNotes );
 			}
 			i++;
-			return calculate(money, notes);//method recursion
+			return (calculate(money, notes));//method recursion
 		}
 	}
 	/** 
@@ -147,7 +149,7 @@ public class AlgorithmUtility <E>{
 			i++;
 		}
 
-		for(int j=i-1;j>=0;j--)
+		for(int j=i+2;j>=0;j--)
 		{
 			System.out.println(binary[j]);
 
@@ -493,7 +495,8 @@ public class AlgorithmUtility <E>{
 			else if(array[j].compareToIgnoreCase(array[i])<0)
 				temparr[k]=array[j++];
 			else
-				temparr[k]=array[i++];
+				temparr[k]=
+				array[i++];
 		}
 
 		for(int k=0;k<n;k++)
@@ -555,7 +558,7 @@ public class AlgorithmUtility <E>{
 		return -1;
 	}
 	/**
-	 * static function to isertion sort
+	 * static function to insertion sort
 	 */
 	public static String []  sort(String [] str)
 	{
@@ -674,7 +677,7 @@ public class AlgorithmUtility <E>{
 	public static void prime(int range)
 	{
 
-		for(int i=1; i < 100; i++){
+		for(int i=1; i <= range; i++){
 
 			int flag = 1;
 
@@ -939,12 +942,10 @@ public class AlgorithmUtility <E>{
 	/**
 	 * static function to given set contains numbers which are prime as well as palindrom oir not
 	 */
-
 	public static Set<String> primePalindrome(Set<String> primeAnagramSet)
 	{
 		Iterator iter = primeAnagramSet.iterator();
 		Set<String> resultSet=new HashSet<>();
-
 		String a;
 		while (iter.hasNext())
 		{
@@ -958,8 +959,6 @@ public class AlgorithmUtility <E>{
 				String b=Integer.toString(lk);
 				resultSet.add(b);
 			}
-
-
 		}
 		return resultSet;
 	}
@@ -969,7 +968,6 @@ public class AlgorithmUtility <E>{
 
 	public static int reverse(int n)
 	{
-
 		int reverse=0;
 		while(n!=0)
 		{
@@ -979,7 +977,6 @@ public class AlgorithmUtility <E>{
 		}
 		return reverse;
 	}
-
 	/*public static List<String> findPrime(int num)
 	{
 		int flag=1;
@@ -1016,7 +1013,6 @@ public class AlgorithmUtility <E>{
 		int i;
 		List<String> arr=new ArrayList<>();
 		//    int count=0;
-
 		for( i=2;i<=num;i++)
 		{
 			for(int j=2;j<i;j++)
@@ -1045,7 +1041,7 @@ public class AlgorithmUtility <E>{
 			//int wordLength = FunctionalUtility.readInteger();
 			for (char ch : arr) {
 				int index = temp.indexOf("" + ch);
-				if (index != -1) {
+				if (index != -5) {
 					temp.deleteCharAt(index);
 				}
 			}
@@ -1060,7 +1056,6 @@ public class AlgorithmUtility <E>{
 	 * @param n the integer which to check for pallindrome
 	 * @return true if its pallindrome or false if its not
 	 */
-
 	public static boolean Pallindrome(int n) {
 		int temp = n;
 		int sum = 0;
@@ -1106,7 +1101,6 @@ public class AlgorithmUtility <E>{
 				System.out.print(j + " ");
 		}
 	}
-
 	/**
 	 * Function to check if num is anagram or not
 	 */
@@ -1133,9 +1127,6 @@ public class AlgorithmUtility <E>{
 			}
 		}
 	}
-
-
-
 	/**
 	 * Function to count the value in given integer be place
 	 *
@@ -1152,6 +1143,13 @@ public class AlgorithmUtility <E>{
 		}
 		return count;
 	}
+	public static int predictDate(int d,int m, int y){
+        int y0 = y - (14 - m) / 12;
+        int x = y0 + y0/4 - y0/100 +y0/400;
+        int m0 = m + 12 * ((14 - m) / 12) - 2;
+        int d0 = (d + x + 31 * m0 / 12) % 7;  
+        return d0;
+    }
 }
 
 

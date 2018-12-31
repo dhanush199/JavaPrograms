@@ -27,4 +27,3 @@ public class YourNumber {
 		AlgorithmUtility.findNumber(lower,upper,middle,count,input1,n);
 	}
 }
-

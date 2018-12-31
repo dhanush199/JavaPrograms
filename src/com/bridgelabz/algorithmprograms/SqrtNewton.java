@@ -21,5 +21,4 @@ public class SqrtNewton {
 		double epsilon = 1e-15;
 		System.out.println("Exact Sqrt of "+c+" is = "+AlgorithmUtility.calSqrt(epsilon,c));
 	}
-
 }

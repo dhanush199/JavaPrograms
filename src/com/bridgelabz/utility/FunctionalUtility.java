@@ -22,16 +22,16 @@ public class FunctionalUtility {
 			s1=s1.replaceAll("<<Name>>", s);
 		return s1;
 	}
-	public static int[] getCount(int count)
+	public static double[] getCount(int count)
 	{ 
 		// Method to calculate head and tail count in percentage
-		int head=0,tail=0;
-		int a[]=new int[2];
+		double head=0,tail=0;
+		double a[]=new double[2];
 		Random r=new Random();	
 		while(count!=0)
 		{
 			double rn=r.nextDouble(); //generate a decimal random number between 0 to 1.
-			if(rn>.5){ //if rn>.5 increment head count
+			if(rn>=.5){ //if rn>.5 increment head count
 				++head;
 			}
 			else 
@@ -74,18 +74,20 @@ public class FunctionalUtility {
 		int[]arr=new int[2];
 		Random r=new Random();
 
-		while(g-->0 && t-->0)
+		while(t!=0)
 		{
 			int n=r.nextInt(2); // if n==0 then lost & if n==1 player wins
 			if(n==0)
 			{
 				s--;
 				arr[0]++;// stores loss count
+				t--;
 			}
 			else
 			{
 				s++;
 				arr[1]++;// stores win count
+				t--;
 			}
 		}
 		return arr;
@@ -111,6 +113,7 @@ public class FunctionalUtility {
 	{ 
 		//Method to get triplet number
 		boolean flag=false;
+		int count=0;
 
 		for(int i=0;i<n-2;i++)
 		{
@@ -121,14 +124,20 @@ public class FunctionalUtility {
 					if(a[i]+a[j]+a[k]==0)
 					{
 						System.out.println("true");
+						System.out.print(a[i]+" "+a[j]+" "+a[k]);
+						System.out.println();
 						flag=true;
+						count++;
 					}
 				}
 			}
 		}
+		System.out.println("given array has "+count+" pairs of triplet numbers in it");
 		if(flag==false){
-			System.out.println("false");
+			System.out.println("givebn array does not have any triplet numbers");
 		}
+
+
 	}
 	public double getTemp(double t,double v)
 	{
@@ -201,8 +210,8 @@ public class FunctionalUtility {
 		return(endtime);
 	}
 
-	public static long elapse() {
-		long elaspedtime= endtime-  starttime ;
+	public static long elapse(long a,long b) {
+		long elaspedtime=  b-a;
 		return(elaspedtime);
 	}
 	public static void primeFactors(int n) {
@@ -223,8 +232,8 @@ public class FunctionalUtility {
 	}
 	public static void powerOf2(int n1) {
 		double k=0;
-		for(int i=0;i<Math.pow(2.0,n1)-1;i++) {
+		for(int i=0;i<=n1;i++) {
 			k= Math.pow(2.0,i);
 			System.out.println("value="+k);}
-		}
+	}
 }

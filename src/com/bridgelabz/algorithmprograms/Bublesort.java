@@ -28,8 +28,6 @@ public class Bublesort {
 		System.out.println("Sorted array"); 
 		AlgorithmUtility.printArray(arry);
 	} 
-
-
 }
 
 
