@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class DataStructureUtility {
@@ -84,7 +85,6 @@ public class DataStructureUtility {
 		}
 		fileWriter.close();
 	}
-
 	public static String[] toStrinConv(DataStructureUtility list)
 	{
 		Node currNode = list.head;
@@ -147,11 +147,10 @@ public class DataStructureUtility {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println(list);
 		return list;
 	}
 	public static int[] stringSort(int[] myArray) {
-		//int size = myArray.length;
-
 		for(int i = 0; i<myArray.length; i++) {
 			for (int j = i+1; j<myArray.length-1; j++) {
 				if(myArray[i]!=0 && myArray[j]!=0 ) {
@@ -170,10 +169,8 @@ public class DataStructureUtility {
 			if(str[i]!=0)
 				System.out.println(str[i]);
 	}
-
-
 	public static <T extends Comparable<T>> void dispGeneric(T str[]) { 
-		
+
 		for(int i=0;i<str.length;i++)
 			if(str[i].compareTo(null)==0)
 				System.out.println(str[i]);
@@ -187,10 +184,12 @@ public class DataStructureUtility {
 		while (currNode != null) {
 			if(currNode.data!=null)	{
 				kz=Integer.parseInt(currNode.data);
-			str[i]=kz;
-			i++;
+				str[i]=kz;
+				i++;
+				
+			}
 			currNode = currNode.next;
-		}}
+			}
 		return str;
 	}
 	public static void writeIntFile(String fName,int[] a) throws IOException {
@@ -199,7 +198,91 @@ public class DataStructureUtility {
 			wr.write(a[i]);
 		wr.close();
 	}
+	/////STACK////////////STACK////////////STACK////////////STACK//////////
+	protected static int arr[];
+	protected static int top;
+	protected static int size;
 
+	protected static int len;
+	/*  Constructor for arrayStack */
+	public static void arrayStack(int n)
+	{
+		size = n;
+		len = 0;
+		arr = new int[size];
+		top = -1;
+	}
+	/*  Function to check if stack is empty */ 
+	public static boolean isEmpty()
+	{
+		return top == -1;
+	}
+	/*  Function to check if stack is full */
+	public static boolean isFull()
+	{
+		return top == size -1 ;        
+	}
+	/*  Function to get the size of the stack */
+	public static int getSize()
+	{
+		return len ;
+	}
+	/*  Function to check the top element of the stack */
+	public static int peek()
+	{
+		if( isEmpty() )
+			throw new NoSuchElementException("Underflow Exception");
+		return arr[top];
+	}
+	/*  Function to add an element to the stack */
+	public static void push(int i)
+	{
+		if(top + 1 >= size)
+			throw new IndexOutOfBoundsException("Overflow Exception");
+		if(top + 1 < size )
+			arr[++top] = i;
+		len++ ;
+	}
+	/*  Function to delete an element from the stack */
+
+	public static int pop()
+	{
+		if( isEmpty() )
+
+			throw new NoSuchElementException("Underflow Exception");
+		len-- ;
+		return arr[top--]; 
+	}    
+	public static void display()
+	{
+		System.out.print("\nStack = ");
+		if (len == 0)
+		{
+			System.out.print("Empty\n");
+			return ;
+		}
+		for (int i = top; i >= 0; i--)
+			System.out.print(arr[i]+" ");
+		System.out.println();
+	}   
+	public static int checkBalancedParantheses(char[]chArray) {
+		int push=0;
+		for(int i=0;i<chArray.length;i++) {
+			if(chArray[i]=='('  && !(DataStructureUtility.isFull())) {
+				DataStructureUtility.push(chArray[i]);
+				push++;
+			}
+			else if(chArray[i]==')' && !(DataStructureUtility.isEmpty())) {
+				int l=DataStructureUtility.pop()+1;
+				push--;
+			}	
+		}
+		DataStructureUtility.display();	
+		System.out.println(push);
+	return push;
+	}
+	public static long readLong() {
+		return scanner.nextLong();
+	}
+	
 }
-
-

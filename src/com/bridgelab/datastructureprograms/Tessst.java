@@ -1,17 +1,22 @@
 package com.bridgelab.datastructureprograms;
 
 import java.io.IOException;
+import java.util.HashMap;
+//import java.util.Map;
 
 import com.bridgelabz.utility.DataStructureUtility;
 
-public class tesssst {
-	static String sortFile="/home/admin1/Desktop/Files/sorted.txt";
-	static String fName="/home/admin1/Desktop/Files/num.txt";
+public class Tessst {
+//static HashMap map=new HashMap();
+
+	static String sortFile="/home/admin1/Desktop/Test.txt";
+	static String fName="/home/admin1/Desktop/abc.txt";
+	static String[] content=new String[10000];
 	public static void main(String[] args) throws IOException
 	{
+		HashMap map=new HashMap();
 		DataStructureUtility LinkedList=new DataStructureUtility();
 		LinkedList=DataStructureUtility.readFile(LinkedList);
-		DataStructureUtility.printList(LinkedList);
 		while(true) 
 		{
 			System.out.println("please select one option");
@@ -28,33 +33,22 @@ public class tesssst {
 			if(k==0) {
 				DataStructureUtility.insert(LinkedList, key1);
 			}
-			int[] fileContent = DataStructureUtility.toIntConv(LinkedList);	
-			String[] fileContent1 = DataStructureUtility.toStrinConv(LinkedList);
-			int[] arr=DataStructureUtility.stringSort(fileContent);
-			for(int w:arr)
-				System.out.println(w);
-			System.out.println("we are here");
-			String[] sarray=new String[arr.length];
-			//int[] arry = DataStructureUtility.toIntConv(LinkedList);
-			for(int i=0;i<arr.length;i++) {
-				if(arr[i]!=0) {
-					 sarray[i]=String.valueOf(arr[i]);
-					i++;
-				}
+			int[] keyArray=HashingFunction.devideBy11(LinkedList);
+			String[] content=DataStructureUtility.toStrinConv(LinkedList);
+			for(int i=0;i<keyArray.length;i++) {
+			map.put(keyArray[i], content[i]);
 			}
-			DataStructureUtility.usingFileWriter(LinkedList,sarray,sortFile);
-			//DataStructureUtility.writeIntFile(fName,arr);
-			break;}
-			case 3:	DataStructureUtility.dispFile(fName);
+			System.out.println(map);
+			break;
+			}
+			case 3:	DataStructureUtility.usingFileWriter(LinkedList,content,sortFile);
+			DataStructureUtility.dispFile(sortFile);
 			break;
 			default:System.out.println("Please enter an valid option");
 			break;
 			} 
 		}
 	}
-
 }
-
-
 
 
