@@ -6,8 +6,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.Set;
 
 public class DataStructureUtility {
 	Node head; // head of list
@@ -186,10 +190,10 @@ public class DataStructureUtility {
 				kz=Integer.parseInt(currNode.data);
 				str[i]=kz;
 				i++;
-				
+
 			}
 			currNode = currNode.next;
-			}
+		}
 		return str;
 	}
 	public static void writeIntFile(String fName,int[] a) throws IOException {
@@ -244,7 +248,6 @@ public class DataStructureUtility {
 		len++ ;
 	}
 	/*  Function to delete an element from the stack */
-
 	public static int pop()
 	{
 		if( isEmpty() )
@@ -279,10 +282,103 @@ public class DataStructureUtility {
 		}
 		DataStructureUtility.display();	
 		System.out.println(push);
-	return push;
+		return push;
 	}
 	public static long readLong() {
 		return scanner.nextLong();
 	}
-	
+	public static List<Integer> primeNumbers(int m,int n) {
+		List<Integer> lst=new ArrayList<Integer>();
+		int temp;
+
+		//swapping of bounds if the given lower bound is greater than upper bound
+		if(m>n) {
+			temp=m;
+			m=n;
+			n=temp;}
+		int flag=1;
+		//try all the possible values from lower bound to upper bound
+		//if the number has the factor then it must be checked within lower bound
+		for(int i=m;i<=n;i++){
+			for(int j=2;j<i;j++){
+				//If the number is divisible by any of the number then
+				//initializing flag to zero and break
+				//else flag is initialized to one
+				if(i%j==0){
+					flag=0;
+					break;}
+				else
+					flag=1;}
+			//If the number is prime which is indicated by the flag,
+			//then adds the number into an ArrayList.
+			if(flag==1)
+				lst.add(i);}
+		return lst;}
+	public static Set<Integer> primeAnagram(List<Integer> primeList) {
+		Set<Integer> primeAnagram = new HashSet<>();
+		for (int i = 0; i < primeList.size(); i++) {
+			for (int j = i+1; j < primeList.size(); j++) {
+				if (AlgorithmUtility.isAnagram(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+					primeAnagram.add(primeList.get(i));
+					primeAnagram.add(primeList.get(j));
+				}
+			}
+		}
+		return primeAnagram;
+	}
+	static int[][] calender = new int[5][7];
+	static int[] month = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	static void initCal() {
+		for (int i = 0; i < calender.length; i++) {
+			for (int j = 0; j < calender[i].length; j++) {
+				calender[i][j] = -1000;
+			}
+		}
+	}
+	static void display(int m) {
+		System.out.println("        Sun    Mon     Tue     Wed     Thu     Fri     Sat");
+
+		for (int i = 0; i < calender.length; i++) {
+			for (int j = 0; j < calender[i].length; j++) {
+				if (calender[i][j] < 0 || calender[i][j] > month[m - 1]) {
+					System.out.print("\t ");
+				} else if (calender[i][j] > 0) {
+					System.out.print("\t" + calender[i][j] + " ");
+				}
+			}
+			System.out.println("\t");
+		}
+	}
+
+	static void putCalender(int d) {
+		int d1 = 1;
+		for (int i = d; i < calender[0].length; i++) {
+			// System.out.print(d1);
+			calender[0][i] = d1++;
+		}
+		for (int i = 1; i < calender.length; i++) {
+			for (int j = 0; j < calender[i].length; j++) {
+				calender[i][j] = d1++;
+			}
+		}
+
+	}
+
+	public static void dispCalender(int m, int y) {
+		int d = dayOfWeek(m, y);
+		initCal();
+		putCalender(d);
+		display(m);
+
+	}
+
+	static int dayOfWeek(int m, int y) {
+		int d = 1;
+		int y0 = y - (14 - m) / 12;
+		int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
+		int m0 = m + 12 * ((14 - m) / 12) - 2;
+		int d0 = (d + x + (31 * m0) / 12) % 7;
+		return d0;
+	}
+
 }

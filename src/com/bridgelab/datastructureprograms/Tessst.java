@@ -7,8 +7,6 @@ import java.util.HashMap;
 import com.bridgelabz.utility.DataStructureUtility;
 
 public class Tessst {
-//static HashMap map=new HashMap();
-
 	static String sortFile="/home/admin1/Desktop/Test.txt";
 	static String fName="/home/admin1/Desktop/abc.txt";
 	static String[] content=new String[10000];
@@ -32,13 +30,13 @@ public class Tessst {
 			System.out.println(k);
 			if(k==0) {
 				DataStructureUtility.insert(LinkedList, key1);
-			}
+			} 
+			int[] dataArry=DataStructureUtility.toIntConv( LinkedList);
 			int[] keyArray=HashingFunction.devideBy11(LinkedList);
-			String[] content=DataStructureUtility.toStrinConv(LinkedList);
+			HashingFunction.keyCompare( keyArray, dataArry);
 			for(int i=0;i<keyArray.length;i++) {
-			map.put(keyArray[i], content[i]);
+				map.put(keyArray[i], content[i]);
 			}
-			System.out.println(map);
 			break;
 			}
 			case 3:	DataStructureUtility.usingFileWriter(LinkedList,content,sortFile);

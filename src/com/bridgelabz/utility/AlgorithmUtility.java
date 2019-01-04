@@ -7,14 +7,14 @@ public class AlgorithmUtility <E>{
 	 * static function to checkAnagram
 	 *
 	 */
-	public static void checkAnagram(int len,String str1,String str2)
+	public static void checkAnagram(String str1,String str2)
 	{	
 		//Function to check anagram or not
 		int found=0,not_found = 0; 	// Flag initialization
 
-		for(int i=0; i<len; i++)
+		for(int i=0; i<str1.length(); i++)
 		{
-			for(int j=0; j<len; j++)
+			for(int j=0; j<str1.length(); j++)
 			{
 				if(str1.charAt(i) == str2.charAt(j)) //Check for the presence of all the character of str 1 and str 2
 				{
@@ -405,8 +405,6 @@ public class AlgorithmUtility <E>{
 			}
 
 
-
-
 		}
 		return intarray;
 
@@ -694,7 +692,6 @@ public class AlgorithmUtility <E>{
 				System.out.println(i);
 			}
 		}
-
 	}
 	/**
 	 * static function to get prime numbers withing the given range
@@ -828,7 +825,6 @@ public class AlgorithmUtility <E>{
 	/**
 	 * static function to check anagram or not
 	 */
-
 	public static void checkAnagram12(Set<Integer> set)
 	{
 		//int found=0,not_found = 0; // Flag initialization
@@ -1041,7 +1037,7 @@ public class AlgorithmUtility <E>{
 			//int wordLength = FunctionalUtility.readInteger();
 			for (char ch : arr) {
 				int index = temp.indexOf("" + ch);
-				if (index != -5) {
+				if (index != -1) {
 					temp.deleteCharAt(index);
 				}
 			}

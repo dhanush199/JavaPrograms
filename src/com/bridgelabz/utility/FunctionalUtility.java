@@ -136,8 +136,6 @@ public class FunctionalUtility {
 		if(flag==false){
 			System.out.println("givebn array does not have any triplet numbers");
 		}
-
-
 	}
 	public double getTemp(double t,double v)
 	{
@@ -173,12 +171,10 @@ public class FunctionalUtility {
 	}
 	public static void displayArray(char[] a){
 		System.out.println(a);
-
 	}
 	public static double calDistatce(double a,double b)
 	{
 		return (Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)));
-
 	}
 	public static String[] sortArray(String str[]) {
 		int length=str.length;
@@ -194,10 +190,8 @@ public class FunctionalUtility {
 			str[j+1]=key;
 		}
 		return str;
-
 	}
 	static long starttime,endtime;
-
 	public static long start()
 	{
 		starttime= System.currentTimeMillis();
@@ -209,7 +203,6 @@ public class FunctionalUtility {
 		endtime= System.currentTimeMillis();
 		return(endtime);
 	}
-
 	public static long elapse(long a,long b) {
 		long elaspedtime=  b-a;
 		return(elaspedtime);

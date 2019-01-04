@@ -19,5 +19,4 @@ public class Binary {
         int num=FunctionalUtility.readInteger();
         AlgorithmUtility.toBinary(num);
 	}
-
 }
