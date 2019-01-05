@@ -9,7 +9,7 @@
  *  @since   24-12-2018
  *
  ******************************************************************************/
-package com.bridgelab.functionalprograms;
+package com.bridgelabz.functionalprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 
 public class AnagramPalindrom {

@@ -7,11 +7,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Set;
+
 
 public class DataStructureUtility {
 	Node head; // head of list
@@ -30,11 +31,11 @@ public class DataStructureUtility {
 			next = null;
 		}
 	}
-	public static DataStructureUtility insert(DataStructureUtility list, String String)
+	public static DataStructureUtility insert(DataStructureUtility list, String str)
 	{
 		// Create a new node with given data
-		Node new_node = new Node(String);
-		new_node.next = null;
+		Node new_node = new Node(str);
+		//new_node.next = null;
 		if (list.head == null) {
 			list.head = new_node;
 		}
@@ -155,7 +156,7 @@ public class DataStructureUtility {
 		return list;
 	}
 	public static int[] stringSort(int[] myArray) {
-		for(int i = 0; i<myArray.length; i++) {
+		for(int i = 0; i<myArray.length-1; i++) {
 			for (int j = i+1; j<myArray.length-1; j++) {
 				if(myArray[i]!=0 && myArray[j]!=0 ) {
 					if(myArray[i]>myArray[j]){
@@ -184,7 +185,7 @@ public class DataStructureUtility {
 		int kz=0; 
 		Node currNode = list.head;
 		int i=0;
-		int[] str =new int[100];
+		int[] str =new int[1000];
 		while (currNode != null) {
 			if(currNode.data!=null)	{
 				kz=Integer.parseInt(currNode.data);
@@ -202,85 +203,19 @@ public class DataStructureUtility {
 			wr.write(a[i]);
 		wr.close();
 	}
-	/////STACK////////////STACK////////////STACK////////////STACK//////////
-	protected static int arr[];
-	protected static int top;
-	protected static int size;
-
-	protected static int len;
-	/*  Constructor for arrayStack */
-	public static void arrayStack(int n)
-	{
-		size = n;
-		len = 0;
-		arr = new int[size];
-		top = -1;
-	}
-	/*  Function to check if stack is empty */ 
-	public static boolean isEmpty()
-	{
-		return top == -1;
-	}
-	/*  Function to check if stack is full */
-	public static boolean isFull()
-	{
-		return top == size -1 ;        
-	}
-	/*  Function to get the size of the stack */
-	public static int getSize()
-	{
-		return len ;
-	}
-	/*  Function to check the top element of the stack */
-	public static int peek()
-	{
-		if( isEmpty() )
-			throw new NoSuchElementException("Underflow Exception");
-		return arr[top];
-	}
-	/*  Function to add an element to the stack */
-	public static void push(int i)
-	{
-		if(top + 1 >= size)
-			throw new IndexOutOfBoundsException("Overflow Exception");
-		if(top + 1 < size )
-			arr[++top] = i;
-		len++ ;
-	}
-	/*  Function to delete an element from the stack */
-	public static int pop()
-	{
-		if( isEmpty() )
-
-			throw new NoSuchElementException("Underflow Exception");
-		len-- ;
-		return arr[top--]; 
-	}    
-	public static void display()
-	{
-		System.out.print("\nStack = ");
-		if (len == 0)
-		{
-			System.out.print("Empty\n");
-			return ;
-		}
-		for (int i = top; i >= 0; i--)
-			System.out.print(arr[i]+" ");
-		System.out.println();
-	}   
 	public static int checkBalancedParantheses(char[]chArray) {
 		int push=0;
 		for(int i=0;i<chArray.length;i++) {
-			if(chArray[i]=='('  && !(DataStructureUtility.isFull())) {
-				DataStructureUtility.push(chArray[i]);
+			if(chArray[i]=='('  && !(CustomStack.isFull())) {
+				CustomStack.push(chArray[i]);
 				push++;
 			}
-			else if(chArray[i]==')' && !(DataStructureUtility.isEmpty())) {
-				int l=DataStructureUtility.pop()+1;
+			else if(chArray[i]==')' && !(CustomStack.isEmpty())) {
+				int l=CustomStack.pop()+1;
 				push--;
 			}	
 		}
-		DataStructureUtility.display();	
+		CustomStack.display();	
 		System.out.println(push);
 		return push;
 	}
@@ -369,7 +304,6 @@ public class DataStructureUtility {
 		initCal();
 		putCalender(d);
 		display(m);
-
 	}
 
 	static int dayOfWeek(int m, int y) {
@@ -380,5 +314,102 @@ public class DataStructureUtility {
 		int d0 = (d + x + (31 * m0) / 12) % 7;
 		return d0;
 	}
+	public static int[] toIntConv(DataStructureUtility list,int size)
+	{
+		int kz=0; 
+		Node currNode = list.head;
+		int i=0;
+		int[] str =new int[size];
+		while (currNode != null) {
+			if(currNode.data!=null)	{
+				kz=Integer.parseInt(currNode.data);
+				str[i]=kz;
+				i++;
+
+			}
+			currNode = currNode.next;
+		}
+		return str;
+	}
+	public static String[] intTostring(int[] abc) {
+		String strarray[]=new String[abc.length];
+		int l=0;
+		for(int i=0;i<abc.length;i++) {
+			if(abc[i]!=0) {
+			String str=String.valueOf(abc[i]);
+			strarray[l]=str;
+			l++;
+		}}
+		return strarray;
+	}
+	public static Set<Integer> primeAnagram1(List<Integer> primeList)
+    {   
+        Set<Integer> primeAnagramSet=new HashSet<Integer>();
+        for(int i=0;i<primeList.size();i++)
+        {
+
+            for(int j=i+1;j<primeList.size();j++)
+            {
+                if(DataStructureUtility.anagramOfString(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j))))
+                {
+
+                    primeAnagramSet.add(primeList.get(i));
+                    primeAnagramSet.add(primeList.get(j));
+                }
+            }
+        }
+        return primeAnagramSet;
+
+    }
+
+    
+    public static int checkPrime(int n){  
+          int i,m=0,flag=0;      
+          m=n/2;      
+           for(i=2;i<=m;i++){      
+            if(n%i==0){      
+             flag=1;      
+             break;      
+            }      
+           }      
+          return flag;  
+        }
+    public static boolean anagramOfString(String s1, String s2) {
+
+        boolean status = false;
+
+        if (s1.length() != s2.length()) {
+
+            //System.out.println("Enter both the strings of same size");
+        } else {
+            char[] stng1 = s1.toLowerCase().toCharArray();
+            char[] stng2 = s2.toLowerCase().toCharArray();
+            // sorting the array
+            // Arrays.sort(string1);
+            for (int i = 0; i < (stng1.length - 1); i++) {
+                for (int j = i + 1; j > 0; j--) {
+                    if (stng1[j] < stng1[j - 1]) {
+                        char temp = stng1[j - 1];
+                        stng1[j - 1] = stng1[j];
+                        stng1[j] = temp;
+                    }
+                }
+            }
+
+            // Arrays.sort(string2);
+            for (int i = 0; i < (stng2.length - 1); i++) {
+                for (int j = i + 1; j > 0; j--) {
+                    if (stng2[j] < stng2[j - 1]) {
+                        char temp = stng2[j - 1];
+                        stng2[j - 1] = stng2[j];
+                        stng2[j] = temp;
+                    }
+                }
+            }
+            status = Arrays.equals(stng1, stng2);
+        }
+        return status;
+
+    }
 
 }

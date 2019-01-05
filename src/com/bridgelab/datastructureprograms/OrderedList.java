@@ -6,7 +6,7 @@ import com.bridgelabz.utility.DataStructureUtility;
 
 public class OrderedList {
 	static String sortFile="/home/admin1/Desktop/Files/sorted.txt";
-	static String fName="/home/admin1/Desktop/Files/num.txt";
+	static String fName="/home/admin1/Desktop/Files/example.txt";
 	public static void main(String[] args) throws IOException
 	{
 		DataStructureUtility LinkedList=new DataStructureUtility();
@@ -29,18 +29,10 @@ public class OrderedList {
 				DataStructureUtility.insert(LinkedList, key1);
 			}
 			int[] fileContent = DataStructureUtility.toIntConv(LinkedList);	
-			String[] fileContent1 = DataStructureUtility.toStrinConv(LinkedList);
-			int[] arr=DataStructureUtility.stringSort(fileContent);
-			String[] sarray=new String[arr.length];
-			//int[] arry = DataStructureUtility.toIntConv(LinkedList);
-			for(int i=0;i<arr.length;i++) {
-				if(arr[i]!=0) {
-					 sarray[i]=String.valueOf(arr[i]);
-					i++;
-				}
-			}
-			DataStructureUtility.usingFileWriter(LinkedList,sarray,sortFile);
-			//DataStructureUtility.writeIntFile(fName,arr);
+			int[] sortedarr=DataStructureUtility.stringSort(fileContent);
+			String sortedString[]=DataStructureUtility.intTostring(sortedarr);
+			//String[] sarray=new String[sortedarr.length];
+			DataStructureUtility.usingFileWriter(LinkedList,sortedString,sortFile);
 			break;}
 			case 3:	DataStructureUtility.dispFile(sortFile);
 			break;

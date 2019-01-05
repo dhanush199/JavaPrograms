@@ -1,16 +1,17 @@
 package com.bridgelab.datastructureprograms;
 
 import java.util.*;
-
+import com.bridgelabz.utility.CustomStack;
 import com.bridgelabz.utility.DataStructureUtility;
 
-public class PrintAnagrams {
+public class PrintAnagramReverse {
 	public static void main(String[]args) {
 		List<List<Integer>> outsidelist = new ArrayList<List<Integer>>();
 		List<Integer> innerlist= new ArrayList<Integer>();
 		Set<Integer> set= new HashSet<Integer>();
-		List<Integer> list1= new ArrayList<Integer>();
 		List<Integer> list= new ArrayList<Integer>();
+		DataStructureUtility CustomList=new DataStructureUtility();
+		CustomStack.arrayStack(1000);
 		int m=0;
 		int n=100;
 		for(int i=1;i<=10;i++)
@@ -23,18 +24,25 @@ public class PrintAnagrams {
 		}
 		System.out.print("Prime numbers between 0 to 1000 are ");
 		System.out.println(set);
-		//System.out.println(set.size());
 		list.addAll(set);
 		set=DataStructureUtility.primeAnagram(list);
 		System.out.print("prime and Anagram numbers between 0 to 1000 are ");
 		System.out.println(set);
-		list1.addAll(set);
-		for (int i = 0; i < list1.size(); i++) 
-		{
-			if(list.contains(list1.get(i)));
-			list.remove(list1.get(i));
+		Iterator<Integer> itr=set.iterator(); 
+		int mm=0;
+		while(itr.hasNext()) {
+			String i=itr.next().toString();
+			DataStructureUtility.insert(CustomList, i);
+			mm++;
 		}
-		System.out.print("prime Numbers which are not anagrams are ");
-		System.out.println(list);
+		DataStructureUtility.printList(CustomList);
+		int[] array=DataStructureUtility.toIntConv(CustomList,mm);
+		int[] arrray=DataStructureUtility.stringSort(array);
+		for(int kk1=0;kk1<set.size()-1;kk1++)
+			CustomStack.push(arrray[kk1]);
+		System.out.println("Custom stack is");
+		System.out.println("Reversed Palindrom array is :=");
+		for(int k=0;k<set.size()-1;k++)
+		System.out.println(CustomStack.pop());
 	}
 }
