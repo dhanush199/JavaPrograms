@@ -4,7 +4,7 @@ import com.bridgelabz.utility.CustomStack;
 import com.bridgelabz.utility.DataStructureUtility;
 
 public class BalancedParentheses {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		System.out.println("Enter an exopression containing ()");
 		String exprn=DataStructureUtility.readString();
 		char[] chArray = exprn.toCharArray();

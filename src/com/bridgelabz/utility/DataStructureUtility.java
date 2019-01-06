@@ -14,11 +14,19 @@ import java.util.Scanner;
 import java.util.Set;
 
 
+import com.bridgelabz.utility.StackCustum;
+import com.bridgelabz.utility.QueueCustm;
+
+
+
+
 public class DataStructureUtility {
 	Node head; // head of list
 	// Linked list Node.
 	// This inner class is made static
 	// so that main() can access it
+	static int stackSize= 100;
+	static StackCustum myStack=new StackCustum(stackSize);
 	static class Node {
 
 		String data;
@@ -31,20 +39,21 @@ public class DataStructureUtility {
 			next = null;
 		}
 	}
-	public static DataStructureUtility insert(DataStructureUtility list, String str)
+	public static SinglyLinkedListImpl insert(SinglyLinkedListImpl list, String str)
 	{
 		// Create a new node with given data
-		Node new_node = new Node(str);
+		//com.bridgelabz.utility.SinglyLinkedListImpl.Node new_node = new Node(str);
+		SinglyLinkedListImpl.Node new_node = new SinglyLinkedListImpl.Node<String>();
 		//new_node.next = null;
 		if (list.head == null) {
 			list.head = new_node;
 		}
 		else {
-			Node last = list.head;
-			while (last.next != null) {
-				last = last.next;
+			com.bridgelabz.utility.SinglyLinkedListImpl.Node last = list.head;
+			while (last.nextRef != null) {
+				last = last.nextRef;
 			}
-			last.next = new_node;
+			last.nextRef = new_node;
 		}
 		return list;
 	}
@@ -58,26 +67,26 @@ public class DataStructureUtility {
 			currNode = currNode.next;
 		}
 	}
-	public static int delete(DataStructureUtility list,String key)
-	{
-		int flag=0;
-		Node currNode = list.head;		
-		while(currNode != null)
-		{
-			if(currNode.data!=null)
-			{
-				if((currNode.data).compareToIgnoreCase(key)==0) {
-					currNode.data=null;	
-					System.out.println("entered "+key+" found and deleted");
-					flag=1;		
-				}
-			}
-			currNode = currNode.next;
-		}
-
-		return flag;			
-	}
-	public static void usingFileWriter(DataStructureUtility list,String[] fileContent,String path) throws IOException
+//	public static int delete(SinglyLinkedListImpl list,String key)
+//	{
+//		int flag=0;
+//		Node currNode = list.head;		
+//		while(currNode != null)
+//		{
+//			if(currNode.data!=null)
+//			{
+//				if((currNode.data).compareToIgnoreCase(key)==0) {
+//					currNode.data=null;	
+//					System.out.println("entered "+key+" found and deleted");
+//					flag=1;		
+//				}
+//			}
+//			currNode = currNode.next;
+//		}
+//
+//		return flag;			
+//	}
+	public static void usingFileWriter(SinglyLinkedListImpl list,String[] fileContent,String path) throws IOException
 	{
 		//String[] fileContent = DataStructureUtility.toStrinConv(list);
 		FileWriter fileWriter = new FileWriter(path);	
@@ -131,7 +140,9 @@ public class DataStructureUtility {
 			System.out.println("Error reading file named '" + fname + "'");
 		}
 	}
-	public static DataStructureUtility readFile(DataStructureUtility list) 
+	static SinglyLinkedListImpl<String> list=new SinglyLinkedListImpl();
+
+	public static SinglyLinkedListImpl<String> readFile(SinglyLinkedListImpl<String> linkedList) 
 	{
 		System.out.println("Enter the path of the file");
 		String csvFile = readString();
@@ -145,15 +156,15 @@ public class DataStructureUtility {
 				name = line.split(" ");
 				for(int i=0;i<name.length;i++){
 					String name1=name[i];
-					insert(list, name1);				
+					list.add(name1);				
 				}
 			}
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(list);
-		return list;
+		System.out.println(linkedList);
+		return linkedList;
 	}
 	public static int[] stringSort(int[] myArray) {
 		for(int i = 0; i<myArray.length-1; i++) {
@@ -180,20 +191,21 @@ public class DataStructureUtility {
 			if(str[i].compareTo(null)==0)
 				System.out.println(str[i]);
 	}
-	public static int[] toIntConv(DataStructureUtility list)
+	public static int[] toIntConv(SinglyLinkedListImpl list)
 	{
 		int kz=0; 
-		Node currNode = list.head;
+		com.bridgelabz.utility.SinglyLinkedListImpl.Node currNode = list.head;
 		int i=0;
 		int[] str =new int[1000];
 		while (currNode != null) {
-			if(currNode.data!=null)	{
-				kz=Integer.parseInt(currNode.data);
+			if(currNode.value!=null)	{
+				String value1= currNode.value.toString();
+				kz=Integer.parseInt(value1);
 				str[i]=kz;
 				i++;
 
 			}
-			currNode = currNode.next;
+			currNode = currNode.nextRef;
 		}
 		return str;
 	}
@@ -203,19 +215,19 @@ public class DataStructureUtility {
 			wr.write(a[i]);
 		wr.close();
 	}
-	public static int checkBalancedParantheses(char[]chArray) {
+	public static int checkBalancedParantheses(char[]chArray) throws Exception {
 		int push=0;
 		for(int i=0;i<chArray.length;i++) {
-			if(chArray[i]=='('  && !(CustomStack.isFull())) {
-				CustomStack.push(chArray[i]);
+			if(chArray[i]=='('  && !(StackCustum.isStackFull())) {
+				myStack.push(chArray[i]);
 				push++;
 			}
-			else if(chArray[i]==')' && !(CustomStack.isEmpty())) {
-				int l=CustomStack.pop()+1;
+			else if(chArray[i]==')' && !(StackCustum.isStackEmpty())) {
+				int l=myStack.pop()+1;
 				push--;
 			}	
 		}
-		CustomStack.display();	
+		
 		System.out.println(push);
 		return push;
 	}
@@ -411,5 +423,58 @@ public class DataStructureUtility {
         return status;
 
     }
+	static QueueCustm q=new QueueCustm();
 
+    public static long withdrawOrDeposit(long money) {
+		System.out.println("press 1.Deposit | Press 2.WithDraw ");
+		int i=DataStructureUtility.readInteger();
+		switch(i) {
+		case 1: System.out.println("Money in the counter is "+money);
+		if((q.isQueueEmpty()) && money!=0) {
+			System.out.println("enter the amount to be deposited");
+			long cash=DataStructureUtility.readLong();
+			money=money+cash;
+			System.out.println("money in cashCounter is "+money);
+			System.out.println(cash+"Rs succesfully deposited to your account");
+		}
+		else
+			System.out.println("Quee is Empty: Please add people to the quee");
+		break; 
+		case 2: System.out.println("Money in the counter is "+money);
+		if((q.isQueueEmpty()) && money>0) {
+			System.out.println("enter the amount to be encashed");	
+			long cash=DataStructureUtility.readLong();
+			if(cash<=money && cash>0) {
+				money=money-cash;
+				System.out.println(cash+"Rs has been withdrawn from your account");}}
+		else
+			System.out.println("money is not there in cash counter.Kindly come later");	
+		break;    
+		default : System.out.println("Wrong Entry \n ");
+		break;
+		}	
+		return money;
+	}
+    public static int delete(SinglyLinkedListImpl list,String key)
+	{
+		int flag=0;
+		com.bridgelabz.utility.SinglyLinkedListImpl.Node currNode = list.head;		
+		while(currNode != null)
+		{
+			if(currNode.value!=null)
+			{
+				String value2=currNode.value.toString();
+				if(value2.compareToIgnoreCase(key)==0) {
+					currNode.value=null;	
+					System.out.println("entered "+key+" found and deleted");
+					flag=1;		
+				}
+			}
+			currNode = currNode.nextRef;
+		}
+
+		return flag;			
+	}
 }
+
+
