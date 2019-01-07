@@ -13,7 +13,7 @@ package com.bridgelabz.functionalprograms;
 import com.bridgelabz.utility.AlgorithmUtility;
 
 public class AnagramPalindrom {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		System.out.println("The Prime Nos between 0 to 1000 which are also the  Pallindrome");
 		AlgorithmUtility.primePallindrome();
 		System.out.println();

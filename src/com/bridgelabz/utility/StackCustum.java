@@ -25,7 +25,7 @@ public class StackCustum {
 		if(this.isStackFull()){
 			throw new Exception("Stack is already full. Can not add element.");
 		}
-		System.out.println("Adding: "+entry);
+		//System.out.println("Adding: "+entry);
 		this.stackArr[++top] = entry;
 	}
 
@@ -40,7 +40,7 @@ public class StackCustum {
 			throw new Exception("Stack is empty. Can not remove element.");
 		}
 		int entry = this.stackArr[top--];
-		System.out.println("Removed entry: "+entry);
+		//System.out.println("Removed entry: "+entry);
 		return entry;
 	}
 

@@ -1082,7 +1082,9 @@ public class AlgorithmUtility <E>{
 		}
 		return true;
 	}
-	public static void primePallindrome() {
+	static StackCustum stack= new StackCustum(1000);
+	
+	public static void primePallindrome() throws Exception {
 		System.out.println();
 		boolean b;
 		for (int j = 2; j <= 1000; j++) {
@@ -1095,12 +1097,14 @@ public class AlgorithmUtility <E>{
 			}
 			if (b && Pallindrome(j))
 				System.out.print(j + " ");
+			
 		}
 	}
 	/**
 	 * Function to check if num is anagram or not
+	 * @throws Exception 
 	 */
-	public static void primeAnagrams() {
+	public static void primeAnagrams() throws Exception {
 		ArrayList<Integer> ar = new ArrayList<Integer>();
 		System.out.println();
 		boolean b;
@@ -1119,6 +1123,8 @@ public class AlgorithmUtility <E>{
 			for (int j = i + 1; j < ar.size(); j++) {
 				if (anagram(ar.get(i), ar.get(j))) {
 					System.out.println(ar.get(i) + "  " + ar.get(j));
+					stack.push(ar.get(i));
+					stack.push(ar.get(j));
 				}
 			}
 		}

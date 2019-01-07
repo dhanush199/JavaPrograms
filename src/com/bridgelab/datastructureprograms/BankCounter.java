@@ -1,3 +1,13 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin BankCounter.java
+ *  Execution:    java -cp bin com.bridgelabz.util.BinarySearch n
+ *  
+ *  Purpose: program to implement a bank counter
+ *  @author  Dhanush
+ *  @version 1.0
+ *  @since   02-01-2019
+ *
+ ******************************************************************************/
 package com.bridgelab.datastructureprograms;
 
 import com.bridgelabz.utility.CustomQueue;
@@ -7,7 +17,7 @@ import com.bridgelabz.utility.QueueCustm;
 public class BankCounter {
 	public static void main(String[] args)
 	{
-		long money=1000000;
+		long money=100000;
 		System.out.println("money in cashCounter is "+money);
 		System.out.println("Enter Size of Integer Queue ");
 		int n = DataStructureUtility.readInteger();
@@ -22,7 +32,6 @@ public class BankCounter {
 			switch (choice)
 			{
 			case 1 : 
-				System.out.println("Enter token number of the customer");
 				money=DataStructureUtility.withdrawOrDeposit(money);
 				break;                         
 			case 2 : 
