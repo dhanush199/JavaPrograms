@@ -20,6 +20,8 @@ import java.util.Stack;
 
 import com.bridgelabz.utility.StackCustum;
 import com.bridgelabz.utility.SinglyLinkedListImpl.Node;
+import com.bridgelabz.objectorientedprograms.Inventory;
+import com.bridgelabz.objectorientedprograms.InventoryList;
 import com.bridgelabz.utility.QueueCustm;
 
 
@@ -284,7 +286,8 @@ public class DataStructureUtility {
 			//then adds the number into an ArrayList.
 			if(flag==1)
 				lst.add(i);}
-		return lst;}
+		return lst;
+		}
 	public static Set<Integer> primeAnagram(List<Integer> primeList) {
 		Set<Integer> primeAnagram = new HashSet<>();
 		for (int i = 0; i < primeList.size(); i++) {
@@ -574,6 +577,7 @@ public class DataStructureUtility {
 		}
 		return primeAnagram;
 	}
+
 
 
 }

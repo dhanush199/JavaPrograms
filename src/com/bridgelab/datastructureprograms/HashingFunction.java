@@ -10,69 +10,135 @@
  ******************************************************************************/
 package com.bridgelab.datastructureprograms;
 
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import com.bridgelabz.utility.DataStructureUtility;
+
+import com.bridgelabz.utility.LinkedListCustum;
 
 public class HashingFunction {
+    /*
+     * The main function is to read from a file and use hash numbers to find the
+     * searched data.
+     */
+    public static <E> void main(String[] args) throws NumberFormatException, IOException {
+        // Customized LinkedList
+        LinkedListCustum<Integer> linkedList1 = new LinkedListCustum<>();
+        LinkedListCustum<Integer> linkedList2 = null;
+        LinkedListCustum<Integer> linkedList3 = new LinkedListCustum<>();
+        int n = 0;
+        Map<Integer, LinkedListCustum<Integer>> map = new LinkedHashMap<Integer, LinkedListCustum<Integer>>();
+        for (int i = 0; i <= 10; i++) {
+            linkedList2 = new LinkedListCustum<>();
+            map.put(i, linkedList2);
+        }
+        FileReader fr = new FileReader("/home/admin1/Desktop/Hashfunction.txt");
+        @SuppressWarnings("resource")
+        BufferedReader br = new BufferedReader(fr);
+        FileWriter w = new FileWriter("/home/admin1/Desktop/Hashfunction.txt", true);
+        BufferedWriter writer = new BufferedWriter(w);
+        int rem;
+        String read;
+        String delimitor = " ";
+        while ((read = br.readLine()) != null) {
+            String tokens[] = read.split(delimitor);
+            for (String token : tokens) {
+                linkedList1.add(Integer.parseInt(token));
+            }
+        }
+        System.out.println("The numbers in the file are:");
+        linkedList1.printNew();
+        System.out.println();
+        int len = linkedList1.size();
+        int[] arr = linkedList1.convInteger(linkedList1, len);
+        int[] arr2 = linkedList1.sortArray(arr);
+        System.out.println("after sorting:");
+        for (int i : arr2) {
+            linkedList3.add(i);
+        }
+        linkedList3.printNew();
+        System.out.println();
+        System.out.println("Dividing each number by 11 and storing set");
+        for (int i = 0; i < arr2.length; i++) {
+            rem = arr2[i] % 11;
+            if (map.isEmpty()) {
+                linkedList2.add(arr2[i]);
+                map.put(rem, linkedList2);
+            } else {
+                linkedList2 = map.get(rem);
+                if (linkedList2.size() == 0) {
+                    linkedList2.add(arr2[i]);
+                } else {
+                    if (!linkedList2.search(arr2[i])) {
+                        linkedList2.add(arr2[i]);
+                    }
+                }
+                map.put(rem, linkedList2);
+            }
+        }
 
-	public static void main(String[] args) throws IOException {
-		Map<Integer, LinkedList<Integer>> map = new HashMap<Integer, LinkedList<Integer>>();
-		LinkedList<Integer> ds0 = null;
-		for (int i = 0; i < 10; i++) {
-			ds0 = new LinkedList<Integer>();
-			map.put(i, ds0);
-		}
-		
-		DataStructureUtility mylist = new DataStructureUtility();
-		char ch = ' ';
-		int rem = 0;
-		int i = 0;
-		String fName="/home/admin1/Desktop/Files/example.txt";
-		mylist = DataStructureUtility.readFile(mylist,fName);
-		do {
+        for (int i = 0; i < map.size(); i++) {
+        	LinkedListCustum<Integer> list = map.get(i);
+            System.out.print(i + ": ");
+            list.printNew();
+            System.out.println();
+        }
 
-			int size=DataStructureUtility.printList(mylist);
-			System.out.println("Enter the key element to be added/deleted");
-			int key = DataStructureUtility.readInteger();
-			String key1 = String.valueOf(key);
-			int k = DataStructureUtility.delete(mylist, key1);
-			System.out.println(k);
-			if (k == 0)
-			{
-				DataStructureUtility.insert(mylist, key1);
-			}
-			int[] intArray = DataStructureUtility.toIntConv(mylist,size);
-			for (i = 0; i < intArray.length; i++) 
-			{
+        do {
+            System.out.println();
+            System.out.println(
+                    "1.Enter the integer value to be to be searched\n2.Exit the program and display the file ");
+            int choice =com.bridgelabz.utility.DataStructureUtility.readInteger();
+            switch (choice) {
+            case 1:
+                System.out.println("enter the word to be searched from sorted list:");
+                int key = com.bridgelabz.utility.DataStructureUtility.readInteger();
+                int length = linkedList3.size();
+                System.out.println(length);
+                boolean b = linkedList3.findIntegerValue(length, key, linkedList3);
+                if (b) {
+                    System.out.println("name found");
+                    System.out.println("number is removed from the file ");
+                    System.out.println("new file list is :");
+                    linkedList3.printNew();
+                } else {
+                    System.out.println("name not found");
+                    System.out.println("seached number added to file ");
+                    linkedList3.printNew();
+                }
+                break;
 
-				if(intArray[i]!=0)
-				{
-					rem = intArray[i] % 11;
-					System.out.println(intArray[i]+"is devided by 11 gives remider as "+rem);
-					ds0.add(intArray[i]);
-					map.put(rem, ds0);
-					}
-			}
+            case 2:
+                FileOutputStream writer2 = new FileOutputStream("/home/admin1/Desktop/Hashfunction.txt");
+                writer2.write(("").getBytes());
+                writer2.close();
+                int len2 = linkedList3.size();
+                linkedList3.printNew();
+                int[] newStr = linkedList3.convertInt(linkedList3, len2);
+                String[] newStringArray = new String[newStr.length];
+                for (int i = 0; i < newStr.length; i++) {
+                    newStringArray[i] = String.valueOf(newStr[i]);
+                }
+                for (int i = 0; i < newStringArray.length; i++) {
+                    writer.write(newStringArray[i]);
+                    writer.write(" ");
+                }
+                writer.flush();
+                writer.close();
+                System.exit(0);
+                break;
+            default:
+                System.out.println("please select correct choice");
+                break;
+            }
 
-
-			for (Integer name: map.keySet())
-			{
-				String key22 =name.toString();
-				String value = map.get(name).toString();  
-				System.out.println(key22 + " " + value);  
-			} 
-
-			for (int ii = 0; ii < 10; ii++) {
-
-				System.out.println(map.put(ii, ds0));
-			}
-			System.out.println(" Do you want to continue (Type y or n) ");
-			ch = DataStructureUtility.readString().charAt(0);
-		} while (ch == 'Y' || ch == 'y');
-
-	}
-
+            n++;
+        } while (n < 30);
+    }
 }

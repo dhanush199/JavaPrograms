@@ -15,8 +15,7 @@ public class Prime2DArray {
         for(int i=1;i<=10;i++)
         {
         innerlist= DataStructureUtility.primeNumbers(m,n);
-        outsidelist
-        .add(innerlist);
+        outsidelist.add(innerlist);
         System.out.print("prime no between "+ m +" and "+  n);
         System.out.print(" ");
         System.out.println(innerlist);
