@@ -25,8 +25,8 @@ public class Json {
 		ObjectMapper objectMapper=new ObjectMapper();
 		InventoryList inventoryList = new InventoryList();
 		Inventory inventory = new Inventory();
-		List<Map<String, List<Inventory>>> list2 = objectMapper.readValue(file, new TypeReference<List<Map<String,List<Inventory>>>>(){});
-		System.out.println(list2);
+//		List<Map<String, List<Inventory>>> list2 = objectMapper.readValue(file, new TypeReference<List<Map<String,List<Inventory>>>>(){});
+//		System.out.println(list2);
 		do{ 
 			System.out.println("1>Rice    2>Wheat    3>Pulse ");  
 			int optn=DataStructureUtility.readInteger();
