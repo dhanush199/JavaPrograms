@@ -5,13 +5,11 @@ public class QueueLinkedList<T> {
 	
 	public Node<T> front,rear;
     public int size=0;
-   
     public QueueLinkedList(){
         front=null;
         rear=null;
         size=0;
     }
-   
     public boolean isQueueEmpty(){
         return front==null;
     }
@@ -19,7 +17,6 @@ public class QueueLinkedList<T> {
     public int getSize(){
         return size;
     }
-   
     public void enqueue(T data){
         Node<T> node=new Node<T>(data,null);
         if(rear==null){
@@ -46,7 +43,6 @@ public class QueueLinkedList<T> {
         }
         return curr.getValue();
     }
-   
     public void display(){ 
         if(isQueueEmpty()){
             System.out.println("Queue is empty");
@@ -58,8 +54,6 @@ public class QueueLinkedList<T> {
                 System.out.print(tNode.getValue()+" ");
                 tNode=tNode.getNextRef();
             }
-           
         }
     }
-
 }

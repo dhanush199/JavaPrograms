@@ -11,10 +11,11 @@ public class WriteTofileWithJason {
 	public static void main(String[] args) throws IOException {
 		String address=null;
 		JsonFactory jsonFactory = new JsonFactory(); 
-		FileOutputStream file = new FileOutputStream(new File("/home/admin1/Dhanush/example.json"));
+		FileOutputStream file = new FileOutputStream(new File(""
+				+ "/home/admin1/Dhanush/example.json"));
 		JsonGenerator jsonGen = jsonFactory.createJsonGenerator(file, JsonEncoding.UTF8);
 		//Address address = new Address("Dhananjaypur", "Varanasi", "UP");
-		Inventory person = new Inventory(1, "Arvind", address);
+		Inventory person = new Inventory();
 		jsonGen.setCodec(new ObjectMapper());
 		jsonGen.writeObject(person);
 		System.out.println("Done");

@@ -1,25 +1,25 @@
 package com.bridgelabz.objectorientedprograms;
 
-
 public class Inventory {
-	
-	
 	private String name;
-	private double price;
-	private double weight;
+	private  double price;
+	private  double weight;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getPrice() {
+	public  String getName(String name) {
+		return name;
+	}
+	public  double getPrice() {
 		return price;
 	}
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public double getWeight() {
+	public   double getWeight() {
 		return weight;
 	}
 	public void setWeight(double weight) {

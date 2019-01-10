@@ -5,11 +5,11 @@ import java.util.List;
 
 public class InventoryList {
 
-    private String inventoryName;
+    private static String inventoryName;
    
     List<Inventory> listOfInventories = new ArrayList<Inventory>();
 
-    public String getInventoryName() {
+    public static String getInventoryName() {
         return inventoryName;
     }
 
