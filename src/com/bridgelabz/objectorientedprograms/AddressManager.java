@@ -1,5 +1,6 @@
 package com.bridgelabz.objectorientedprograms;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,8 +9,47 @@ import com.bridgelabz.utility.DataStructureUtility;
 
 public class AddressManager {
 	List<PersonDetails> details = new ArrayList<PersonDetails>();
+	public static StringBuffer creat() {
+		System.out.println("Enter the book name followed by .json: ");
+		String name=DataStructureUtility.readString();
+		boolean flag = false;
+		String str=	"D://Bridgelabs/";
+		StringBuffer sb=new StringBuffer(str);
+		sb.append(name);
+		// create File object
+		File stockFile = new File(sb.toString());
+
+		try {
+			flag = stockFile.createNewFile();
+		} catch (IOException ioe) {
+			System.out.println("Error while Creating File in Java" + ioe);
+		}
+
+		System.out.println("stock file" + stockFile.getPath() + " created ");
 
 
+		if(!flag)
+			System.out.println("Book name already exists");
+
+		else 
+			System.out.println("SuccessFully created");
+		return sb;
+	}
+
+	public static void deletBook() {
+		System.out.println("Enter the book name you wish to delet followed by .jason");
+		String name=DataStructureUtility.readString();
+		StringBuffer sb=new StringBuffer("D://Bridgelabs/");
+		sb.append(name);
+		File file=new File(name);
+		boolean found=file.delete();
+		if(!found){
+			System.out.println(name+" book not found");
+
+		}
+		else 
+			System.out.println("SuccessFully deleted");
+	}
 	public static void saveBook() {
 		//writeToFile();
 	}
@@ -41,14 +81,5 @@ public class AddressManager {
 	public static void closeBook() {
 		//closeFile();
 	}
-	public static List<PersonDetails> deletBook(List<PersonDetails> listOfPerson) {
-		System.out.println("Enter the book name you wish to delet");
-		String name=DataStructureUtility.readString();
-		if(listOfPerson.contains(name)){
-			listOfPerson.remove(name);
-		}
-		else 
-			System.out.println(name+" book not found");
-		return listOfPerson;
-	}
+
 }

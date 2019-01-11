@@ -6,17 +6,7 @@ import com.bridgelabz.utility.DataStructureUtility;
 
 public class AddressBook {
 	private static String bookname;
-	public static Address creat(List<PersonDetails> listOfPerson) {
-		System.out.println("Enter the book name: ");
-		String name=DataStructureUtility.readString();
-		Address adr=new Address();
-		if(listOfPerson.contains(name)) {
-			System.out.println("Book name already exists");
-		}
-		else 
-			adr.setBookName(name);
-		return adr;
-	}
+	
 
 	public static void deletPerson() {
 		System.out.println("Enter the name of the person whom you wish to delet");
