@@ -1,14 +1,23 @@
 package com.bridgelabz.objectorientedprograms;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.bridgelabz.utility.DataStructureUtility;
 
 public class AddressBook {
 	private static String bookname;
+	public static Address creat(List<PersonDetails> listOfPerson) {
+		System.out.println("Enter the book name: ");
+		String name=DataStructureUtility.readString();
+		Address adr=new Address();
+		if(listOfPerson.contains(name)) {
+			System.out.println("Book name already exists");
+		}
+		else 
+			adr.setBookName(name);
+		return adr;
+	}
 
-	//editperson();
 	public static void deletPerson() {
 		System.out.println("Enter the name of the person whom you wish to delet");
 		String name=DataStructureUtility.readString();
@@ -27,20 +36,20 @@ public class AddressBook {
 		break;
 		}
 	}
-//	public List<PersonDetails> getListOfPerson() {
-//		return personDetail;
-//	}
-//	public void setListOfInventories(List<PersonDetails> personDetails) {
-//		this.personDetail = personDetails;
-//	}
+	//	public List<PersonDetails> getListOfPerson() {
+	//		return personDetail;
+	//	}
+	//	public void setListOfInventories(List<PersonDetails> personDetails) {
+	//		this.personDetail = personDetails;
+	//	}
 	public void setaddresBookname(String bookname) {
 		this.bookname = bookname;
 	}
 	public static  String getaddresBookname() {
 		return bookname;
 	}
-//	public List<PersonDetails> getaddresBookname(List<PersonDetails> getAddressBookName) {
-//		return personDetail;
-//	}
+	//	public List<PersonDetails> getaddresBookname(List<PersonDetails> getAddressBookName) {
+	//		return personDetail;
+	//	}
 
 }

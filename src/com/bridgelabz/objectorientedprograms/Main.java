@@ -9,6 +9,7 @@ public class Main {
 	public static void main(String args[]) {
 	List<PersonDetails> listOfPerson=new ArrayList<PersonDetails> ();
 		PersonDetails persondetails=new PersonDetails();
+		while(true) {
 		System.out.println("Enter the first name of the person");
 		String firstName=DataStructureUtility.readString();
 		persondetails.setFirstName(firstName);
@@ -36,20 +37,11 @@ public class Main {
 		//PersonDetails pDetails=new PersonDetails();
 		persondetails.setAddress(adress);
 		listOfPerson.add(persondetails);
-		Main.display(listOfPerson);
+		AddressManager.display(listOfPerson);
 		System.out.println(listOfPerson);
-		
-	}	
-	public static void display(List<PersonDetails> listOfPerson)
-	{
-		for (PersonDetails p:listOfPerson ) {
-            System.out.println(p.getFirstName());
-            System.out.println(p.getLastName());
-            System.out.println(p.getPhoneNum());
-            Address adr=new Address();
-            System.out.println(adr.getBookName());
-            System.out.println(adr.getCity());
-            System.out.println(adr.getState());
-		}
-	}
+		adress=AddressBook.creat(listOfPerson);
+		listOfPerson=AddressManager.saveAs(listOfPerson);
+		listOfPerson=AddressManager.deletBook(listOfPerson);
+	}	}
+	
 }

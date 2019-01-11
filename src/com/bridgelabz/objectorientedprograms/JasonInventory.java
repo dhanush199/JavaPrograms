@@ -41,7 +41,7 @@ public class JasonInventory {
 				System.out.println("Select the inventory name \n 1.rice 2.wheat 3.pulses");
 				int option=DataStructureUtility.readInteger();
 				int op = 1, flag = 0;
-				while (op == 1) {
+				while (op==1) {
 					for (InventoryList invenList : list2) {
 						if (arr[option].equals(invenList.getInventoryName())) {
 							liInventories = invenList.getListOfInventories();
@@ -78,7 +78,7 @@ public class JasonInventory {
 				break;
 			}
 			System.out.println("Press 1 to continue");
-			 k=DataStructureUtility.readInteger();
+			k=DataStructureUtility.readInteger();
 			//z++;
 		} while (k==1);
 	}

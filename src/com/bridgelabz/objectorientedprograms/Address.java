@@ -1,8 +1,5 @@
 package com.bridgelabz.objectorientedprograms;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Address {
 	private String bookName;
 	private String state;
