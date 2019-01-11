@@ -1,4 +1,5 @@
-package DeckOfCards;
+package com.bridgelabz.objectorientedprograms;
+
 
 public class DeckOfCards {
 
@@ -7,7 +8,7 @@ public class DeckOfCards {
 		String[] players= new String[13];
 
 		String[] RANKS = {
-				"2", "3", "4", "5", "6", "7", "8", "9", "10",
+				"2", "3", "4", "5 ", "6", "7", "8", "9", "10",
 				"Jack", "Queen", "King", "Ace"};
 		// initialize deck
 		int n = SUITS.length * RANKS.length;
@@ -25,18 +26,23 @@ public class DeckOfCards {
 			deck[i] = temp;
 		}
 		// print shuffled deck
-		for (int i = 0; i < n; i++) {
-			System.out.println(deck[i]);
-		}
+//		for (int i = 0; i < n; i++) {
+//			System.out.println(deck[i]);
+//		}
 		for(int k=0;k<4;k++) {
 			for (int i = 0; i < n; i++) {
 				players[k]=deck[i];
 			}
 		}
-		System.out.println("Player 1 cards are");
-		for(int j=0;j<13;j++) {
-			System.out.print(deck[j]);
-		}	
+		//System.out.println("Player 1 cards are");
+		for (int i = 0; i < 4; i++) {
+            System.out.print("** Person " + (i + 1) + " **");
+            for (int j = 0; j < 9; j++) {
+                System.out.print(deck[i + j * 4] );
+                		//+ " (Card " + (i + j * 4) + ")");
+            }
+            System.out.println();
+        }
 	}
 }
 

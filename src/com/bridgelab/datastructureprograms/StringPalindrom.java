@@ -14,7 +14,6 @@ public class StringPalindrom {
 			deque.addRear(c);
 		}
 		int flag=0;
-
 		while(deque.size()>1)
 		{
 			if(deque.removeFront()!=deque.removeRear())

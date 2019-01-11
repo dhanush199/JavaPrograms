@@ -12,15 +12,12 @@ public class InventoryList {
     public static String getInventoryName() {
         return inventoryName;
     }
-
     public void setInventoryName(String inventoryName) {
         this.inventoryName = inventoryName;
     }
-
     public List<Inventory> getListOfInventories() {
         return listOfInventories;
     }
-
     public void setListOfInventories(List<Inventory> listOfInventories) {
         this.listOfInventories = listOfInventories;
     }

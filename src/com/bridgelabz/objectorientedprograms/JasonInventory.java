@@ -13,9 +13,7 @@ import org.codehaus.jackson.type.TypeReference;
 
 public class JasonInventory {
 
-
 	public static void main(String[] args) throws IOException {
-
 		String str = "/home/admin1/Dhanush/input.json";
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<InventoryList> list2 = new ArrayList<InventoryList>();

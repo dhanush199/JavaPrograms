@@ -10,7 +10,7 @@ public class Inventory {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public  String getName(String name) {
+	public String getName(String name) {
 		return name;
 	}
 	public  double getPrice() {
@@ -25,8 +25,4 @@ public class Inventory {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-	
-	
-	 
-
 }
