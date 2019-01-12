@@ -1,11 +1,8 @@
 package com.bridgelabz.objectorientedprograms;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class PersonDetails {
-
-
 	private String firstName;
 	private String lastName;
 	private long phoneNum;
@@ -27,7 +24,7 @@ public class PersonDetails {
 		this.phoneNum = phoneNum;
 	}
 
-	public Address getAddress() {
+	public  Address getAddress() {
 		return address;
 	}
 

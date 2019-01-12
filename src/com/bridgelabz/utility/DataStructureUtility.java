@@ -46,6 +46,7 @@ public class DataStructureUtility {
 			next = null;
 		}
 	}
+	
 	public static int day(int month, int i, int year)
 	{
 		int y = year - (14 - month) / 12;
@@ -141,6 +142,7 @@ public class DataStructureUtility {
 	public static int readInteger() {
 		return scanner.nextInt();
 	}	
+
 	public static double readdouble() {
 		return scanner.nextDouble();
 	}
