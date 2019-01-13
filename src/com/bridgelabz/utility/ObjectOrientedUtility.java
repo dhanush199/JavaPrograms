@@ -20,6 +20,7 @@ import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.type.TypeReference;
 
+import com.bridgelabz.objectorientedprograms.Doctor;
 import com.bridgelabz.objectorientedprograms.Inventory;
 import com.bridgelabz.objectorientedprograms.InventoryList;
 import com.bridgelabz.objectorientedprograms.PersonDetails;
@@ -216,11 +217,11 @@ public class ObjectOrientedUtility {
 			System.out.println("---------------------------------------------");
 		}
 	}
-	public static void display(List<InventoryList> list2)
+	public static void display(List<Doctor> list2)
 	{
 		for (int i = 0; i < list2.size(); i++) {
-			InventoryList it = list2.get(i);
-			System.out.println("Inventory name :" + it.getInventoryName());
+			Doctor it = list2.get(i);
+			System.out.println("Inventory name :" + it.);
 			for (int j = 0; j < it.getListOfInventories().size(); j++) {
 				System.out.println("name :" + it.getListOfInventories().get(j).getName());
 				System.out.println("price :" + it.getListOfInventories().get(j).getPrice());
@@ -230,6 +231,20 @@ public class ObjectOrientedUtility {
 			System.out.println("---------------------------------------------");
 		}
 	}
+//	public static void display(List<InventoryList> list2)
+//	{
+//		for (int i = 0; i < list2.size(); i++) {
+//			InventoryList it = list2.get(i);
+//			System.out.println("Inventory name :" + it.getInventoryName());
+//			for (int j = 0; j < it.getListOfInventories().size(); j++) {
+//				System.out.println("name :" + it.getListOfInventories().get(j).getName());
+//				System.out.println("price :" + it.getListOfInventories().get(j).getPrice());
+//				System.out.println("weight :" + it.getListOfInventories().get(j).getWeight());
+//				System.out.println();
+//			}
+//			System.out.println("---------------------------------------------");
+//		}
+//	}
 	
 }
 
