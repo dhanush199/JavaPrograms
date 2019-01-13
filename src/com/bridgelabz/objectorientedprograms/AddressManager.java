@@ -73,7 +73,7 @@ public class AddressManager {
 		FileWriter fw = new FileWriter(sb.toString());
 		BufferedWriter bw = new BufferedWriter(fw);
 		bw.write(json);
-		//bw.flush();
+		bw.flush();
 	}
 	//openBook 
 	public static void display1()
