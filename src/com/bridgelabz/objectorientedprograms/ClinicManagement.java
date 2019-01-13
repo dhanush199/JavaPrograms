@@ -48,18 +48,18 @@ public class ClinicManagement {
 			break;
 			case 2:
 
-			switch () {
-			case 1:	
-
-				break;
-			case 2:
-
-				break;
-
-			default:System.out.println("please enter valid option");
-				break;
-			}
-			break;
+//			switch () {
+//			case 1:	
+//
+//				break;
+//			case 2:
+//
+//				break;
+//
+//			default:System.out.println("please enter valid option");
+//				break;
+//			}
+//			break;
 			case 3:System.out.println("select required option");
 			System.out.println("1 > Display Doctor List");
 		System.out.println("2> Display Patient List");

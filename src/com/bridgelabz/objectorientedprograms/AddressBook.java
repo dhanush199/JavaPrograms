@@ -10,12 +10,10 @@ import org.codehaus.jackson.map.JsonMappingException;
 import com.bridgelabz.utility.DataStructureUtility;
 
 public class AddressBook {
-	//static List<PersonDetails> listOfPerson = new ArrayList<PersonDetails>();
 	static List<PersonDetails> listOfPerson =new ArrayList<PersonDetails>();
 	private static String bookname;
 	//static List<Address> ad=new ArrayList();;
 	static Address add=new Address();
-
 	static PersonDetails persondetails=null;
 	public static void dispOptions(List<PersonDetails> listOfPerson) throws JsonGenerationException, JsonMappingException, IOException {
 		int opt=0;
@@ -25,8 +23,9 @@ public class AddressBook {
 		System.out.println("2> Edit Person");
 		System.out.println("3> Delet Person");
 		System.out.println("4> Sort Book");
+		System.out.println("5> Save Changes ");
+		System.out.println("6> goto main Menu");
 		System.out.println("Enter option");
-		System.out.println("5> goto main Menu");
 		System.out.println("-----------------------------------");
 		opt=DataStructureUtility.readInteger();
 		switch (opt) {
@@ -34,15 +33,15 @@ public class AddressBook {
 		AddressManager.display1();
 		break;
 		case 2: displayTheAddress(listOfPerson);
-			    editPersonDetails(listOfPerson);
+		editPersonDetails(listOfPerson);
 		break;
 		case 3:deletePerson();
-
 		break;
 		case 4: sort();
-
 		break;
-		case 5:AddressBookApplication.main(args);
+		case 5:AddressManager.saveBook(listOfPerson, Address.getFileName());
+		break;
+		case 6:AddressBookApplication.main(args);
 		break;
 
 		default:System.out.println("Enter the valid option");
@@ -51,7 +50,6 @@ public class AddressBook {
 		System.out.println("Press 1 to continue");
 		opt=DataStructureUtility.readInteger();
 		}while(opt==1);
-
 	}
 
 	public static void addPerson() throws JsonGenerationException, JsonMappingException, IOException {
@@ -130,7 +128,7 @@ public class AddressBook {
 		return bookname;
 	}
 
-	public static void editPersonDetails(List<PersonDetails> listOfPerson) throws JsonGenerationException, JsonMappingException, IOException {
+	public static List<PersonDetails> editPersonDetails(List<PersonDetails> listOfPerson) throws JsonGenerationException, JsonMappingException, IOException {
 		System.out.println("Enter the firstname of a person to be edited");
 		String fname = DataStructureUtility.readString();
 		System.out.println("Enter the lastname of a person to be edited");
@@ -144,7 +142,7 @@ public class AddressBook {
 			int choice = 1;
 			while (choice == 1) {
 				System.out.println("Do you want to edit 1:phoneno or 2:Address");
-				
+
 				switch (DataStructureUtility.readInteger()) {
 				case 1: {
 					System.out.println("Enter the phone number which is to be edited");
@@ -155,19 +153,26 @@ public class AddressBook {
 				case 2: {
 					System.out.println("The Address details you want to edit are ");
 					AddressBook.addPerson();
-					 p.setAddress(add);
+					p.setAddress(add);
 					break;
 				}
 				default:
 					System.out.println("Enter the proper first and last name");
 					break;
 				}
-		
+
+				System.out.println("1> Edit More   2> goto Above options");
+				choice=DataStructureUtility.readInteger();
+				if(choice==1)
+					editPersonDetails( listOfPerson);
+				else
+					dispOptions(listOfPerson);
 			}
 			flag = 1;
 		}
 		if (flag == 0)
 			System.out.println("The first and last name you have entered is not persent in the address book");
+	return listOfPerson;
 	}
 
 	public static void displayTheAddress(List<PersonDetails> listOfPerson) {
