@@ -14,14 +14,33 @@ public class AddressBook {
 
 	static PersonDetails persondetails=null;
 	public static void dispOptions() {
-		System.out.println("1> Add Person");
+		int opt=0;
+		do{System.out.println("1> Add Person");
 		System.out.println("2> Edit Person");
 		System.out.println("3> Delet Person");
 		System.out.println("4> Sort Book");
 		System.out.println("Enter option");
-		String str1=DataStructureUtility.readString();
+		 opt=DataStructureUtility.readInteger();
+		 switch (opt) {
+		case 1:addPerson();
+			
+			break;
+		case 2: editPersonDetails();
 		
-	
+		break;
+		case 3:deletePerson();
+		
+		break;
+		case 4: sort();
+		
+		break;
+		
+		default:System.out.println("Enter the vaalid option");
+			break;
+		}
+		System.out.println("Press 1 to continue");
+		 opt=DataStructureUtility.readInteger();
+		}while(opt==1);
 	}
 
 	public static void addPerson() {
