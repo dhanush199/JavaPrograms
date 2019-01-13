@@ -1,5 +1,6 @@
 package com.bridgelabz.objectorientedprograms;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +35,20 @@ public class AddressBookApplication {
 			//				String name=DataStructureUtility.readString();
 			break;
 			case 2:
-				{System.out.println("Enter the book name you wish to open followed by .json");
+				{ File dir = new File("D:/AddressBook/");
+			      String[] children = dir.list();
+			      
+			      if (children == null) {
+			         System.out.println( "Either dir does not exist or is not a directory");
+			      } else { 
+			         for (int i = 0; i< children.length; i++) {
+			            String filename = children[i];
+			            System.out.println(filename);
+			         }
+			      }
+					System.out.println("Enter the book name you wish to open followed by .json");
 				String str1=DataStructureUtility.readString();
-				System.out.println("ToooooPPPPPP");
 				listOfPerson=AddressManager.openBook(str1);
-				System.out.println("BottttoooMMM");
 				AddressBook.displayTheAddress(listOfPerson);
 				AddressBook.dispOptions(listOfPerson);
 				break;}
@@ -56,7 +66,7 @@ public class AddressBookApplication {
 			case 5: AddressManager.deletBook();
 			break;
 			case 6:String s[]= {};
-			System.out.println(Address.getFileName()+" File closed successfully");
+			System.out.println(" File closed successfully");
 			Address.setFileName(null);
 				main(s);
 			break;			

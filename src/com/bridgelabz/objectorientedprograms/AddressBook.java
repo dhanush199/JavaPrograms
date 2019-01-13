@@ -98,7 +98,7 @@ public class AddressBook {
 				flag = 1;
 			}
 			if (flag == 0)
-				System.out.println("No person details is present in the book to delete");
+				System.out.println("404 Error(Person not found)");
 		}
 	}
 

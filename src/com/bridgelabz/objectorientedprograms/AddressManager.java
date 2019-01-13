@@ -16,11 +16,11 @@ import com.bridgelabz.utility.ObjectOrientedUtility;
 public class AddressManager {
 	List<PersonDetails> details = new ArrayList<PersonDetails>();
 	static List<PersonDetails> list2=new ArrayList<PersonDetails>();
-	
+
 	public static StringBuffer creat(String fname) {
 		boolean flag = false;
 		Address.setFileName(fname);
-		String str=	"/home/admin1/Anush/";
+		String str=	"D:/AddressBook/";
 		StringBuffer sb=new StringBuffer(str);
 		sb.append(fname);
 		// create File object
@@ -46,18 +46,18 @@ public class AddressManager {
 	public static void deletBook() throws JsonGenerationException, JsonMappingException, IOException {
 		System.out.println("Enter the book name you wish to delet followed by .jason");
 		String name=DataStructureUtility.readString();
-		StringBuffer sb=new StringBuffer("/home/admin1/Anush/");
+		StringBuffer sb=new StringBuffer("D:/AddressBook/");
 		sb.append(name);
 		File file=new File(sb.toString());
 		System.out.println("Do you really want to delet "+name+ " Book:  1/0");
 		int s=DataStructureUtility.readInteger();
 		if(s==1) {
-		boolean found=file.delete();
-		if(!found){
-			System.out.println(name+" book not found");
-		}
-		else 
-			System.out.println("SuccessFully deleted");}
+			boolean found=file.delete();
+			if(!found){
+				System.out.println(name+" book not found");
+			}
+			else 
+				System.out.println("SuccessFully deleted");}
 		else
 		{
 			String args[]= {};
@@ -76,7 +76,7 @@ public class AddressManager {
 
 	public static void write1(String json,String fName) throws IOException
 	{
-		StringBuffer sb=new StringBuffer("/home/admin1/Anush/");
+		StringBuffer sb=new StringBuffer("D:/AddressBook/");
 		sb.append(fName);
 		FileWriter fw = new FileWriter(sb.toString());
 		BufferedWriter bw = new BufferedWriter(fw);
@@ -98,7 +98,7 @@ public class AddressManager {
 	//openBook
 	public static List<PersonDetails> openBook(String str) throws JsonGenerationException, JsonMappingException, IOException 
 	{		
-		StringBuffer sb=new StringBuffer("/home/admin1/Anush/");
+		StringBuffer sb=new StringBuffer("D:/AddressBook/");
 		sb.append(str);
 		String file = ObjectOrientedUtility.readFile(sb.toString());
 		System.out.println(file);
@@ -116,7 +116,7 @@ public class AddressManager {
 	//Save As method
 	public static String saveAs(String fromName, String toName)
 	{
-		String flname="/home/admin1/Anush";
+		String flname="D:/AddressBook/";
 		try
 		{
 			File fe = new File(flname);
