@@ -96,9 +96,8 @@ public class AddressManager {
 		}
 	}
 	//openBook
-	public static void openBook(String str) throws JsonGenerationException, JsonMappingException, IOException 
+	public static List<PersonDetails> openBook(String str) throws JsonGenerationException, JsonMappingException, IOException 
 	{		
-
 		StringBuffer sb=new StringBuffer("/home/admin1/Anush/");
 		sb.append(str);
 		String file = ObjectOrientedUtility.readFile(sb.toString());
@@ -111,7 +110,8 @@ public class AddressManager {
 		} catch (Exception e) {
 			System.out.println("file is empty!! first add inputs on to file or select second choice");
 		}
-		AddressBook.dispOptions();
+		//
+		return list2;
 	}
 	//Save As method
 	public static String saveAs(String fromName, String toName)

@@ -1,5 +1,6 @@
 package com.bridgelabz.objectorientedprograms;
 
+import java.awt.DisplayMode;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +35,14 @@ public class AddressBookApplication {
 			//				String name=DataStructureUtility.readString();
 			break;
 			case 2:
-				System.out.println("Enter the book name you wish to open followed by .json");
+				{System.out.println("Enter the book name you wish to open followed by .json");
 				String str1=DataStructureUtility.readString();
-				AddressManager.openBook(str1);
-				break;
+				System.out.println("ToooooPPPPPP");
+				listOfPerson=AddressManager.openBook(str1);
+				System.out.println("BottttoooMMM");
+				AddressBook.displayTheAddress(listOfPerson);
+				AddressBook.dispOptions(listOfPerson);
+				break;}
 			case 3:AddressManager.saveBook(listOfPerson,name1);
 			//listOfPerson=AddressBook.addPerson();
 			break;

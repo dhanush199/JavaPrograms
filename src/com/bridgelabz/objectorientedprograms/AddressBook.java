@@ -17,7 +17,7 @@ public class AddressBook {
 	static Address add=new Address();
 
 	static PersonDetails persondetails=null;
-	public static void dispOptions() throws JsonGenerationException, JsonMappingException, IOException {
+	public static void dispOptions(List<PersonDetails> listOfPerson) throws JsonGenerationException, JsonMappingException, IOException {
 		int opt=0;
 		String[] args= {null};
 		// AddressManager.openBook();
@@ -34,8 +34,7 @@ public class AddressBook {
 		AddressManager.display1();
 		break;
 		case 2: displayTheAddress(listOfPerson);
-			editPersonDetails(listOfPerson);
-
+			    editPersonDetails(listOfPerson);
 		break;
 		case 3:deletePerson();
 
@@ -137,8 +136,7 @@ public class AddressBook {
 		System.out.println("Enter the lastname of a person to be edited");
 		String lname = DataStructureUtility.readString();
 		int flag = 0;
-		displayTheAddress(listOfPerson);
-		System.out.println("We are here");
+		//displayTheAddress(listOfPerson);
 		for (PersonDetails p : listOfPerson)
 		{
 			if (fname.equals(p.getFirstName()) && (lname.equals(p.getLastName())))
@@ -146,6 +144,7 @@ public class AddressBook {
 			int choice = 1;
 			while (choice == 1) {
 				System.out.println("Do you want to edit 1:phoneno or 2:Address");
+				
 				switch (DataStructureUtility.readInteger()) {
 				case 1: {
 					System.out.println("Enter the phone number which is to be edited");
@@ -163,8 +162,7 @@ public class AddressBook {
 					System.out.println("Enter the proper first and last name");
 					break;
 				}
-				System.out.println("Do you want to continue editting \t 1:Continue 2:Exit");
-				choice = DataStructureUtility.readInteger();
+		
 			}
 			flag = 1;
 		}
