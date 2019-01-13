@@ -38,7 +38,5 @@ public class Address {
 	}
 	public void setZipCode(long zipCode) {
 		this.zipCode = zipCode;
-	}
-
-	
+	}	
 }

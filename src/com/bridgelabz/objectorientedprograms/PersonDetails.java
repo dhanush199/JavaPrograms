@@ -1,7 +1,5 @@
 package com.bridgelabz.objectorientedprograms;
 
-
-
 public class PersonDetails {
 	private String firstName;
 	private String lastName;

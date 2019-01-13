@@ -13,8 +13,18 @@ public class AddressBook {
 	Address add=new Address();
 
 	static PersonDetails persondetails=null;
+	public static void dispOptions() {
+		System.out.println("1> Add Person");
+		System.out.println("2> Edit Person");
+		System.out.println("3> Delet Person");
+		System.out.println("4> Sort Book");
+		System.out.println("Enter option");
+		String str1=DataStructureUtility.readString();
+		
+	
+	}
 
-	public static List<PersonDetails> addPerson() {
+	public static void addPerson() {
 		//listOfPerson = new ArrayList<PersonDetails>();
 		//PersonDetails persondetails = new PersonDetails();
 		persondetails=new PersonDetails();
@@ -42,18 +52,18 @@ public class AddressBook {
 		adress.setCity(cityName);
 		persondetails.setAddress(adress);
 		listOfPerson.add(persondetails);
-		return listOfPerson;
+		//return listOfPerson;
 	}
-
-	public static void deletePerson(List<PersonDetails> persondetails) {
+	
+	public static void deletePerson() {
 		System.out.println("Enter the first name of the person which needs to be deleted");
 		String fname = DataStructureUtility.readString();
 		System.out.println("Enter the last name of the person which needs to be deleted");
 		String lname = DataStructureUtility.readString();
 		int flag = 0;
-		for (PersonDetails p : persondetails) {
+		for (PersonDetails p : listOfPerson) {
 			if (fname.equals(p.getFirstName()) && (lname.equals(p.getLastName()))) {
-				persondetails.remove(p);
+				listOfPerson.remove(p);
 				System.out.println("The person is succesfully deleted");
 				flag = 1;
 			}
@@ -61,22 +71,22 @@ public class AddressBook {
 				System.out.println("No person details is present in the book to delete");
 		}
 	}
-
+	
 	public static void sort() {
+		System.out.println("1> sort by last name ");
+		System.out.println("2> sort by zipCode");
 		System.out.println("please select one option");
-		System.out.println("1> sort by last name    2>sort by zipCode");
 		int opt = DataStructureUtility.readInteger();
 		switch (opt) {
-		case 1: // sort by last name
+		case 1: AddressManager.sortByLastName(listOfPerson);
 			break;
-		case 2:// sort by zipCode
+		case 2:AddressManager.sortByZipCode(listOfPerson);
 			break;
 		default:
 			System.out.println("Enter an valid option");
 			break;
 		}
 	}
-
 	public void setaddresBookname(String bookname) {
 		this.bookname = bookname;
 	}
@@ -85,7 +95,7 @@ public class AddressBook {
 		return bookname;
 	}
 
-	public static void editPersonDetails(List<PersonDetails> listOfPerson) {
+	public static void editPersonDetails() {
 		System.out.println("Enter the firstname of a person to be edited");
 		String fname = DataStructureUtility.readString();
 		System.out.println("Enter the lastname of a person to be edited");
@@ -106,7 +116,7 @@ public class AddressBook {
 				}
 				case 2: {
 					System.out.println("The Address details you want to edit are ");
-					List<PersonDetails> add = AddressBook.addPerson();
+					 AddressBook.addPerson();
 					// p.setAddress(add);
 					break;
 				}

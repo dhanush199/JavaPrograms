@@ -15,8 +15,41 @@ import com.bridgelabz.utility.ObjectOrientedUtility;
 
 public class AddressManager {
 	List<PersonDetails> details = new ArrayList<PersonDetails>();
-	static List<PersonDetails> list2=new ArrayList();
+	//static List<PersonDetails> list2=new ArrayList();
+
+	public void editOperations() {
+		int opt=0;
+		System.out.println("press 1>Add Person   2> Edit Person  3> Delet Person data  4> Sort");
+		System.out.println("Select one option");
+		opt=DataStructureUtility.readInteger();
+		switch (opt) {
+		case 1://listOfPerson=AddressBook.addPerson();
+			AddressBook.addPerson();
+			break;
+		case 2://AddressBook.editPersonDetails(listOfPerson)
+			AddressBook.editPersonDetails();
+
+			break;
+		case 3://AddressBook.deletePerson(listOfPerson);
+			AddressBook.deletePerson();
+			break;
+		case 4:AddressBook.sort();
+			break;
+
+		default:
+			break;
+		}
+
+	}
 	//Creat Method//
+
+	/* 
+	 * 				
+					=
+								 System.out.println("Enter the Book Name");
+
+
+	 * */
 
 	public static StringBuffer creat(String fname) {
 
@@ -90,7 +123,7 @@ public class AddressManager {
 	//openBook
 	public static void openBook(String str) throws FileNotFoundException 
 	{		
-		
+
 		StringBuffer sb=new StringBuffer("/home/admin1/Anush/");
 		sb.append(str);
 		String file = ObjectOrientedUtility.readFile(sb.toString());
@@ -127,19 +160,19 @@ public class AddressManager {
 	public static boolean closeBook() {
 		return false;
 	}
+
 	public static void sortByLastName(List<PersonDetails> listOfPerson) {
-        Collections.sort(listOfPerson, (person1, person2) -> person1.getLastName().compareTo(person2.getLastName()));
-        System.out.println("Sorted by last Name");
-    }
+		Collections.sort(listOfPerson, (person1, person2) -> person1.getLastName().compareTo(person2.getLastName()));
+		System.out.println("Sorted by last Name");
+	}
+	public static void sortByZipCode(List<PersonDetails> listOfPerson) {
+		Collections.sort(listOfPerson,
+				(person1, person2) -> person1.getAddress().getZipCode() > person2.getAddress().getZipCode() ? 1
+						: person1.getAddress().getZipCode() < person2.getAddress().getZipCode() ? -1
+								: person1.getAddress().getZipCode() == person2.getAddress().getZipCode() ? 0 : -10);
+		System.out.println("Sorted via Zip code");
 
-    public static void sortByZipCode(List<PersonDetails> listOfPerson) {
-        Collections.sort(listOfPerson,
-                (person1, person2) -> person1.getAddress().getZipCode() > person2.getAddress().getZipCode() ? 1
-                        : person1.getAddress().getZipCode() < person2.getAddress().getZipCode() ? -1
-                                : person1.getAddress().getZipCode() == person2.getAddress().getZipCode() ? 0 : -10);
-        System.out.println("Sorted via Zip code");
-
-    }
+	}
 
 
 }
