@@ -14,6 +14,7 @@ import com.bridgelabz.utility.ObjectOrientedUtility;
 
 public class AddressManager {
 	List<PersonDetails> details = new ArrayList<PersonDetails>();
+	static List<PersonDetails> list2=new ArrayList();
 	//Creat Method//
 
 	public static StringBuffer creat(String fname) {
@@ -73,9 +74,9 @@ public class AddressManager {
 		bw.flush();
 	}
 	//openBook 
-	public static void display1(List<PersonDetails> listOfPerson)
+	public static void display1()
 	{
-		for (PersonDetails p:listOfPerson ) {
+		for (PersonDetails p:list2 ) {
 			System.out.println(p.getFirstName());
 			System.out.println(p.getLastName());
 			System.out.println(p.getPhoneNum());
@@ -87,7 +88,7 @@ public class AddressManager {
 	//openBook
 	public static void openBook(String str) throws FileNotFoundException 
 	{		
-		List<PersonDetails> list2=new ArrayList();
+		
 		StringBuffer sb=new StringBuffer("/home/admin1/Anush/");
 		sb.append(str);
 		String file = ObjectOrientedUtility.readFile(sb.toString());

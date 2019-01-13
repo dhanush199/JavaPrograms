@@ -32,8 +32,6 @@ public class PersonDetails {
 		this.address = address;
 	}
 
-
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}

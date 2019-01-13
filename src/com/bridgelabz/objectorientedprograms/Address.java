@@ -1,33 +1,20 @@
 package com.bridgelabz.objectorientedprograms;
 
-public class Address {
-	private String state;
-	private String BookName;
+import java.util.ArrayList;
+import java.util.List;
 
+public class Address {
+	List<Address> address=new ArrayList<Address>();
+	private String state;
 	private String street;
 	private String city;
-	private String address;
-	public String getBookName() {
-		return BookName;
-	}
-	public void setBookName(String bookName) {
-		BookName = bookName;
-	}
-	public Address() {
-	
-		this.state = null;
-		this.street = null;
-		this.city = null;
-		this.zipCode = 000;
-	}
-	public String getAddress() {
+	private long zipCode;
+	public  List<Address> getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public Address() {
+		
 	}
-	private int zipCode;
-
 	public String getState() {
 		return state;
 	}
@@ -46,13 +33,12 @@ public class Address {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getZipCode() {
+	public long getZipCode() {
 		return zipCode;
 	}
-	public void setZipCode(int zipCode) {
+	public void setZipCode(long zipCode) {
 		this.zipCode = zipCode;
 	}
-	
 
 	
 }
