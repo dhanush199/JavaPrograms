@@ -11,10 +11,9 @@ import com.bridgelabz.utility.DataStructureUtility;
 
 public class Main {
 	static List<PersonDetails> listOfPerson=new ArrayList<PersonDetails> ();
-	
+
 	public static void main(String args[]) throws JsonGenerationException, JsonMappingException, IOException {
-		
-		//PersonDetails persondetails=new PersonDetails();
+
 		while(true){
 			System.out.println("1> Create Book");
 			System.out.println("2> Save As( rename book )");
@@ -41,7 +40,18 @@ public class Main {
 				break;
 				case 3:AddressBook.deletePerson(listOfPerson);
 				break;
-				case 4:System.out.println("1> Sort by lastname   2> Sort by ZipCode ");
+				case 4:System.out.println("1> Sort by ZipCode   2> Sort by lastname ");
+				switch (DataStructureUtility.readInteger()) {
+				case 1:AddressManager.sortByZipCode(listOfPerson);
+
+				break;
+				case 2:AddressManager.sortByLastName(listOfPerson);
+
+				break;
+
+				default:
+					break;
+				}
 				break;
 
 				default:System.out.println("Please enter the valid option");

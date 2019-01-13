@@ -27,12 +27,14 @@ public class Patient {
 	public void setdList(List<Patient> dList) {
 		this.dList = dList;
 	}
-	public void setDoctor(Doctor doctor) {
-		this.doctor = doctor;
-	}
-	Doctor doctor=new Doctor();
+//	public void setDoctor(Doctor doctor) {
+//		this.doctor = doctor;
+//	}
+	//Doctor doctor=new Doctor();
 	List<Patient> dList=new ArrayList<Patient>();
 	private String consultTime;
+	private String speciality;
+	private String availability;
 	public String getpName() {
 		return pName;
 	}
@@ -45,24 +47,24 @@ public class Patient {
 	public void setpNum(long pNum) {
 		this.pNum = pNum;
 	}
-	//	public String getSpeciality() {
-	//		return speciality;
-	//	}
-	//	public void setSpeciality(String speciality) {
-	//		this.speciality = speciality;
-	//	}
-	//	public String getAvailability() {
-	//		return availability;
-	//	}
-	//	public void setAvailability(String availability) {
-	//		this.availability = availability;
-	//	}
-	public void setDoctor() {
-		this.doctor=doctor;
-	}
-	public Doctor getDoctor() {
-		return doctor;
-	}
+//		public String getSpeciality() {
+//			return speciality;
+//		}
+//		public void setSpeciality(String speciality) {
+//			this.speciality = speciality;
+//		}
+//		public String getAvailability() {
+//			return availability;
+//		}
+//		public void setAvailability(String availability) {
+//			this.availability = availability;
+//		}
+//	public void setDoctor() {
+//		this.doctor=doctor;
+//	}
+//	public Doctor getDoctor() {
+//		return doctor;
+//	}
 	public void setConsultTime(String readString) {
 		this.consultTime=readString;
 		

@@ -12,8 +12,15 @@ public class Doctor {
     private String availability;
     private String tommarrowAppointmnt;
     private boolean[] isFull={false};
+    List<Doctor> doctorInfoList=new ArrayList<Doctor>();
     public String getTommarrowAppointmnt() {
 		return tommarrowAppointmnt;
+	}
+	public List<Doctor> getDoctorInfoList() {
+		return doctorInfoList;
+	}
+	public void setDoctorInfoList(List<Doctor> doctorInfoList) {
+		this.doctorInfoList = doctorInfoList;
 	}
 	public void setTommarrowAppointmnt(String tommarrowAppointmnt) {
 		this.tommarrowAppointmnt = tommarrowAppointmnt;
@@ -58,7 +65,7 @@ public class Doctor {
 		this.availability = availability;
 	}
 	public void setDoctor() {
-		this.patient=patient;
+		this.patient=null;
 	}
 	public Patient getDoctor() {
 		return patient;

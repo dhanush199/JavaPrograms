@@ -2,6 +2,7 @@ package com.bridgelabz.objectorientedprograms;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.codehaus.jackson.JsonGenerationException;
@@ -125,7 +126,19 @@ public class AddressManager {
 	public static boolean closeBook() {
 		return false;
 	}
+	public static void sortByLastName(List<PersonDetails> listOfPerson) {
+        Collections.sort(listOfPerson, (person1, person2) -> person1.getLastName().compareTo(person2.getLastName()));
+        System.out.println("Sorted by last Name");
+    }
 
+    public static void sortByZipCode(List<PersonDetails> listOfPerson) {
+        Collections.sort(listOfPerson,
+                (person1, person2) -> person1.getAddress().getZipCode() > person2.getAddress().getZipCode() ? 1
+                        : person1.getAddress().getZipCode() < person2.getAddress().getZipCode() ? -1
+                                : person1.getAddress().getZipCode() == person2.getAddress().getZipCode() ? 0 : -10);
+        System.out.println("Sorted via Zip code");
+
+    }
 
 
 }
