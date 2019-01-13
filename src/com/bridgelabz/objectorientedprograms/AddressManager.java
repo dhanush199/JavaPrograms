@@ -61,7 +61,8 @@ public class AddressManager {
 		System.out.println(fname);
 		System.out.println(listOfPerson);
 		ObjectMapper objectMapper=new ObjectMapper();
-		String json = objectMapper.writeValueAsString(listOfPerson);
+		list2.addAll(listOfPerson);
+		String json = objectMapper.writeValueAsString(list2);
 		AddressManager.write1(json,fname);
 		System.out.println("Book saved");
 	}
@@ -72,7 +73,7 @@ public class AddressManager {
 		FileWriter fw = new FileWriter(sb.toString());
 		BufferedWriter bw = new BufferedWriter(fw);
 		bw.write(json);
-		bw.flush();
+		//bw.flush();
 	}
 	//openBook 
 	public static void display1()

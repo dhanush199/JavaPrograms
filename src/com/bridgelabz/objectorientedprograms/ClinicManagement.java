@@ -46,16 +46,13 @@ public class ClinicManagement {
 
 
 			break;
-			case 2:System.out.println("select required option");
-				System.out.println("1 > Display Doctor List");
-			System.out.println("2> Display Patient List");
-			int value=DataStructureUtility.readInteger();
+			case 2:
 
-			switch (value) {
-			case 1:	displayDoctor(DoctorMethod.getDoctorList());
+			switch () {
+			case 1:	
 
 				break;
-			case 2:displayPatient(PatientMethod.patientList);
+			case 2:
 
 				break;
 
@@ -63,7 +60,23 @@ public class ClinicManagement {
 				break;
 			}
 			break;
-			case 3:
+			case 3:System.out.println("select required option");
+			System.out.println("1 > Display Doctor List");
+		System.out.println("2> Display Patient List");
+		int value=DataStructureUtility.readInteger();
+
+		switch (value) {
+		case 1:	displayDoctor(DoctorMethod.getDoctorList());
+
+			break;
+		case 2:displayPatient(PatientMethod.patientList);
+
+			break;
+
+		default:System.out.println("please enter valid option");
+			break;
+		}
+		
 
 				break;
 

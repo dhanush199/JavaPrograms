@@ -28,10 +28,10 @@ import com.bridgelabz.objectorientedprograms.PersonDetails;
 public class ObjectOrientedUtility {
 	static Scanner sc=new Scanner(System.in);
 	BufferedReader br;
-	private final String REGEX_NAME = "<<name>>";
-	private final String REGEX_FULLNAME = "<<full name>> ";
-	private final String REGEX_MOBILE_NO = "xxxxxxxxxx";
-	private final String REGEX_DATE = "12/06/2016";
+	private final String REGEX_NAME = "<{2}+\\w+>{2}";
+	private final String REGEX_FULLNAME = "<{2}+\\w+>{2} ";
+	private final String REGEX_MOBILE_NO = "x{10}";
+	private final String REGEX_DATE = "\\d{2}+/+\\d{2}+/+\\d{4}";
 	//constructor to initialize bufferedReader
 	public ObjectOrientedUtility(){
 		br = new BufferedReader(new InputStreamReader(System.in));

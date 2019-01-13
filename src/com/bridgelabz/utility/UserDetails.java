@@ -44,7 +44,7 @@ public class UserDetails
 	}
 
 	public String date(){
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = new Date();
 		return dateFormat.format(date);
 	}
