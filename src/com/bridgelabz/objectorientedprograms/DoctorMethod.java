@@ -64,37 +64,32 @@ public class DoctorMethod {
 				int opt=DataStructureUtility.readInteger();
 				if(opt==1)
 					//ClinicManagement.getTomarrowAppointment(name,"tomarrow");
-
-
 				//else {
 					System.out.println(name+" Doctor is available for the day@");
 					System.out.println("press 1> Take Appointment  2> Exit");
 					if(DataStructureUtility.readInteger()==1){
 						//ClinicManagement.getAppointment(name);
 					//}
-					
-
+				
 				}
-
 			}
-
 		}
 	}
-	public void doctorSortByName(){
-        Collections.sort(doctorList, (doctor1, doctor2) -> doctor1.getdName().compareTo(doctor2.getdName()));
-    	System.out.println("Doctor List has been sorted based on Doctor Names");
-    	System.out.println(doctorList);   
-    	}
-
-	public void doctorSortByID(){
-	
-		System.out.println("Doctor List has been sorted based on Doctor ID");
-		System.out.println(doctorList);
-
-    }
-	public void doctorSortBySpeciality(){ 
-        Collections.sort(doctorList, (doctor1, doctor2) -> doctor1.getSpeciality().compareTo(doctor2.getSpeciality()));
-    	System.out.println("Doctor List has been sorted based on speciality");
-		System.out.println(doctorList);   
-		}
+//	public void doctorSortByName(){
+//        Collections.sort(doctorList, (doctor1, doctor2) -> doctor1.getdName().compareTo(doctor2.getdName()));
+//    	System.out.println("Doctor List has been sorted based on Doctor Names");
+//    	System.out.println(doctorList);   
+//    	}
+//
+//	public void doctorSortByID(){
+//	
+//		System.out.println("Doctor List has been sorted based on Doctor ID");
+//		System.out.println(doctorList);
+//
+//    }
+//	public void doctorSortBySpeciality(){ 
+//        Collections.sort(doctorList, (doctor1, doctor2) -> doctor1.getSpeciality().compareTo(doctor2.getSpeciality()));
+//    	System.out.println("Doctor List has been sorted based on speciality");
+//		System.out.println(doctorList);   
+//		}
 }

@@ -34,7 +34,7 @@ public class Main {
 				System.out.println("Please select option");
 				switch (DataStructureUtility.readInteger()) {
 				case 1:listOfPerson=AddressBook.addPerson();
-				AddressManager.saveBook(listOfPerson, name);
+				//AddressManager.saveBook(listOfPerson, name);
 				break;
 				case 2:AddressBook.editPersonDetails(listOfPerson);
 				break;

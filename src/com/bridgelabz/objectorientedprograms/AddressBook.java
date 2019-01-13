@@ -6,15 +6,18 @@ import java.util.List;
 import com.bridgelabz.utility.DataStructureUtility;
 
 public class AddressBook {
-	static List<PersonDetails> listOfPerson = new ArrayList<PersonDetails>();
+	//static List<PersonDetails> listOfPerson = new ArrayList<PersonDetails>();
+	static List<PersonDetails> listOfPerson =new ArrayList<PersonDetails>();
 	private static String bookname;
-	static List<Address> ad=new ArrayList();;
+	//static List<Address> ad=new ArrayList();;
 	Address add=new Address();
 
-	static PersonDetails p=new PersonDetails();
+	static PersonDetails persondetails=null;
 
 	public static List<PersonDetails> addPerson() {
-		PersonDetails persondetails = new PersonDetails();
+		//listOfPerson = new ArrayList<PersonDetails>();
+		//PersonDetails persondetails = new PersonDetails();
+		persondetails=new PersonDetails();
 		System.out.println("Enter the first name of the person");
 		String firstName = DataStructureUtility.readString();
 		persondetails.setFirstName(firstName);
@@ -41,7 +44,7 @@ public class AddressBook {
 		listOfPerson.add(persondetails);
 		return listOfPerson;
 	}
-	
+
 	public static void deletePerson(List<PersonDetails> persondetails) {
 		System.out.println("Enter the first name of the person which needs to be deleted");
 		String fname = DataStructureUtility.readString();
@@ -58,7 +61,7 @@ public class AddressBook {
 				System.out.println("No person details is present in the book to delete");
 		}
 	}
-	
+
 	public static void sort() {
 		System.out.println("please select one option");
 		System.out.println("1> sort by last name    2>sort by zipCode");
@@ -121,7 +124,6 @@ public class AddressBook {
 	}
 
 	public static void displayTheAddress(List<PersonDetails> listOfPerson) {
-
 		if(!listOfPerson.isEmpty())
 		{
 			for(PersonDetails p2:listOfPerson) {
@@ -129,15 +131,14 @@ public class AddressBook {
 				System.out.println("Last Name :" + p2.getLastName());
 				System.out.println("Phone Number :" + p2.getPhoneNum());
 				System.out.println("Address datails: ");
-				System.out.println(ad);
-				for(int g=0;g<listOfPerson.size();g++) {
-//				System.out.println("Street Name :" + ad.get(g).getStreet());
-//				System.out.println("City Name :" + ad.get(g).getCity());
-//				System.out.println("State Name :" + ad.get(g).getState());
-//				System.out.println("Zip Code :" + ad.get(g).getZipCode());
-					System.out.println("Street Name :" +listOfPerson.get(g).toString());
+				Address ad=new Address();
+				System.out.println("Street Name :" + p2.getAddress().getStreet());
+				System.out.println("City Name :" + p2.getAddress().getCity());
+				System.out.println("State Name :" + p2.getAddress().getState());
+				System.out.println("Zip Code :" + p2.getAddress().getZipCode());
+				System.out.println("Street Name :" +p2.getAddress().toString());
 				System.out.println("______________________________");
-		}}
 			}
+		}
 	}
 }
