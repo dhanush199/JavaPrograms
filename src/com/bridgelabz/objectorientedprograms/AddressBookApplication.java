@@ -1,6 +1,5 @@
 package com.bridgelabz.objectorientedprograms;
 
-import java.awt.DisplayMode;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
