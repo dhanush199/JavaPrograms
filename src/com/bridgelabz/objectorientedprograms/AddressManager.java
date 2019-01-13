@@ -15,45 +15,11 @@ import com.bridgelabz.utility.ObjectOrientedUtility;
 
 public class AddressManager {
 	List<PersonDetails> details = new ArrayList<PersonDetails>();
-	//static List<PersonDetails> list2=new ArrayList();
-
-	public void editOperations() {
-		int opt=0;
-		System.out.println("press 1>Add Person   2> Edit Person  3> Delet Person data  4> Sort");
-		System.out.println("Select one option");
-		opt=DataStructureUtility.readInteger();
-		switch (opt) {
-		case 1://listOfPerson=AddressBook.addPerson();
-			AddressBook.addPerson();
-			break;
-		case 2://AddressBook.editPersonDetails(listOfPerson)
-			AddressBook.editPersonDetails();
-
-			break;
-		case 3://AddressBook.deletePerson(listOfPerson);
-			AddressBook.deletePerson();
-			break;
-		case 4:AddressBook.sort();
-			break;
-
-		default:
-			break;
-		}
-
-	}
-	//Creat Method//
-
-	/* 
-	 * 				
-					=
-								 System.out.println("Enter the Book Name");
-
-
-	 * */
-
+	static List<PersonDetails> list2=new ArrayList<PersonDetails>();
+	
 	public static StringBuffer creat(String fname) {
-
 		boolean flag = false;
+		Address.setFileName(fname);
 		String str=	"/home/admin1/Anush/";
 		StringBuffer sb=new StringBuffer(str);
 		sb.append(fname);
@@ -77,18 +43,26 @@ public class AddressManager {
 		return sb;
 	}
 	//Delet method//
-	public static void deletBook() {
+	public static void deletBook() throws JsonGenerationException, JsonMappingException, IOException {
 		System.out.println("Enter the book name you wish to delet followed by .jason");
 		String name=DataStructureUtility.readString();
 		StringBuffer sb=new StringBuffer("/home/admin1/Anush/");
 		sb.append(name);
 		File file=new File(sb.toString());
+		System.out.println("Do you really want to delet "+name+ " Book:  1/0");
+		int s=DataStructureUtility.readInteger();
+		if(s==1) {
 		boolean found=file.delete();
 		if(!found){
 			System.out.println(name+" book not found");
 		}
 		else 
-			System.out.println("SuccessFully deleted");
+			System.out.println("SuccessFully deleted");}
+		else
+		{
+			String args[]= {};
+			AddressBookApplication.main(args);
+		}
 	}
 	public static void saveBook(List<PersonDetails> listOfPerson,String fname) throws JsonGenerationException, JsonMappingException, IOException {
 		System.out.println(fname);
@@ -99,6 +73,7 @@ public class AddressManager {
 		AddressManager.write1(json,fname);
 		System.out.println("Book saved");
 	}
+
 	public static void write1(String json,String fName) throws IOException
 	{
 		StringBuffer sb=new StringBuffer("/home/admin1/Anush/");
@@ -121,7 +96,7 @@ public class AddressManager {
 		}
 	}
 	//openBook
-	public static void openBook(String str) throws FileNotFoundException 
+	public static void openBook(String str) throws JsonGenerationException, JsonMappingException, IOException 
 	{		
 
 		StringBuffer sb=new StringBuffer("/home/admin1/Anush/");
@@ -136,6 +111,7 @@ public class AddressManager {
 		} catch (Exception e) {
 			System.out.println("file is empty!! first add inputs on to file or select second choice");
 		}
+		AddressBook.dispOptions();
 	}
 	//Save As method
 	public static String saveAs(String fromName, String toName)

@@ -1,7 +1,11 @@
 package com.bridgelabz.objectorientedprograms;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 
 import com.bridgelabz.utility.DataStructureUtility;
 
@@ -10,40 +14,48 @@ public class AddressBook {
 	static List<PersonDetails> listOfPerson =new ArrayList<PersonDetails>();
 	private static String bookname;
 	//static List<Address> ad=new ArrayList();;
-	Address add=new Address();
+	static Address add=new Address();
 
 	static PersonDetails persondetails=null;
-	public static void dispOptions() {
+	public static void dispOptions() throws JsonGenerationException, JsonMappingException, IOException {
 		int opt=0;
+		String[] args= {null};
+		// AddressManager.openBook();
 		do{System.out.println("1> Add Person");
 		System.out.println("2> Edit Person");
 		System.out.println("3> Delet Person");
 		System.out.println("4> Sort Book");
 		System.out.println("Enter option");
-		 opt=DataStructureUtility.readInteger();
-		 switch (opt) {
+		System.out.println("5> goto main Menu");
+		System.out.println("-----------------------------------");
+		opt=DataStructureUtility.readInteger();
+		switch (opt) {
 		case 1:addPerson();
-			
-			break;
-		case 2: editPersonDetails();
-		
+		AddressManager.display1();
+		break;
+		case 2: displayTheAddress(listOfPerson);
+			editPersonDetails(listOfPerson);
+
 		break;
 		case 3:deletePerson();
-		
+
 		break;
 		case 4: sort();
-		
+
 		break;
-		
-		default:System.out.println("Enter the vaalid option");
-			break;
+		case 5:AddressBookApplication.main(args);
+		break;
+
+		default:System.out.println("Enter the valid option");
+		break;
 		}
 		System.out.println("Press 1 to continue");
-		 opt=DataStructureUtility.readInteger();
+		opt=DataStructureUtility.readInteger();
 		}while(opt==1);
+
 	}
 
-	public static void addPerson() {
+	public static void addPerson() throws JsonGenerationException, JsonMappingException, IOException {
 		//listOfPerson = new ArrayList<PersonDetails>();
 		//PersonDetails persondetails = new PersonDetails();
 		persondetails=new PersonDetails();
@@ -71,9 +83,11 @@ public class AddressBook {
 		adress.setCity(cityName);
 		persondetails.setAddress(adress);
 		listOfPerson.add(persondetails);
+		displayTheAddress( listOfPerson);
+		AddressManager.saveBook(listOfPerson,Address.getFileName());
 		//return listOfPerson;
 	}
-	
+
 	public static void deletePerson() {
 		System.out.println("Enter the first name of the person which needs to be deleted");
 		String fname = DataStructureUtility.readString();
@@ -90,17 +104,20 @@ public class AddressBook {
 				System.out.println("No person details is present in the book to delete");
 		}
 	}
-	
-	public static void sort() {
+
+	public static void sort() throws JsonGenerationException, JsonMappingException, IOException {
 		System.out.println("1> sort by last name ");
 		System.out.println("2> sort by zipCode");
 		System.out.println("please select one option");
 		int opt = DataStructureUtility.readInteger();
 		switch (opt) {
 		case 1: AddressManager.sortByLastName(listOfPerson);
-			break;
+		AddressManager.saveBook(listOfPerson, Address.getFileName());
+		break;
 		case 2:AddressManager.sortByZipCode(listOfPerson);
-			break;
+		AddressManager.saveBook(listOfPerson, Address.getFileName());
+
+		break;
 		default:
 			System.out.println("Enter an valid option");
 			break;
@@ -114,13 +131,16 @@ public class AddressBook {
 		return bookname;
 	}
 
-	public static void editPersonDetails() {
+	public static void editPersonDetails(List<PersonDetails> listOfPerson) throws JsonGenerationException, JsonMappingException, IOException {
 		System.out.println("Enter the firstname of a person to be edited");
 		String fname = DataStructureUtility.readString();
 		System.out.println("Enter the lastname of a person to be edited");
 		String lname = DataStructureUtility.readString();
 		int flag = 0;
-		for (PersonDetails p : listOfPerson) {
+		displayTheAddress(listOfPerson);
+		System.out.println("We are here");
+		for (PersonDetails p : listOfPerson)
+		{
 			if (fname.equals(p.getFirstName()) && (lname.equals(p.getLastName())))
 				System.out.println("Do you want to edit ");
 			int choice = 1;
@@ -135,8 +155,8 @@ public class AddressBook {
 				}
 				case 2: {
 					System.out.println("The Address details you want to edit are ");
-					 AddressBook.addPerson();
-					// p.setAddress(add);
+					AddressBook.addPerson();
+					 p.setAddress(add);
 					break;
 				}
 				default:

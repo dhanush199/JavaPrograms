@@ -8,6 +8,7 @@ public class Address {
 	private String state;
 	private String street;
 	private String city;
+	private static String fileName;
 	private long zipCode;
 	public  List<Address> getAddress() {
 		return address;
@@ -38,5 +39,11 @@ public class Address {
 	}
 	public void setZipCode(long zipCode) {
 		this.zipCode = zipCode;
-	}	
+	}
+	public static String getFileName() {
+		return fileName;
+	}
+	public static void setFileName(String s) {
+		 fileName=s;
+	}
 }

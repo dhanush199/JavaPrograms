@@ -21,6 +21,8 @@ public class AddressBookApplication {
 			System.out.println("3> Save Book");
 			System.out.println("4> Save As( rename book )");
 			System.out.println("5> Delet Book( will delet all records");
+			System.out.println("6> closeBook");
+			System.out.println("-----------------------------------");
 			System.out.println("select the option");
 			int opt=DataStructureUtility.readInteger();
 			switch (opt) {
@@ -36,10 +38,6 @@ public class AddressBookApplication {
 				String str1=DataStructureUtility.readString();
 				AddressManager.openBook(str1);
 				break;
-//				System.out.println("1> Add Person");
-//				System.out.println("2> Edit Person");
-//				System.out.println("3> Delet Person");
-//				System.out.println("4> Sort Book");
 			case 3:AddressManager.saveBook(listOfPerson,name1);
 			//listOfPerson=AddressBook.addPerson();
 			break;
@@ -51,40 +49,18 @@ public class AddressBookApplication {
 			System.out.println(str);
 				//AddressBook.editPersonDetails(listOfPerson);
 			break;
-			case 5://CloseBook
-				//
+			case 5: AddressManager.deletBook();
 			break;
-
-
-			case 6: AddressManager.deletBook();
-		
-				break;
+			case 6:String s[]= {};
+			System.out.println(Address.getFileName()+" File closed successfully");
+			Address.setFileName(null);
+				main(s);
+			break;			
 //			case 6: 
 //				//AddressBook.displayTheAddress(listOfPerson);
-		
 			default:System.out.println("Enter the valid option");
 			break;
 			}
 		}
 	}
 }
-
-/*
- * 				case 4:System.out.println("1> Sort by ZipCode   2> Sort by lastname ");
-				switch (DataStructureUtility.readInteger()) {
-				case 1:AddressManager.sortByZipCode(listOfPerson);
-
-				break;
-				case 2:AddressManager.sortByLastName(listOfPerson);
-
-				break;
-
-				default:
-					break;
-				}
-				break;
-
-				default:System.out.println("Please enter the valid option");
-				break;
-				}
-				break;*/
