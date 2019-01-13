@@ -20,9 +20,58 @@ public class ClinicManagement {
 		PatientMethod patientDetails=new PatientMethod();
 		DoctorMethod doctorMethods=new DoctorMethod();
 		while(true){
-			DoctorMethod.addDoctor();
-			displayDoctor(DoctorMethod.getDoctorList());
-			PatientMethod.addPatient();
+			System.out.println("1 > Add Doctor/Patient");
+			System.out.println("2 > search Doctor/Patient");
+			System.out.println("3 > Display Doctor/Patient");
+			System.out.println("select option");
+			int opt=DataStructureUtility.readInteger();
+
+			switch (opt) {
+			case 1:System.out.println("select required option");
+			System.out.println("1> Add Doctor ");
+			System.out.println("1> Add Patient ");
+			int key=DataStructureUtility.readInteger();
+			switch (key) {
+			case 1:DoctorMethod.addDoctor();
+
+			break;
+			case 2:PatientMethod.addPatient();
+
+			break;
+
+			default:System.out.println("please enter valid option");
+			break;
+			}
+
+
+
+			break;
+			case 2:System.out.println("select required option");
+				System.out.println("1 > Display Doctor List");
+			System.out.println("2> Display Patient List");
+			int value=DataStructureUtility.readInteger();
+
+			switch (value) {
+			case 1:	displayDoctor(DoctorMethod.getDoctorList());
+
+				break;
+			case 2:displayPatient(PatientMethod.patientList);
+
+				break;
+
+			default:System.out.println("please enter valid option");
+				break;
+			}
+			break;
+			case 3:
+
+				break;
+
+			default:
+				break;
+			}
+		
+
 			System.out.println("enter the name of the doctor whom you want to search");
 			String dName=DataStructureUtility.readString();
 			DoctorMethod.checkAvailabillity(dName);
@@ -100,7 +149,7 @@ public class ClinicManagement {
 			System.out.println("Patient name  :" + it.getpName());
 			System.out.println("Patient ID    :" + it.getPid());
 			System.out.println("Patient MobNo.:" + it.getpNum());
-//			System.out.println("Patient :" + it.getSpeciality());
+			//			System.out.println("Patient :" + it.getSpeciality());
 			System.out.println();
 		}
 		System.out.println("---------------------------------------------");
