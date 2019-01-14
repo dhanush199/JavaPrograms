@@ -45,7 +45,7 @@ public class ClinicManagement<T> {
 		patientList.addAll(list2);
 		
 		System.out.println("Patient has been added succesfully");
-		//displayFile("/home/admin1/ClinicManagement/patientRecords.json");
+//		displayFile("/home/admin1/ClinicManagement/patientRecords.json");
 //		displayPatient(patientList);
 //		System.out.println("Do you want to save Patient details to the file?   1> Save    2> Cancel");
 //		if(DataStructureUtility.readInteger()==1) {
@@ -222,14 +222,14 @@ public class ClinicManagement<T> {
 		else{
 			System.out.println("Doctor Found");
 			System.out.println("press 1> Check Availability  2> Exit");
-	//		if( !checkAvailabillity(name)){
+//			if( !checkAvailabillity(name)){
 				System.out.println("Doctor not available for the day!!");
 				System.out.println("Press 1> Get tommarrows Appointment  2> Quite");
 				int opt=DataStructureUtility.readInteger();
 				if(opt==1)
 					//ClinicManagement.getTomarrowAppointment(name,"tomarrow");
 					//else {
-					System.out.println(name+" Doctor is available tomarrow");
+			    System.out.println(name+" Doctor is available tomarrow");
 				System.out.println("press 1> Take Appointment  2> Exit");
 				if(DataStructureUtility.readInteger()==1){
 					//ClinicManagement.getAppointment(name);
