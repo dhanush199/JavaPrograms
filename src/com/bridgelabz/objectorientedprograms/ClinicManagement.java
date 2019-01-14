@@ -71,14 +71,13 @@ public class ClinicManagement<T> {
 		System.out.println("Enter the availability of the doctor AM or PM");
 		doctorDetails.setAvailability(DataStructureUtility.readString());
 		doctorList.add(doctorDetails);
+		saveDoctorFile("/home/admin1/ClinicManagement/DoctorRecords.json",doctorList);
 	//	displayDoctor(doctorList);
 	//	System.out.println(doctorList);
 		System.out.println(list1);
 		list1=displayDoctorFile("/home/admin1/ClinicManagement/DoctorRecords.json");
-		System.out.println("List===="+list1);
-
-		displayDoctor(doctorList);
 		doctorList.addAll(list1);
+		displayDoctor(doctorList);
 		saveDoctorFile("/home/admin1/ClinicManagement/DoctorRecords.json",doctorList);
 		displayDoctorFile("/home/admin1/ClinicManagement/DoctorRecords.json");
 
@@ -102,7 +101,7 @@ public class ClinicManagement<T> {
 
 		String file = ObjectOrientedUtility.readFile(fName);
 		try {
-			list1 = objectMapper.readValue(file, new TypeReference<List<Patient>>() {
+			list1 = objectMapper.readValue(file, new TypeReference<List<Doctor>>() {
 			});
 			displayDoctor(list1);
 		} catch (Exception e) {
