@@ -10,13 +10,14 @@ import org.codehaus.jackson.type.TypeReference;
 
 import com.bridgelabz.objectorientedprograms.AddressBookManagement;
 import com.bridgelabz.utility.DataStructureUtility;
+import com.bridgelabz.utility.ObjectOrientedUtility;
 
 public class AddressManager { 
 	static ObjectMapper objectmapper=new ObjectMapper();
 	static File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
 	static List<PersonalDetail> persondetails=new ArrayList<PersonalDetail>();
 	static AddressBook addressbook = new AddressBook();
-	static String originbook="/home/admin1/Tharun/Bridgelabs/programs/JavaPrograms/";
+	static String originbook="/home/admin1/Dhanush/Bridgelabz/Myprograms/JavaPrograms/";
 	
 	
 	public static void createBook(String originbook) throws IOException {
@@ -49,8 +50,8 @@ public class AddressManager {
 			if (book.equals(filename)) {
 				if (file.length() > 0) {
 					System.out.println("Add Details");
-					String string = DataStructureUtility.readFile(filename);
-					persondetails = objectmapper.readValue(string, new TypeReference<List<PersonalDetails>>() {
+					String string = ObjectOrientedUtility.readFile(filename);
+					persondetails = objectmapper.readValue(string, new TypeReference<List<PersonalDetail>>() {
 					});
 					AddressBook.setpersondetails(persondetails);
 					addressBook();
@@ -80,7 +81,7 @@ public class AddressManager {
             if (ch_book.equals(filename)) {
                 try {
                     String json = objectmapper.writeValueAsString(AddressBook.getpersondetails());
-                    ObjectOrientedPrograms.writeFile(json, filename);
+                    ObjectOrientedUtility.writeFile(json, filename);
                     System.out.println("Address book details saved");
                     flag=1;
                 } catch (Exception e) {
@@ -113,7 +114,7 @@ public class AddressManager {
 	        if (rs) {
 	            System.out.println("File is created");
 	            String json = objectmapper.writeValueAsString(AddressBook.getpersondetails());
-	            ObjectOrientedPrograms.writeFile(json, book);
+	            ObjectOrientedUtility.writeFile(json, book);
 	            System.out.println("Address book details saved");
 	        } else {
 	            System.out.println("File of that name already exists");

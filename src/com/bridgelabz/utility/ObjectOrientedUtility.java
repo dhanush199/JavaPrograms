@@ -23,7 +23,6 @@ import org.codehaus.jackson.type.TypeReference;
 import com.bridgelabz.objectorientedprograms.Doctor;
 import com.bridgelabz.objectorientedprograms.Inventory;
 import com.bridgelabz.objectorientedprograms.InventoryList;
-import com.bridgelabz.objectorientedprograms.PersonDetails;
 
 
 public class ObjectOrientedUtility {
@@ -174,6 +173,25 @@ public class ObjectOrientedUtility {
 		bw.write(json);
 		bw.flush();
 	}
+	public static void writelist(String json) throws IOException
+    {
+        FileWriter file = new FileWriter("/home/admin1/Desktop/JSONInventoryDataManagement.json");
+        @SuppressWarnings("resource")
+        BufferedWriter buffer = new BufferedWriter(file);
+        buffer.write(json);
+        buffer.flush();
+    }
+
+    public static void writeFile(String json,String fileName) throws IOException
+    {
+        FileWriter fw = new FileWriter(fileName);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.flush();
+    }
+
+
+	
 	public static InventoryList insertInventoryList(String inventoryName,List<Inventory> listOfInventories)
 	{
 		InventoryList inventoryList = new InventoryList();
