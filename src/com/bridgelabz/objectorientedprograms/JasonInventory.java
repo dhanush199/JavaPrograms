@@ -31,7 +31,7 @@ public class JasonInventory {
 				try {
 					list2 = objectMapper.readValue(file, new TypeReference<List<InventoryList>>() {
 					});
-					ObjectOrientedUtility.display(list2);
+					ObjectOrientedUtility.display1(list2);
 				} catch (Exception e) {
 					System.out.println("file is empty!! first add inputs on to file or select second choice");
 				}

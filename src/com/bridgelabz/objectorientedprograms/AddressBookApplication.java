@@ -35,7 +35,7 @@ public class AddressBookApplication {
 			//				String name=DataStructureUtility.readString();
 			break;
 			case 2:
-				{ File dir = new File("D:/AddressBook/");
+				{ File dir = new File("/home/admin1/AddressBooks/");
 			      String[] children = dir.list();
 			      
 			      if (children == null) {
@@ -48,8 +48,10 @@ public class AddressBookApplication {
 			      }
 					System.out.println("Enter the book name you wish to open followed by .json");
 				String str1=DataStructureUtility.readString();
+				Address.setFileName(str1);
 				listOfPerson=AddressManager.openBook(str1);
-				AddressBook.displayTheAddress(listOfPerson);
+				
+				//AddressBook.displayTheAddress(listOfPerson);
 				AddressBook.dispOptions(listOfPerson);
 				break;}
 			case 3:AddressManager.saveBook(listOfPerson,name1);

@@ -10,8 +10,9 @@ import org.codehaus.jackson.map.JsonMappingException;
 import com.bridgelabz.utility.DataStructureUtility;
 
 public class AddressBook {
-	static List<PersonDetails> listOfPerson =new ArrayList<PersonDetails>();
+	//static List<PersonDetails> listOfPerson =new ArrayList<PersonDetails>();
 	private static String bookname;
+	static List<PersonDetails> listOfPerson;
 	//static List<Address> ad=new ArrayList();;
 	static Address add=new Address();
 	static PersonDetails persondetails=null;
@@ -19,42 +20,46 @@ public class AddressBook {
 		int opt=0;
 		String[] args= {null};
 		// AddressManager.openBook();
-		do{System.out.println("1> Add Person");
-		System.out.println("2> Edit Person");
-		System.out.println("3> Delet Person");
-		System.out.println("4> Sort Book");
-		System.out.println("5> Save Changes ");
-		System.out.println("6> goto main Menu");
-		System.out.println("Enter option");
-		System.out.println("-----------------------------------");
-		opt=DataStructureUtility.readInteger();
-		switch (opt) {
-		case 1:addPerson();
-		AddressManager.display1();
-		break;
-		case 2: displayTheAddress(listOfPerson);
-		editPersonDetails(listOfPerson);
-		break;
-		case 3:deletePerson();
-		break;
-		case 4: sort();
-		break;
-		case 5:AddressManager.saveBook(listOfPerson, Address.getFileName());
-		break;
-		case 6:AddressBookApplication.main(args);
-		break;
 
-		default:System.out.println("Enter the valid option");
-		break;
-		}
-		System.out.println("Press 1 to continue");
-		opt=DataStructureUtility.readInteger();
+		do{
+			System.out.println("Enter option");
+			System.out.println("-----------------------------------");
+			System.out.println("1> Add Person");
+			System.out.println("2> Edit Person");
+			System.out.println("3> Delet Person");
+			System.out.println("4> Sort Book");
+			//System.out.println("5> Save Changes ");
+			System.out.println("5> goto main Menu");
+			System.out.println("-----------------------------------");
+			opt=DataStructureUtility.readInteger();
+			switch (opt) {
+			case 1:addPerson();
+			AddressManager.display1();
+			break;
+			case 2: displayTheAddress(listOfPerson);
+			editPersonDetails(listOfPerson);
+			break;
+			case 3:deletePerson(listOfPerson);
+			break;
+			case 4: sort(listOfPerson);
+			break;
+			//		case 6:AddressManager.saveBook(listOfPerson, Address.getFileName());
+			//		break;
+			case 5:AddressBookApplication.main(args);
+			break;
+
+			default:System.out.println("Enter the valid option");
+			break;
+			}
+			System.out.println("> 1 Continue   2 > Main Menu");
+			opt=DataStructureUtility.readInteger();
 		}while(opt==1);
 	}
 
 	public static void addPerson() throws JsonGenerationException, JsonMappingException, IOException {
 		//listOfPerson = new ArrayList<PersonDetails>();
 		//PersonDetails persondetails = new PersonDetails();
+		listOfPerson =new ArrayList<PersonDetails>();
 		persondetails=new PersonDetails();
 		System.out.println("Enter the first name of the person");
 		String firstName = DataStructureUtility.readString();
@@ -85,7 +90,10 @@ public class AddressBook {
 		//return listOfPerson;
 	}
 
-	public static void deletePerson() {
+	public static void deletePerson(List<PersonDetails> listOfPerson) throws JsonGenerationException, JsonMappingException, IOException {
+		System.out.println(listOfPerson);
+		listOfPerson=AddressManager.openBook(Address.getFileName());
+		System.out.println(listOfPerson);
 		System.out.println("Enter the first name of the person which needs to be deleted");
 		String fname = DataStructureUtility.readString();
 		System.out.println("Enter the last name of the person which needs to be deleted");
@@ -97,19 +105,31 @@ public class AddressBook {
 				System.out.println("The person is succesfully deleted");
 				flag = 1;
 			}
-			if (flag == 0)
-				System.out.println("404 Error(Person not found)");
 		}
+		if (flag == 0)
+			System.out.println("404 Error(Person not found)");
+		System.out.println("1 > Save Changes   2> Cancel");
+		switch (DataStructureUtility.readInteger()) {
+		case 1:AddressManager.saveBook(listOfPerson,Address.getFileName());
+		System.out.println("Address Book updated Successfully");
+		break;
+		case 2:String str[]= {};
+		AddressBookApplication.main(str);
+		break;
+		default:System.out.println("Please select valid option");
+		break;
+		}
+
 	}
 
-	public static void sort() throws JsonGenerationException, JsonMappingException, IOException {
+	public static void sort(List<PersonDetails> listOfPerson2) throws JsonGenerationException, JsonMappingException, IOException {
 		System.out.println("1> sort by last name ");
 		System.out.println("2> sort by zipCode");
 		System.out.println("please select one option");
 		int opt = DataStructureUtility.readInteger();
 		switch (opt) {
-		case 1: AddressManager.sortByLastName(listOfPerson);
-		AddressManager.saveBook(listOfPerson, Address.getFileName());
+		case 1: AddressManager.sortByLastName(listOfPerson2);
+		AddressManager.saveBook(listOfPerson2, Address.getFileName());
 		break;
 		case 2:AddressManager.sortByZipCode(listOfPerson);
 		AddressManager.saveBook(listOfPerson, Address.getFileName());
@@ -172,7 +192,7 @@ public class AddressBook {
 		}
 		if (flag == 0)
 			System.out.println("The first and last name you have entered is not persent in the address book");
-	return listOfPerson;
+		return listOfPerson;
 	}
 
 	public static void displayTheAddress(List<PersonDetails> listOfPerson) {

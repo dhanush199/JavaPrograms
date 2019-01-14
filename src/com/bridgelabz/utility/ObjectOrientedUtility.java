@@ -191,6 +191,20 @@ public class ObjectOrientedUtility {
 		liInventories.add(inventory);
 		return liInventories;
 	}
+	public static void display1(List<InventoryList> list2)
+	{
+		for (int i = 0; i < list2.size(); i++) {
+			InventoryList it = list2.get(i);
+			System.out.println("Inventory name :" + it.getInventoryName());
+			for (int j = 0; j < it.getListOfInventories().size(); j++) {
+				System.out.println("name :" + it.getListOfInventories().get(j).getName());
+				System.out.println("price :" + it.getListOfInventories().get(j).getPrice());
+				System.out.println("weight :" + it.getListOfInventories().get(j).getWeight());
+				System.out.println();
+			}
+			System.out.println("---------------------------------------------");
+		}
+	}
 	
 	public static Inventory getInventories()
 	{
@@ -221,30 +235,18 @@ public class ObjectOrientedUtility {
 	{
 		for (int i = 0; i < list2.size(); i++) {
 			Doctor it = list2.get(i);
-			System.out.println("Inventory name :" + it.);
-			for (int j = 0; j < it.getListOfInventories().size(); j++) {
-				System.out.println("name :" + it.getListOfInventories().get(j).getName());
-				System.out.println("price :" + it.getListOfInventories().get(j).getPrice());
-				System.out.println("weight :" + it.getListOfInventories().get(j).getWeight());
+			//System.out.println("Inventory name :" + it.);
+			//for (int j = 0; j < it.().size(); j++) {
+				System.out.println("name :" + it.getdName());
+				System.out.println("Doctor ID :" + it.getdId());
+				System.out.println("speciality :" + it.getSpeciality());
+				System.out.println("Availability :" + it.getAvailability());
 				System.out.println();
-			}
+			//}
 			System.out.println("---------------------------------------------");
 		}
 	}
-//	public static void display(List<InventoryList> list2)
-//	{
-//		for (int i = 0; i < list2.size(); i++) {
-//			InventoryList it = list2.get(i);
-//			System.out.println("Inventory name :" + it.getInventoryName());
-//			for (int j = 0; j < it.getListOfInventories().size(); j++) {
-//				System.out.println("name :" + it.getListOfInventories().get(j).getName());
-//				System.out.println("price :" + it.getListOfInventories().get(j).getPrice());
-//				System.out.println("weight :" + it.getListOfInventories().get(j).getWeight());
-//				System.out.println();
-//			}
-//			System.out.println("---------------------------------------------");
-//		}
-//	}
+	
 	
 }
 

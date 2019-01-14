@@ -20,7 +20,7 @@ public class AddressManager {
 	public static StringBuffer creat(String fname) {
 		boolean flag = false;
 		Address.setFileName(fname);
-		String str=	"D:/AddressBook/";
+		String str=	"/home/admin1/AddressBooks/";
 		StringBuffer sb=new StringBuffer(str);
 		sb.append(fname);
 		// create File object
@@ -46,7 +46,7 @@ public class AddressManager {
 	public static void deletBook() throws JsonGenerationException, JsonMappingException, IOException {
 		System.out.println("Enter the book name you wish to delet followed by .jason");
 		String name=DataStructureUtility.readString();
-		StringBuffer sb=new StringBuffer("D:/AddressBook/");
+		StringBuffer sb=new StringBuffer("/home/admin1/AddressBooks/");
 		sb.append(name);
 		File file=new File(sb.toString());
 		System.out.println("Do you really want to delet "+name+ " Book:  1/0");
@@ -76,7 +76,7 @@ public class AddressManager {
 
 	public static void write1(String json,String fName) throws IOException
 	{
-		StringBuffer sb=new StringBuffer("D:/AddressBook/");
+		StringBuffer sb=new StringBuffer("/home/admin1/AddressBooks/");
 		sb.append(fName);
 		FileWriter fw = new FileWriter(sb.toString());
 		BufferedWriter bw = new BufferedWriter(fw);
@@ -98,7 +98,7 @@ public class AddressManager {
 	//openBook
 	public static List<PersonDetails> openBook(String str) throws JsonGenerationException, JsonMappingException, IOException 
 	{		
-		StringBuffer sb=new StringBuffer("D:/AddressBook/");
+		StringBuffer sb=new StringBuffer("/home/admin1/AddressBooks/");
 		sb.append(str);
 		String file = ObjectOrientedUtility.readFile(sb.toString());
 		System.out.println(file);
@@ -116,7 +116,7 @@ public class AddressManager {
 	//Save As method
 	public static String saveAs(String fromName, String toName)
 	{
-		String flname="D:/AddressBook/";
+		String flname="/home/admin1/AddressBooks/";
 		try
 		{
 			File fe = new File(flname);
@@ -142,6 +142,7 @@ public class AddressManager {
 		System.out.println("Sorted by last Name");
 	}
 	public static void sortByZipCode(List<PersonDetails> listOfPerson) {
+		System.out.println(listOfPerson);
 		Collections.sort(listOfPerson,
 				(person1, person2) -> person1.getAddress().getZipCode() > person2.getAddress().getZipCode() ? 1
 						: person1.getAddress().getZipCode() < person2.getAddress().getZipCode() ? -1
