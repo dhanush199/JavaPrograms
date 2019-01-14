@@ -8,7 +8,7 @@ import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
-import com.bridgelabz.objectorientedprograms.AddressBookManagement;
+import com.bridgelabz.objectorientedprograms.AddressBookApp;
 import com.bridgelabz.utility.DataStructureUtility;
 import com.bridgelabz.utility.ObjectOrientedUtility;
 
@@ -32,9 +32,6 @@ public class AddressManager {
 			else
 			System.out.println("The Name of that book is already exists pls create new book");
 	}
-	
-	
-	
 	
 	public static void openBook() throws IOException {
 		System.out.println("Files available are:");
@@ -168,7 +165,7 @@ public class AddressManager {
 			break;
 		}
 		case 5:
-			AddressBookManagement.main(null);
+			AddressBookApp.main(null);
 			default :
 				System.out.println("Enter the proper choice");
 }}}
