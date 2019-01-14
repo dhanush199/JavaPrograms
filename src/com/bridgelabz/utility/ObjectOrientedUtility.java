@@ -17,6 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.type.TypeReference;
 
@@ -189,8 +190,6 @@ public class ObjectOrientedUtility {
         bw.write(json);
         bw.flush();
     }
-
-
 	
 	public static InventoryList insertInventoryList(String inventoryName,List<Inventory> listOfInventories)
 	{
@@ -264,6 +263,10 @@ public class ObjectOrientedUtility {
 			System.out.println("---------------------------------------------");
 		}
 	}
+	public static <T> T convertJsonToPOJO(String filePath, Class<?> target) throws JsonParseException, JsonMappingException, IOException, ClassNotFoundException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(new File(filePath), objectMapper .getTypeFactory().constructCollectionType(List.class, Class.forName(target.getName())));
+}
 	
 	
 }

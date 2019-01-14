@@ -17,7 +17,7 @@ public class AddressManager {
 	static File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
 	static List<PersonalDetail> persondetails=new ArrayList<PersonalDetail>();
 	static AddressBook addressbook = new AddressBook();
-	static String originbook="/home/admin1/Dhanush/Bridgelabz/Myprograms/JavaPrograms/";
+	static String originbook="/home/admin1/Dhanush/Bridgelabz/Myprograms/JavaPrograms/AA.json";
 	
 	
 	public static void createBook(String originbook) throws IOException {

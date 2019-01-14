@@ -36,7 +36,7 @@ public class DoctorMethod {
 			boolean[] availability=doctorDetails.getIsFull();
 			for(int i=0;i<5;i++){
 				if(availability[i]!=false){
-					doctorDetails.setIsFull(true);
+					//doctorDetails.setIsFull(true);
 					System.out.println("doctor is available");
 					//break;
 					return true;

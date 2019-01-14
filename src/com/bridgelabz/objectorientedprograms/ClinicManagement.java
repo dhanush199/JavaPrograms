@@ -1,12 +1,16 @@
 package com.bridgelabz.objectorientedprograms;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
@@ -17,84 +21,7 @@ public class ClinicManagement<T> {
 	static ObjectMapper objectMapper=new ObjectMapper();
 	static List<Doctor> list2=new ArrayList<Doctor>();
 	static Doctor doctorDetails=new Doctor();
-	public static void main(String[] args){
-		PatientMethod patientDetails=new PatientMethod();
-
-		DoctorMethod doctorMethods=new DoctorMethod();
-		while(true){
-			System.out.println("1 > Add Doctor/Patient");
-			System.out.println("2 > search Doctor/Patient");
-			System.out.println("3 > Display Doctor/Patient");
-			System.out.println("select option");
-			int opt=DataStructureUtility.readInteger();
-
-			switch (opt) {
-			case 1:System.out.println("select required option");
-			System.out.println("1> Add Doctor ");
-			System.out.println("1> Add Patient ");
-			int key=DataStructureUtility.readInteger();
-			switch (key) {
-			case 1:DoctorMethod.addDoctor();
-
-			break;
-			case 2:PatientMethod.addPatient();
-
-			break;
-
-			default:System.out.println("please enter valid option");
-			break;
-			}
-
-
-
-			break;
-			case 2:
-
-				//			switch () {
-				//			case 1:	
-				//
-				//				break;
-				//			case 2:
-				//
-				//				break;
-				//
-				//			default:System.out.println("please enter valid option");
-				//				break;
-				//			}
-				//			break;
-			case 3:System.out.println("select required option");
-			System.out.println("1 > Display Doctor List");
-			System.out.println("2> Display Patient List");
-			int value=DataStructureUtility.readInteger();
-
-			switch (value) {
-			case 1:	displayDoctor(DoctorMethod.getDoctorList());
-
-			break;
-			case 2:displayPatient(PatientMethod.patientList);
-
-			break;
-
-			default:System.out.println("please enter valid option");
-			break;
-			}
-
-
-			break;
-
-			default:
-				break;
-			}
-
-
-			System.out.println("enter the name of the doctor whom you want to search");
-			String dName=DataStructureUtility.readString();
-			DoctorMethod.checkAvailabillity(dName);
-			DoctorMethod.searchDoctor(dName);
-			getAppointment(dName );
-			displayDoctor(DoctorMethod.getDoctorList());
-		}
-	}
+	
 	public static void getAppointment(String dName){
 		if(DoctorMethod.checkAvailabillity(dName)){
 			System.out.println("when do you want to appointment? AM or PM ");
@@ -118,19 +45,18 @@ public class ClinicManagement<T> {
 	//	sort Methods
 	//	For doctors
 
-	public static void displayFile(T[] array){
+	public static void displayFile() throws FileNotFoundException{
 		String str="FileName";
 		String file = ObjectOrientedUtility.readFile(str);
-		Object ob=(Object)file;
 		try {
-			list2 = objectMapper.readValue(ob, new TypeReference<List<Doctor>>() {
+			list2 = objectMapper.readValue(file, new TypeReference<List<Doctor>>() {
 			});
 			ObjectOrientedUtility.display(list2);
 		} catch (Exception e) {
 			System.out.println("file is empty!! first add inputs on to file or select second choice");
 		}
 	}
-	public static void saveFile(){
+	public static void saveFile() throws JsonGenerationException, JsonMappingException, IOException{
 		String json = objectMapper.writeValueAsString(list2);
 		Object ob=(Object)json;
 		writeFile(ob);
@@ -142,6 +68,10 @@ public class ClinicManagement<T> {
 		BufferedWriter bw = new BufferedWriter(fw);
 		bw.write(json.toString());
 		bw.flush();
+	}
+	public static <T> T convertJsonToPOJO(String filePath, Class<?> target) throws JsonParseException, JsonMappingException, IOException, ClassNotFoundException {
+		ObjectMapper objectMapper = new ObjectMapper();
+		return objectMapper.readValue(new File(filePath), objectMapper .getTypeFactory().constructCollectionType(List.class, Class.forName(target.getName())));
 	}
 
 
