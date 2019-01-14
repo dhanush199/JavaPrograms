@@ -9,9 +9,9 @@ import com.bridgelabz.utility.DataStructureUtility;
 
 public class ClinicMangementApp {
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, ClassNotFoundException, IOException{
-		PatientMethod patientDetails=new PatientMethod();
+	ClinicManagement patientDetails=new ClinicManagement();
 		//ObjectOrientedUtility.convertJsonToPOJO("/home/admin1/Dhanush/Bridgelabz/Myprograms/JavaPrograms/", null);
-		DoctorMethod doctorMethods=new DoctorMethod();
+	ClinicManagement doctorMethods=new ClinicManagement();
 		while(true){
 			System.out.println("1 > Add Doctor/Patient");
 			System.out.println("2 > search Doctor/Patient");
@@ -25,18 +25,16 @@ public class ClinicMangementApp {
 			System.out.println("1> Add Patient ");
 			int key=DataStructureUtility.readInteger();
 			switch (key) {
-			case 1:DoctorMethod.addDoctor();
+			case 1:ClinicManagement.addDoctor();
 
 			break;
-			case 2:PatientMethod.addPatient();
+			case 2:ClinicManagement.addPatient();
 
 			break;
 
 			default:System.out.println("please enter valid option");
 			break;
 			}
-
-
 
 			break;
 			case 2:
@@ -78,8 +76,8 @@ public class ClinicMangementApp {
 			}
 			System.out.println("enter the name of the doctor whom you want to search");
 			String dName=DataStructureUtility.readString();
-			DoctorMethod.checkAvailabillity(dName);
-			DoctorMethod.searchDoctor(dName);
+			ClinicManagement.checkAvailabillity(dName);
+			ClinicManagement.searchDoctor(dName);
 //			getAppointment(dName );
 //			displayDoctor(DoctorMethod.getDoctorList());
 		}
