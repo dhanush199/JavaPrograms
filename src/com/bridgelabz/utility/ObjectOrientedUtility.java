@@ -153,7 +153,6 @@ public class ObjectOrientedUtility {
 	}
 	public static String readFile(String str) throws FileNotFoundException {
 		FileReader f = new FileReader(str);
-		@SuppressWarnings("resource")
 		BufferedReader read = new BufferedReader(f);
 		String line = "";
 		try {
@@ -175,22 +174,22 @@ public class ObjectOrientedUtility {
 		bw.flush();
 	}
 	public static void writelist(String json) throws IOException
-    {
-        FileWriter file = new FileWriter("/home/admin1/Desktop/JSONInventoryDataManagement.json");
-        @SuppressWarnings("resource")
-        BufferedWriter buffer = new BufferedWriter(file);
-        buffer.write(json);
-        buffer.flush();
-    }
+	{
+		FileWriter file = new FileWriter("/home/admin1/Desktop/JSONInventoryDataManagement.json");
+		@SuppressWarnings("resource")
+		BufferedWriter buffer = new BufferedWriter(file);
+		buffer.write(json);
+		buffer.flush();
+	}
 
-    public static void writeFile(String json,String fileName) throws IOException
-    {
-        FileWriter fw = new FileWriter(fileName);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(json);
-        bw.flush();
-    }
-	
+	public static void writeFile(String json,String fileName) throws IOException
+	{
+		FileWriter fw = new FileWriter(fileName);
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(json);
+		bw.flush();
+	}
+
 	public static InventoryList insertInventoryList(String inventoryName,List<Inventory> listOfInventories)
 	{
 		InventoryList inventoryList = new InventoryList();
@@ -222,7 +221,7 @@ public class ObjectOrientedUtility {
 			System.out.println("---------------------------------------------");
 		}
 	}
-	
+
 	public static Inventory getInventories()
 	{
 		Inventory inventory = new Inventory();
@@ -252,23 +251,20 @@ public class ObjectOrientedUtility {
 	{
 		for (int i = 0; i < list2.size(); i++) {
 			Doctor it = list2.get(i);
-			//System.out.println("Inventory name :" + it.);
-			//for (int j = 0; j < it.().size(); j++) {
-				System.out.println("name :" + it.getdName());
-				System.out.println("Doctor ID :" + it.getdId());
-				System.out.println("speciality :" + it.getSpeciality());
-				System.out.println("Availability :" + it.getAvailability());
-				System.out.println();
-			//}
+			System.out.println("name :" + it.getdName());
+			System.out.println("Doctor ID :" + it.getdId());
+			System.out.println("speciality :" + it.getSpeciality());
+			System.out.println("Availability :" + it.getAvailability());
+			System.out.println();
 			System.out.println("---------------------------------------------");
 		}
 	}
 	public static <T> T convertJsonToPOJO(String filePath, Class<?> target) throws JsonParseException, JsonMappingException, IOException, ClassNotFoundException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(new File(filePath), objectMapper .getTypeFactory().constructCollectionType(List.class, Class.forName(target.getName())));
-}
-	
-	
+		ObjectMapper objectMapper = new ObjectMapper();
+		return objectMapper.readValue(new File(filePath), objectMapper .getTypeFactory().constructCollectionType(List.class, Class.forName(target.getName())));
+	}
+
+
 }
 
 

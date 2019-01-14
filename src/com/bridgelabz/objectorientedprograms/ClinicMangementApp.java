@@ -76,7 +76,7 @@ public class ClinicMangementApp {
 			}
 			System.out.println("enter the name of the doctor whom you want to search");
 			String dName=DataStructureUtility.readString();
-			ClinicManagement.checkAvailabillity(dName);
+			//ClinicManagement.checkAvailabillity(dName);
 			ClinicManagement.searchDoctor(dName);
 //			getAppointment(dName );
 //			displayDoctor(DoctorMethod.getDoctorList());
