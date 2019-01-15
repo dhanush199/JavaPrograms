@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.type.CollectionType;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -229,7 +230,9 @@ public class ObjectOrientedUtility {
 			}
 			System.out.println("---------------------------------------------");
 		}
+		
 	}
+
 
 	public static Inventory getInventories()
 	{
@@ -272,6 +275,12 @@ public class ObjectOrientedUtility {
 		ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.readValue(new File(filePath), objectMapper .getTypeFactory().constructCollectionType(List.class, Class.forName(target.getName())));
 	}
+	public static <T> List<T> userReadValue(String str, Class<?> cls)
+            throws JsonParseException, JsonMappingException, IOException {
+        CollectionType colletion = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, cls);
+        return objectMapper.readValue(str, colletion);
+    }
+
 
 }
 

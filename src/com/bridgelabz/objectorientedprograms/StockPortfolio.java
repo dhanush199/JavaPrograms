@@ -44,7 +44,7 @@ public class StockPortfolio {
 	public static void displayStock() throws FileNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);
 		try {
-			liOfStock = ObjectOrientedUtility.convertJsonToPOJO("/home/admin1/StockManagement/personStock.json", Stock.class);
+			liOfStock = ObjectOrientedUtility.convertJsonToPOJO("/home/admin1/StockManagement/stock.json", Stock.class);
 		} catch (Exception e) {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}
@@ -54,8 +54,36 @@ public class StockPortfolio {
 			System.out.println("Share Price              : " + stock.getSharePrice());
 			System.out.println("-------------------------------------------------------");
 		}
+		 
 	}
 
+	public static List<Stock> displayStock1(String fName) throws FileNotFoundException {
+		//String string = ObjectOrientedUtility.readFile(str);
+		try {
+			liOfStock = ObjectOrientedUtility.convertJsonToPOJO(fName, Stock.class);
+		} catch (Exception e) {
+			System.out.println("File is empty!!! Nothing in data to display");
+		}
+		for (Stock stock : liOfStock) {
+			System.out.println("Stock Name               : " + stock.getStockName());
+			System.out.println("Total number of Stock    : " + stock.getNumberOfShare());
+			System.out.println("Share Price              : " + stock.getSharePrice());
+			System.out.println("-------------------------------------------------------");
+		}
+		return liOfStock;
+		 
+	}
+	public static void displayStock11(List<Stock> tempList) throws FileNotFoundException {
+	
+		for (Stock stock : tempList) {
+			System.out.println("Stock Name               : " + stock.getStockName());
+			System.out.println("Total number of Stock           : " + stock.getNumberOfShare());
+			System.out.println("Share Price              : " + stock.getSharePrice());
+			System.out.println("-------------------------------------------------------");
+		}
+		 
+	}
+	
 	public static void valueOfEachStock() throws FileNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);
 		try {
