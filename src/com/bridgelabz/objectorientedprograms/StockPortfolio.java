@@ -15,7 +15,7 @@ import com.bridgelabz.utility.ObjectOrientedUtility;
 public class StockPortfolio {
 	static List<Stock> liOfStock = new ArrayList<Stock>();
 	static Stock stock = null;
-	static final String str = "/home/admin1/StockManagement/stock.json";
+	static final String str = "/home/admin1/StockManagement/ss.json";
 
 	public static void addStock() throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);
@@ -58,9 +58,10 @@ public class StockPortfolio {
 	}
 
 	public static List<Stock> displayStock1(String fName) throws FileNotFoundException {
-		//String string = ObjectOrientedUtility.readFile(str);
+		String ss = ObjectOrientedUtility.readFile(str);
+		System.out.println(ss);
 		try {
-			liOfStock = ObjectOrientedUtility.convertJsonToPOJO(fName, Stock.class);
+			liOfStock = ObjectOrientedUtility.convertJsonToPOJO(str,  Stock.class);
 		} catch (Exception e) {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}

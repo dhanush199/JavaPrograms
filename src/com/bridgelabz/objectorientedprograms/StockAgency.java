@@ -18,13 +18,14 @@ public class StockAgency {
 	static Set<Stock> set = new HashSet<Stock>();
 	static Transactions transactions=new Transactions();
 	static List<Stock> tempList =new ArrayList<Stock>();
-	static final String str = "/home/admin1/StockManagement/stock.json";
+	static final String str = "/home/admin1/StockManagement/ss.json";
 	static Stock s=null;
 	static int index=-1;
 	@SuppressWarnings("unlikely-arg-type")
 	public static void buy() throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
 		Stock s=new Stock();
-		liOfStock=StockPortfolio.displayStock1("/home/admin1/StockManagement/stock.json");	
+		liOfStock = new ArrayList<Stock>();
+		liOfStock=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");	
 		System.out.println("Enter the name of the stock which you want to Buy");
 		String s1=DataStructureUtility.readString();
 		s.setStockName(s1);
