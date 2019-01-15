@@ -1152,4 +1152,18 @@ public class AlgorithmUtility <E>{
         int d0 = (d + x + 31 * m0 / 12) % 7;  
         return d0;
     }
+    public static <T extends Comparable<T>> T[] sortArray1(T str[]) {
+        int length = str.length;
+        for (int i = 1; i < length; i++) {
+            T key = str[i];
+            int j = i - 1;
+            while (j >= 0 && ((str[j].compareTo(key) > 0))) {
+                str[j + 1] = str[j];
+                j--;
+            }
+            str[j + 1] = key;
+        }
+        return str;
+    }
+
 }

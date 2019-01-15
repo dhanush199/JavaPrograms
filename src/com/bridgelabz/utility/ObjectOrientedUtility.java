@@ -166,6 +166,10 @@ public class ObjectOrientedUtility {
 		}
 		return line;
 	}
+	static ObjectMapper objectMapper=new ObjectMapper();
+	   public static <T> String userWriteValueAsString(List<T> list) throws JsonGenerationException, JsonMappingException, IOException{
+	        return objectMapper.writeValueAsString(list);
+	    }
 	public static void write(String json) throws IOException
 	{
 		FileWriter fw = new FileWriter("/home/admin1/Dhanush/input.json");
