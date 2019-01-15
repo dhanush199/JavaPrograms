@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -169,6 +170,10 @@ public class ObjectOrientedUtility {
 	static ObjectMapper objectMapper=new ObjectMapper();
 	   public static <T> String userWriteValueAsString(List<T> list) throws JsonGenerationException, JsonMappingException, IOException{
 	        return objectMapper.writeValueAsString(list);
+	    }
+	   
+	   public static <T> String userWriteValueAsString(Set<T> list1) throws JsonGenerationException, JsonMappingException, IOException{
+	        return objectMapper.writeValueAsString(list1);
 	    }
 	public static void write(String json) throws IOException
 	{

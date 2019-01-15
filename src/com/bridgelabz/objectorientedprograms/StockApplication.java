@@ -22,11 +22,14 @@ public class StockApplication {
 			{
 			case 1:StockPortfolio.addStock();
 			StockAgency.buy();
+			
 			run=true;break;
 			case 2:StockPortfolio.displayStock();run=true;break;
 			case 3:StockPortfolio.valueOfEachStock();run=true;break;
 			case 4:StockPortfolio.totalStockValue();run=true;break;
 			case 5:System.exit(0);run=false;break;
+			case 6: StockAgency.sell() ;
+			break;
 			default:System.out.println("Please select correct choice");run=true;break;
 			}
 		}

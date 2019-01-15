@@ -44,7 +44,7 @@ public class StockPortfolio {
 	public static void displayStock() throws FileNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);
 		try {
-			liOfStock = ObjectOrientedUtility.convertJsonToPOJO(string, Stock.class);
+			liOfStock = ObjectOrientedUtility.convertJsonToPOJO("/home/admin1/StockManagement/personStock.json", Stock.class);
 		} catch (Exception e) {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}
