@@ -16,10 +16,7 @@ public class StockAgency {
 	static List<Stock> tempList =new ArrayList<Stock>();
 	static final String str = "/home/admin1/StockManagement/stock.json";
 	static Stock s=null;
-	static int index=0;
-
-
-
+	static int index=-1;
 	@SuppressWarnings("unlikely-arg-type")
 	public static void buy() throws JsonGenerationException, JsonMappingException, IOException {
 		Stock s=new Stock();
@@ -48,18 +45,15 @@ public class StockAgency {
 			//tempList.add(s);
 			double share=DataStructureUtility.readInteger();
 			if(s.getNumberOfShare()>share && share>0) {
+				System.out.println("Present shares=="+s.getNumberOfShare());
 				share=s.getNumberOfShare()-share;
 				s.setNumberOfShare(share);
-			System.out.println("price=="+share);
+			System.out.println("share=="+s.getNumberOfShare());
 			s.setNumberOfShare(share);
 			//System.out.println("Share price is equals to"+s.getSharePrice());
 			tempList.add(s);
 			String json = ObjectOrientedUtility.userWriteValueAsString(tempList);
 			ObjectOrientedUtility.writeFile(json, "/home/admin1/StockManagement/personStock.json");
-			liOfStock.addAll(tempList);
-			 json = ObjectOrientedUtility.userWriteValueAsString(liOfStock);
-			ObjectOrientedUtility.writeFile(json,"/home/admin1/StockManagement/stock.json");
-			//tempList = new ArrayList<Stock>();
 			System.out.println("Written successfully");}
 			else
 				System.out.println("Please enter a stock less than "+s.getNumberOfShare());
@@ -67,13 +61,13 @@ public class StockAgency {
 
 	}
 	public static int checkStockName(String s1) {
-		for(Stock ss:liOfStock)
-			
+		for(Stock ss:liOfStock) {
+			index++;
 			if(ss.getStockName().equals(s1)) {
 				System.out.println("found");
-				index++;
+				
 				break;
-			}
+			}}
 
 		if(index<0)System.out.println("Stoke name not found");
 		return index;
