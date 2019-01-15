@@ -1,10 +1,8 @@
 package com.bridgelabz.objectorientedprograms;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Stock {
     private String stockName;
@@ -43,21 +41,24 @@ public class Stock {
     //////////////////////////
     private String date;
 	private String transaction;
-	private String time;
-	public String getDate() {
-		return date;
+	//private String time;
+	
+	public void setDate() {
+		
+		this.date = null;  
 	}
-	public void setDate(Date date2) {
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+	public String getDate() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
 		   LocalDateTime now = LocalDateTime.now();  
 		   System.out.println();  
 		   date=dtf.format(now);
-		     
+		   return date;
 	}
 	public String getTransaction() {
+		transaction="Completed";
 		return transaction;
 	}
-	public void setTransaction(String transaction) {
+	public void setTransaction() {
 		this.transaction = transaction;
 	}
 

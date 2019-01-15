@@ -40,12 +40,14 @@ public class StockAgency {
 			System.out.println("Enter the amount of share you whish to buy");
 			//System.out.println(flag);
 			s=liOfStock.get(index);
+			s.setDate();
 			//tempList.add(s);
 			double share=DataStructureUtility.readInteger();
 			if(s.getNumberOfShare()>share && share>0) {
 				System.out.println("Present shares=="+s.getNumberOfShare());
 				double temp=s.getNumberOfShare();
 				share=s.getNumberOfShare()-share;
+				s.setTransaction();
 				s.setNumberOfShare(share);
 				System.out.println("share=="+s.getNumberOfShare());
 				s.setNumberOfShare(share);
