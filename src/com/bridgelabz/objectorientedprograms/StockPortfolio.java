@@ -49,9 +49,11 @@ public class StockPortfolio {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}
 		for (Stock stock : liOfStock) {
-			System.out.println("Stock Name               : " + stock.getStockName());
+			System.out.println("Stock Name                  : " + stock.getStockName());
 			System.out.println("Total number of Stock           : " + stock.getNumberOfShare());
-			System.out.println("Share Price              : " + stock.getSharePrice());
+			System.out.println("Share Price                 : " + stock.getSharePrice());
+			System.out.println("Last Transaction Time/Date  : " + stock.getDate());
+			System.out.println("Last Transaction status     : " + stock.getTransaction());
 			System.out.println("-------------------------------------------------------");
 		}
 		 
@@ -69,21 +71,23 @@ public class StockPortfolio {
 			System.out.println("Stock Name               : " + stock.getStockName());
 			System.out.println("Total number of Stock    : " + stock.getNumberOfShare());
 			System.out.println("Share Price              : " + stock.getSharePrice());
+			System.out.println("Last Transaction Time/Date  : " + stock.getDate());
+			System.out.println("Last Transaction status     : " + stock.getTransaction());
 			System.out.println("-------------------------------------------------------");
 		}
 		return liOfStock;
 		 
 	}
-	public static void displayStock11(List<Stock> tempList) throws FileNotFoundException {
-	
-		for (Stock stock : tempList) {
-			System.out.println("Stock Name               : " + stock.getStockName());
-			System.out.println("Total number of Stock           : " + stock.getNumberOfShare());
-			System.out.println("Share Price              : " + stock.getSharePrice());
-			System.out.println("-------------------------------------------------------");
-		}
-		 
-	}
+//	public static void displayStock11(List<Stock> tempList) throws FileNotFoundException {
+//	
+//		for (Stock stock : tempList) {
+//			System.out.println("Stock Name               : " + stock.getStockName());
+//			System.out.println("Total number of Stock           : " + stock.getNumberOfShare());
+//			System.out.println("Share Price              : " + stock.getSharePrice());
+//			System.out.println("-------------------------------------------------------");
+//		}
+//		 
+//	}
 	
 	public static void valueOfEachStock() throws FileNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);
