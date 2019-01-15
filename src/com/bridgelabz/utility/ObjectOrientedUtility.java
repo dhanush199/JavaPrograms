@@ -268,7 +268,6 @@ public class ObjectOrientedUtility {
 		return objectMapper.readValue(new File(filePath), objectMapper .getTypeFactory().constructCollectionType(List.class, Class.forName(target.getName())));
 	}
 
-
 }
 
 

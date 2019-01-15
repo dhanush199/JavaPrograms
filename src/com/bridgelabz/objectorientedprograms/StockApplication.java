@@ -9,18 +9,20 @@ import org.codehaus.jackson.map.JsonMappingException;
 import com.bridgelabz.utility.DataStructureUtility;
 
 public class StockApplication {
-	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException {
+	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
 		StockPortfolio stockPortfolio=new StockPortfolio();
 		boolean run=true;
 		while(run==true)
 		{
 			System.out.println("*****************STOCK APPLICATION******************");
-			System.out.println("1.Add Stock\n2.Display\n3.Value of each Stock\n4.Total Stock value\n5.Exit");
+			System.out.println("1.Put Stock\n2.Display\n3.Value of each Stock\n4.Total Stock value\n5.Exit");
 			System.out.println("****************************************************");
 			int choice=DataStructureUtility.readInteger();
 			switch(choice)
 			{
-			case 1:StockPortfolio.addStock();run=true;break;
+			case 1:StockPortfolio.addStock();
+			StockAgency.buy();
+			run=true;break;
 			case 2:StockPortfolio.displayStock();run=true;break;
 			case 3:StockPortfolio.valueOfEachStock();run=true;break;
 			case 4:StockPortfolio.totalStockValue();run=true;break;

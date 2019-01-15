@@ -14,13 +14,14 @@ import com.bridgelabz.utility.ObjectOrientedUtility;
 
 public class StockPortfolio {
 	static List<Stock> liOfStock = new ArrayList<Stock>();
-	static Stock stock = new Stock();
+	static Stock stock = null;
 	static final String str = "/home/admin1/StockManagement/stock.json";
 
-	public static void addStock() throws JsonGenerationException, JsonMappingException, IOException {
+	public static void addStock() throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);
+		System.out.println(string);
 		try {
-			liOfStock = ObjectOrientedUtility.convertJsonToPOJO(string, Stock.class);
+			liOfStock= ObjectOrientedUtility.convertJsonToPOJO(str, Stock.class);
 			System.out.println("File is not empty!");
 			System.out.println("Adding data.....");
 		} catch (Exception e) {
@@ -32,7 +33,7 @@ public class StockPortfolio {
 		stock.setStockName(DataStructureUtility.readString());
 		System.out.println("Enter total number of shares");
 		stock.setNumberOfShare(DataStructureUtility.readInteger());
-		System.out.println("Enter stock share price");
+		System.out.println("Enter price per share");
 		stock.setSharePrice(DataStructureUtility.readdouble());
 		liOfStock.add(stock);
 		System.out.println("Stock added successfully!!!");
@@ -83,7 +84,6 @@ public class StockPortfolio {
 		System.out.println("Total value of stock is :" + sum + "\n");
 
 	}
-
 }
 
 

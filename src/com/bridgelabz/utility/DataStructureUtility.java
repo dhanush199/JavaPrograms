@@ -588,8 +588,9 @@ public class DataStructureUtility {
             String[] demo = new String[9];
             for (int j = 0; j < 9; j++) {
                 demo[j] = deck[i + j * 4];
+              
             }
-            String[] str2 = AlgorithmUtility.sortArray1(demo);
+          String[] str2 = AlgorithmUtility.sortArray1(demo);
             for (int k = 0; k < str2.length; k++) {
                 queueLinkedList.enqueue(str2[k]);
             }

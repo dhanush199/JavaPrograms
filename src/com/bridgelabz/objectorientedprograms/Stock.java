@@ -2,7 +2,7 @@ package com.bridgelabz.objectorientedprograms;
 
 public class Stock {
     private String stockName;
-    private int numberOfShare;
+    private double numberOfShare;
     private double sharePrice;
 
     public Stock() {
@@ -19,11 +19,11 @@ public class Stock {
         this.stockName = stockName;
     }
 
-    public int getNumberOfShare() {
+    public double getNumberOfShare() {
         return numberOfShare;
     }
 
-    public void setNumberOfShare(int numberOfShare) {
+    public void setNumberOfShare(double numberOfShare) {
         this.numberOfShare = numberOfShare;
     }
 
