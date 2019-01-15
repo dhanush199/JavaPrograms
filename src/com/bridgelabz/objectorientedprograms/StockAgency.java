@@ -2,6 +2,7 @@ package com.bridgelabz.objectorientedprograms;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,7 +16,7 @@ import com.bridgelabz.utility.ObjectOrientedUtility;
 public class StockAgency {
 	static List<Stock> liOfStock = new ArrayList<Stock>();
 	static Set<Stock> set = new HashSet<Stock>();
-
+	static Transactions transactions=new Transactions();
 	static List<Stock> tempList =new ArrayList<Stock>();
 	static final String str = "/home/admin1/StockManagement/stock.json";
 	static Stock s=null;
@@ -58,8 +59,8 @@ public class StockAgency {
 				tempList.add(s);
 				String json = ObjectOrientedUtility.userWriteValueAsString(tempList);
 				ObjectOrientedUtility.writeFile(json, "/home/admin1/StockManagement/personStock.json");
-				System.out.println("Written successfully");
-				s.setNumberOfShare(temp-share);
+				System.out.println("Written successfully");				
+				s.setNumberOfShare(temp-share);				
 				liOfStock.add(s);
 				set.addAll(liOfStock);
 				String json1 = ObjectOrientedUtility.userWriteValueAsString(set);
