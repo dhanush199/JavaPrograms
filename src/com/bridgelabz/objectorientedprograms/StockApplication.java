@@ -29,10 +29,6 @@ public class StockApplication {
 			case 3:StockPortfolio.valueOfEachStock();run=true;break;
 			case 4:StockPortfolio.totalStockValue();run=true;break;
 			case 5:System.exit(0);run=false;break;
-			case 6: StockAgency.sell() ;
-			break;
-			case 7:StockAgency.buy();
-			break;
 			default:System.out.println("Please select correct choice");run=true;break;
 			}
 		}

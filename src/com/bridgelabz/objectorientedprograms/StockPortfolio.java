@@ -11,11 +11,15 @@ import org.codehaus.jackson.map.JsonMappingException;
 
 import com.bridgelabz.utility.DataStructureUtility;
 import com.bridgelabz.utility.ObjectOrientedUtility;
+import com.bridgelabz.utility.QueueLinkedList;
+import com.bridgelabz.utility.SinglyLinkedListImpl;
+import com.bridgelabz.utility.StackLinkedList;
 
 public class StockPortfolio {
 	static List<Stock> liOfStock = new ArrayList<Stock>();
 	static Stock stock = null;
 	static final String str = "/home/admin1/StockManagement/ss.json";
+	
 
 	public static void addStock() throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);
@@ -56,7 +60,7 @@ public class StockPortfolio {
 			System.out.println("Last Transaction status     : " + stock.getTransaction());
 			System.out.println("-------------------------------------------------------");
 		}
-		 
+
 	}
 
 	public static List<Stock> displayStock1(String fName) throws FileNotFoundException {
@@ -76,19 +80,19 @@ public class StockPortfolio {
 			System.out.println("-------------------------------------------------------");
 		}
 		return liOfStock;
-		 
+
 	}
-//	public static void displayStock11(List<Stock> tempList) throws FileNotFoundException {
-//	
-//		for (Stock stock : tempList) {
-//			System.out.println("Stock Name               : " + stock.getStockName());
-//			System.out.println("Total number of Stock           : " + stock.getNumberOfShare());
-//			System.out.println("Share Price              : " + stock.getSharePrice());
-//			System.out.println("-------------------------------------------------------");
-//		}
-//		 
-//	}
-	
+	//	public static void displayStock11(List<Stock> tempList) throws FileNotFoundException {
+	//	
+	//		for (Stock stock : tempList) {
+	//			System.out.println("Stock Name               : " + stock.getStockName());
+	//			System.out.println("Total number of Stock           : " + stock.getNumberOfShare());
+	//			System.out.println("Share Price              : " + stock.getSharePrice());
+	//			System.out.println("-------------------------------------------------------");
+	//		}
+	//		 
+	//	}
+
 	public static void valueOfEachStock() throws FileNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);
 		try {

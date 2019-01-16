@@ -58,8 +58,8 @@ public class Stock {
 		transaction="Completed";
 		return transaction;
 	}
-	public void setTransaction() {
-		this.transaction = transaction;
+	public void setTransaction(String s) {
+		this.transaction = s;
 	}
 
 
