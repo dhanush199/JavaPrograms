@@ -24,8 +24,8 @@ public class DeckQueue2 {
 			deck[r] = deck[i];
 			deck[i] = temp;
 		}
-		com.bridgelabz.utility.QueueLinkedList<com.bridgelabz.utility.QueueLinkedList<String>> mainQueue=DataStructureUtility.deckQueueStore(deck);
-		DataStructureUtility.displayDeck(mainQueue);
+		com.bridgelabz.utility.QueueLinkedList<com.bridgelabz.utility.QueueLinkedList<String>> outerQueue=DataStructureUtility.deckQueueStore(deck);
+		DataStructureUtility.displayDeck(outerQueue);
 	}
 }
 

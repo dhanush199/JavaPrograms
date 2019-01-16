@@ -9,10 +9,9 @@ import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.ObjectMapper;
 public class WriteTofileWithJason {
 	public static void main(String[] args) throws IOException {
-		String address=null;
+	//	String address=null;
 		JsonFactory jsonFactory = new JsonFactory(); 
-		FileOutputStream file = new FileOutputStream(new File(""
-				+ "/home/admin1/Dhanush/example.json"));
+		FileOutputStream file = new FileOutputStream(new File(""+ "/home/admin1/Dhanush/example.json"));
 		JsonGenerator jsonGen = jsonFactory.createJsonGenerator(file, JsonEncoding.UTF8);
 		//Address address = new Address("Dhananjaypur", "Varanasi", "UP");
 		Inventory person = new Inventory();

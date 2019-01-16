@@ -228,17 +228,17 @@ public class StockAgency {
 
 	public static void displayStackQueueLinkedList(String fName) throws FileNotFoundException {
 		try {
-		System.out.print("Share Name  := " );
-		linkedList.traverse();
-		System.out.println("Last Transaction Time/Date  : "+ queue.dequeue());
-		System.out.println("Last Transaction status     : " + stack.pop());
-		
-		System.out.println("-------------------------------------------------------");
-	}
+			System.out.print("Share Name  := " );
+			linkedList.traverse();
+			System.out.println("Last Transaction Time/Date  : "+ queue.dequeue());
+			System.out.println("Last Transaction status     : " + stack.pop());
+
+			System.out.println("-------------------------------------------------------");
+		}
 		catch(Exception e) {
 			System.out.println("No transaction innitiated yet");
 		}
-		}
+	}
 }
 
 
