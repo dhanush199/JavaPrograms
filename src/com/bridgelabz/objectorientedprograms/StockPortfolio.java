@@ -11,9 +11,7 @@ import org.codehaus.jackson.map.JsonMappingException;
 
 import com.bridgelabz.utility.DataStructureUtility;
 import com.bridgelabz.utility.ObjectOrientedUtility;
-import com.bridgelabz.utility.QueueLinkedList;
-import com.bridgelabz.utility.SinglyLinkedListImpl;
-import com.bridgelabz.utility.StackLinkedList;
+
 
 public class StockPortfolio {
 	static List<Stock> liOfStock = new ArrayList<Stock>();
@@ -46,7 +44,7 @@ public class StockPortfolio {
 	}
 
 	public static void displayStock() throws FileNotFoundException {
-		String string = ObjectOrientedUtility.readFile(str);
+		//String string = ObjectOrientedUtility.readFile(str);
 		try {
 			liOfStock = ObjectOrientedUtility.convertJsonToPOJO("/home/admin1/StockManagement/stock.json", Stock.class);
 		} catch (Exception e) {

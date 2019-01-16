@@ -567,8 +567,8 @@ public class DataStructureUtility {
 		}
 		return stack;
 	}
-	public static QueueLinkedList primeAnagramA(List<Integer> primeList) {
-		QueueLinkedList primeAnagram = new QueueLinkedList();
+	public static QueueLinkedList<Integer> primeAnagramA(List<Integer> primeList) {
+		QueueLinkedList<Integer> primeAnagram = new QueueLinkedList<Integer>();
 		for (int i = 0; i < primeList.size(); i++) {
 			for (int j = i+1; j < primeList.size(); j++) {
 				if (AlgorithmUtility.isAnagram(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
@@ -583,7 +583,7 @@ public class DataStructureUtility {
     {
         QueueLinkedList<QueueLinkedList<String>> mainQueue = new QueueLinkedList<QueueLinkedList<String>>();
         QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>();
-        System.out.println("Total numver of deck of cards are " + deck.length);
+        System.out.println("Total number of deck of cards are " + deck.length);
         for (int i = 0; i < 4; i++) {
             String[] demo = new String[9];
             for (int j = 0; j < 9; j++) {
@@ -596,7 +596,7 @@ public class DataStructureUtility {
             }
             mainQueue.enqueue(queueLinkedList);
             queueLinkedList = new QueueLinkedList<String>();
-            continue;
+            //continue;
         }
         return mainQueue;
     }
@@ -604,10 +604,10 @@ public class DataStructureUtility {
     {
         for (int i = 0; i < mainQueue.getSize(); i++) {
             QueueLinkedList<String> queue2 = mainQueue.dequeue();
-            System.out.println("---------------------------------------- Person " + (i + 1)
-                    + " -------------------------------------------");
+            System.out.println("------------------- Person " + (i + 1)
+                    + " ------------------");
             for (int j = 0; j < queue2.getSize(); j++) {
-                System.out.print(queue2.dequeue() + " ");
+                System.out.println(queue2.dequeue() + " ");
             }
             System.out.println();
         }
