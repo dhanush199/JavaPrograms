@@ -239,6 +239,17 @@ public class StockAgency {
 			System.out.println("No transaction innitiated yet");
 		}
 	}
+	public static void displayQueue(String fName,QueueLinkedList<Stock> q1) throws FileNotFoundException {
+		try {
+			for(int i=0;i<q1.size;i++) {
+			//System.out.print("Share Name  := " );
+			System.out.println("Last Transaction Time/Date  : "+ q1.dequeue()+"  Share name  : "+q1.dequeue());
+			System.out.println("-------------------------------------------------------");
+		}}
+		catch(Exception e) {
+			System.out.println();
+		}
+	}
 }
 
 

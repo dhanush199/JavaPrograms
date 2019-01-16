@@ -80,16 +80,6 @@ public class StockPortfolio {
 		return liOfStock;
 
 	}
-	//	public static void displayStock11(List<Stock> tempList) throws FileNotFoundException {
-	//	
-	//		for (Stock stock : tempList) {
-	//			System.out.println("Stock Name               : " + stock.getStockName());
-	//			System.out.println("Total number of Stock           : " + stock.getNumberOfShare());
-	//			System.out.println("Share Price              : " + stock.getSharePrice());
-	//			System.out.println("-------------------------------------------------------");
-	//		}
-	//		 
-	//	}
 
 	public static void valueOfEachStock() throws FileNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);

@@ -23,7 +23,7 @@ public class ClinicManagement<T> {
 	static List<Doctor> list1;
 	static Doctor doctorDetails=new Doctor();
 	static Patient patientDetails=null;
-	static List<Doctor> doctorList;//=new ArrayList<Doctor>();
+	static List<Doctor> doctorList=new ArrayList<Doctor>();;//=new ArrayList<Doctor>();
 	static List<Patient> patientList;//=new ArrayList<Patient>();
 
 
@@ -62,7 +62,6 @@ public class ClinicManagement<T> {
 
 	public static void addDoctor() throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException{
 		doctorDetails=new Doctor();
-		doctorList=new ArrayList<Doctor>();
 		System.out.println("Enter the name of the doctor");
 		doctorDetails.setdName(DataStructureUtility.readString());
 		doctorDetails.setdId(doctorList.size()+1);
@@ -99,10 +98,9 @@ public class ClinicManagement<T> {
 	}
 	public static List<Doctor> displayDoctorFile(String fName) throws JsonParseException, JsonMappingException, ClassNotFoundException, IOException{
 
-		String file = ObjectOrientedUtility.readFile(fName);
+		//String file = ObjectOrientedUtility.readFile(fName);
 		try {
-			list1 = objectMapper.readValue(file, new TypeReference<List<Doctor>>() {
-			});
+			list1 = ObjectOrientedUtility.convertJsonToPOJO(fName, Doctor.class);
 			displayDoctor(list1);
 		} catch (Exception e) {
 			System.out.println("file is empty!! first add inputs on to file or select second choice");
@@ -136,6 +134,7 @@ public class ClinicManagement<T> {
 		bw.write(json.toString());
 		bw.flush();
 	}
+	
 
 	/////////////////////////////////////////////////////////////////////////
 

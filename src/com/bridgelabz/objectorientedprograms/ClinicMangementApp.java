@@ -6,19 +6,18 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 
 import com.bridgelabz.utility.DataStructureUtility;
+import com.bridgelabz.utility.ObjectOrientedUtility;
 
 public class ClinicMangementApp {
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, ClassNotFoundException, IOException{
-	ClinicManagement patientDetails=new ClinicManagement();
-		//ObjectOrientedUtility.convertJsonToPOJO("/home/admin1/Dhanush/Bridgelabz/Myprograms/JavaPrograms/", null);
-	ClinicManagement doctorMethods=new ClinicManagement();
+	//ClinicManagement patientDetails=new ClinicManagement();
+	//ClinicManagement doctorMethods=new ClinicManagement();
 		while(true){
 			System.out.println("1 > Add Doctor/Patient");
 			System.out.println("2 > search Doctor/Patient");
 			System.out.println("3 > Display Doctor/Patient");
 			System.out.println("select option");
 			int opt=DataStructureUtility.readInteger();
-
 			switch (opt) {
 			case 1:System.out.println("select required option");
 			System.out.println("1> Add Doctor ");
@@ -57,12 +56,12 @@ public class ClinicMangementApp {
 			int value=DataStructureUtility.readInteger();
 
 			switch (value) {
-//			case 1:	displayDoctor(DoctorMethod.getDoctorList());
-//
-//			break;
-//			case 2:displayPatient(PatientMethod.patientList);
-//
-//			break;
+			case 1:	ClinicManagement.displayDoctorFile("/home/admin1/ClinicManagement/DoctorRecords.json");
+
+			break;
+			case 2:ClinicManagement.displayDoctorFile("/home/admin1/ClinicManagement/patientRecords.json");
+
+			break;
 
 			default:System.out.println("please enter valid option");
 			break;
