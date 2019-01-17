@@ -142,10 +142,7 @@ public class AddressBook {
 	{  Collections.sort(AddressDetails,(details1, details2) -> details1.getZipcode() > details2.getZipcode() ? 1
 			: details1.getZipcode() < details2.getZipcode() ? -1
 					: details1.getZipcode() == details2.getZipcode() ? 0 : -10);
-	}
-
-	
-		
+	}	
 		public static List<PersonalDetail> getpersondetails() {
 	        return persondetails;
 	    }

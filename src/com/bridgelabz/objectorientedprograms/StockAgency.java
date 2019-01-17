@@ -69,7 +69,6 @@ public class StockAgency {
 				System.out.println("Written successfully");				
 				s.setNumberOfShare(temp-share);				
 				liOfStock.add(s);
-
 				set.addAll(liOfStock);
 				String json1 = ObjectOrientedUtility.userWriteValueAsString(set);
 				ObjectOrientedUtility.writeFile(json1, "/home/admin1/StockManagement/ss.json");
@@ -179,22 +178,7 @@ public class StockAgency {
 		System.out.println("stock file" + stockFile.getPath() + " created ");
 		return ffname;
 	}
-	//	public static void findFileInsideDirectory(String name,File file)
-	//	{
-	//		File[] list = file.listFiles();
-	//		if(list!=null)
-	//			for (File fil : list)
-	//			{
-	//				if (fil.isDirectory())
-	//				{
-	//					findFileInsideDirectory(name,fil);
-	//				}
-	//				else if (name.equalsIgnoreCase(fil.getName()))
-	//				{
-	//					System.out.println(fil.getParentFile());
-	//				}
-	//			}
-	//	}
+
 	public static String[] listFilesInsideDirectory()
 	{
 		File dir = new File("/home/admin1/StockManagement//");

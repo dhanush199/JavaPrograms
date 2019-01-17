@@ -30,6 +30,5 @@ public class PersonalDetail {
 	public void setPhoneNumber(long string) {
 		PhoneNumber =  string;
 	}
-   
-
+  
 }
