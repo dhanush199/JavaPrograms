@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -272,7 +271,8 @@ public class ClinicManagement {
          case 2:
          {
              System.out.println("Searching by ID");
-                List<Patient> patient1 =  (List<Patient>) searchByPhoneno();
+                @SuppressWarnings("unchecked")
+				List<Patient> patient1 =  (List<Patient>) searchByPhoneno();
                 if (!patient1.isEmpty())
                     System.out.println("Doctor is present");
                 else
@@ -538,8 +538,8 @@ public class ClinicManagement {
                 System.out.println("File is empty! Doctor cannot be searched");
                 return null;
             }
-
         }
+        
         public static List<Doctor> searchBySpecialization() throws IOException {
             String string = ObjectOrientedUtility.readFile(doctorFile);
             try {

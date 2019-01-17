@@ -32,8 +32,8 @@ public class Patient {
 	//Doctor doctor=new Doctor();
 	List<Patient> dList=new ArrayList<Patient>();
 	private String consultTime;
-	private String speciality;
-	private String availability;
+//	private String speciality;
+//	private String availability;
 	public String getpName() {
 		return pName;
 	}
