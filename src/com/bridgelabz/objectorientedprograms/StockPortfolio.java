@@ -12,13 +12,11 @@ import org.codehaus.jackson.map.JsonMappingException;
 import com.bridgelabz.utility.DataStructureUtility;
 import com.bridgelabz.utility.ObjectOrientedUtility;
 
-
 public class StockPortfolio {
 	static List<Stock> liOfStock = new ArrayList<Stock>();
 	static Stock stock = null;
 	static final String str = "/home/admin1/StockManagement/ss.json";
 	
-
 	public static void addStock() throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
 		String string = ObjectOrientedUtility.readFile(str);
 		System.out.println(string);
@@ -46,7 +44,7 @@ public class StockPortfolio {
 	public static void displayStock() throws FileNotFoundException {
 		//String string = ObjectOrientedUtility.readFile(str);
 		try {
-			liOfStock = ObjectOrientedUtility.convertJsonToPOJO("/home/admin1/StockManagement/stock.json", Stock.class);
+			liOfStock = ObjectOrientedUtility.convertJsonToPOJO("/home/admin1/StockManagement/ps.json", Stock.class);
 		} catch (Exception e) {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}
@@ -58,7 +56,6 @@ public class StockPortfolio {
 			System.out.println("Last Transaction status     : " + stock.getTransaction());
 			System.out.println("-------------------------------------------------------");
 		}
-
 	}
 
 	public static List<Stock> displayStock1(String fName) throws FileNotFoundException {
@@ -107,7 +104,6 @@ public class StockPortfolio {
 			sum += (stock.getNumberOfShare() * stock.getSharePrice());
 		}
 		System.out.println("Total value of stock is :" + sum + "\n");
-
 	}
 }
 
