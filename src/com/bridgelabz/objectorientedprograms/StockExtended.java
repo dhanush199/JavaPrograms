@@ -26,7 +26,7 @@ public class StockExtended {
 			case 1:StockPortfolio.addStock();
 			run=true;break;
 			case 2:StockPortfolio.displayStock();
-			System.out.println("1> Buy Share\n   2> Sell share\n3> Save\n 4> Print 5> Display transaction history");
+			System.out.println("1>Buy Share\n2>Sell share\n3>Save\n4>Print\n5>Display transaction history");
 			System.out.println("\n");
 			switch (DataStructureUtility.readInteger()) {
 			case 1:StockAgency.buy();
@@ -51,6 +51,7 @@ public class StockExtended {
 			case 4:System.exit(0);run=false;break;
 			default:System.out.println("Please select correct choice");break;
 			}
-		}}
+		}
+		}
 
 }

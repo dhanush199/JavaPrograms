@@ -143,7 +143,7 @@ public class StockAgency {
 	}
 
 	public static void save() {
-		System.out.println("File successfully saved");
+		System.out.println("File successfully  saved");
 
 	}
 	public static void printStock() throws FileNotFoundException {

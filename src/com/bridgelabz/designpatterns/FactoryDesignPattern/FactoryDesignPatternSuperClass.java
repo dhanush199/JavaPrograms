@@ -1,4 +1,4 @@
-package FactoryDesignPattern;
+package com.bridgelabz.designpatterns.FactoryDesignPattern;
 
 public class FactoryDesignPatternSuperClass {
 	

@@ -67,15 +67,14 @@ public class StockPortfolio {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}
 		for (Stock stock : liOfStock) {
-			System.out.println("Stock Name               : " + stock.getStockName());
-			System.out.println("Total number of Stock    : " + stock.getNumberOfShare());
-			System.out.println("Share Price              : " + stock.getSharePrice());
+			System.out.println("Stock Name                  : " + stock.getStockName());
+			System.out.println("Total number of Stock       : " + stock.getNumberOfShare());
+			System.out.println("Share Price                 : " + stock.getSharePrice());
 			System.out.println("Last Transaction Time/Date  : " + stock.getDate());
 			System.out.println("Last Transaction status     : " + stock.getTransaction());
 			System.out.println("-------------------------------------------------------");
 		}
 		return liOfStock;
-
 	}
 
 	public static void valueOfEachStock() throws FileNotFoundException {
@@ -87,7 +86,7 @@ public class StockPortfolio {
 		}
 		for (Stock stock : liOfStock) {
 			System.out.println("Stock Name               : " + stock.getStockName());
-			System.out.println("Value of this stock is           :" + stock.getNumberOfShare() * stock.getSharePrice());
+			System.out.println("Value of this stock is   :" + stock.getNumberOfShare() * stock.getSharePrice());
 			System.out.println("------------------------------------------------------");
 		}
 	}
