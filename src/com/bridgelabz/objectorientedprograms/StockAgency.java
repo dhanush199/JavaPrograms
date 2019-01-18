@@ -90,9 +90,7 @@ public class StockAgency {
 		}
 		return index;
 	}
-
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////////////////////////////////
 	public static void sell() throws JsonGenerationException, JsonMappingException, IOException {
 		Stock s=new Stock();
 		tempList=new ArrayList<Stock>();
@@ -128,7 +126,9 @@ public class StockAgency {
 				tempList.clear();
 				tempList.add(s);
 				String json = ObjectOrientedUtility.userWriteValueAsString(tempList);
-				ObjectOrientedUtility.writeFile(json, "/home/admin1/StockManagement/ps.json");
+				StringBuffer sb11=new StringBuffer("/home/admin1/StockManagement//");
+				sb11.append(accName);
+				ObjectOrientedUtility.writeFile(json,sb11.toString());
 				System.out.println("Written successfully");
 				s.setNumberOfShare(shareInCompany+share1);
 				System.out.println("Company Share = "+s.getNumberOfShare());
@@ -160,6 +160,7 @@ public class StockAgency {
 			System.out.println("Please enter the valid file name/path");
 		}
 	}
+	
 	public static String creatAccount() {
 		System.out.println("Enter the account name");
 		StringBuffer sb=new StringBuffer("/home/admin1/StockManagement/");

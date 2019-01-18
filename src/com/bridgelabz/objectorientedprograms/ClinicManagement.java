@@ -32,7 +32,7 @@ public class ClinicManagement {
     static String appointmentFile="/home/admin1/ClinicManagement/appointment.json";
      static Patient patient=null;
     static Doctor doctor=null;
-    static int dfam=1;
+  
    
 
     public static  void addDoctor() throws JsonGenerationException, JsonMappingException, IOException {
@@ -174,7 +174,6 @@ public class ClinicManagement {
                     System.out.println("File is empty!");
                     return null;
                 }
-
             }
    
          public static List<Doctor> searchByDoctorId() throws IOException {

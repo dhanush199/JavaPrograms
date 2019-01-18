@@ -45,7 +45,14 @@ public class StockMangementusingQueue {
 			System.out.println("Do you want to continue? Y/N");
 			s=DataStructureUtility.readString();
 		}while(s.compareToIgnoreCase("y")==0);
+	try {
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
 	}
+	}
+	
 }
 
 

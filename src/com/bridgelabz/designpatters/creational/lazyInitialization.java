@@ -8,7 +8,7 @@ public class lazyInitialization {
 	static SingletonLazyInitialized s1=new SingletonLazyInitialized();
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-		//System.out.println(SingletonLazyInitialized.getInstance());
+		System.out.println(SingletonLazyInitialized.getInstance());
 	
 
 //		

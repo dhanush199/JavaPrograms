@@ -17,13 +17,13 @@ public class JasonInventory {
 	static List<InventoryList> list2 = new ArrayList<InventoryList>();
 	static InventoryList inventoryList = new InventoryList();
 	static List<Inventory> liInventories = new ArrayList<Inventory>();
-	
+
 	public static void main(String[] args) throws IOException {
 		String str = "/home/admin1/Dhanush/input.json";
-//		ObjectMapper objectMapper = new ObjectMapper();
-//		List<InventoryList> list2 = new ArrayList<InventoryList>();
-//		InventoryList inventoryList = new InventoryList();
-//		List<Inventory> liInventories = new ArrayList<Inventory>();
+		//		ObjectMapper objectMapper = new ObjectMapper();
+		//		List<InventoryList> list2 = new ArrayList<InventoryList>();
+		//		InventoryList inventoryList = new InventoryList();
+		//		List<Inventory> liInventories = new ArrayList<Inventory>();
 		String file = "";
 		int k = 0;
 		do {
@@ -42,8 +42,8 @@ public class JasonInventory {
 				}
 				break;
 			case 2:addInvent();
-				
-				break;
+
+			break;
 			case 3:
 				file = ObjectOrientedUtility.readFile(str);
 				list2 = objectMapper.readValue(file, new TypeReference<List<InventoryList>>() {});
@@ -63,37 +63,39 @@ public class JasonInventory {
 	}
 	public static void addInvent() throws IOException{
 		int k=0;
-		do{
-		String [] arr= {"","rice","wheat","pulses"};
-		System.out.println("Select the inventory name \n 1.rice 2.wheat 3.pulses");
-		int option=DataStructureUtility.readInteger();
-		int op = 1, flag = 0;
-		while (op==1) {
-			for (InventoryList invenList : list2) {
-				if (arr[option].equals(invenList.getInventoryName())) {
-					liInventories = invenList.getListOfInventories();
-					Inventory inventory = ObjectOrientedUtility.getInventories();
-					liInventories.add(inventory);
-					flag = 1;
+		int op = 1;
+		while (op==1) 
+			do{
+				String [] arr= {"","rice","wheat","pulses"};
+				System.out.println("Select the inventory name \n 1.rice 2.wheat 3.pulses");
+				int option=DataStructureUtility.readInteger();
+				int flag = 0;
+				{
+					for (InventoryList invenList : list2) {
+						if (arr[option].equals(invenList.getInventoryName())) {
+							liInventories = invenList.getListOfInventories();
+							Inventory inventory = ObjectOrientedUtility.getInventories();
+							liInventories.add(inventory);
+							flag = 1;
+						}
+					}
+					if (flag == 0) {
+						Inventory inventory = ObjectOrientedUtility.getInventories();
+						liInventories.add(inventory);
+						inventoryList = ObjectOrientedUtility.insertInventoryList(arr[option], liInventories);
+						list2.add(inventoryList);
+					}
+					System.out.println("wish to add some more inventorry(1 or 0)");
+					op = DataStructureUtility.readInteger();
 				}
-			}
-			if (flag == 0) {
-				Inventory inventory = ObjectOrientedUtility.getInventories();
-				liInventories.add(inventory);
-				inventoryList = ObjectOrientedUtility.insertInventoryList(arr[option], liInventories);
-				list2.add(inventoryList);
-			}
-			System.out.println("wish to add some more inventorry(1 or 0)");
-			op = DataStructureUtility.readInteger();
-		}
 
-		System.out.println("Entered elements has been added to list");
-		String json = objectMapper.writeValueAsString(list2);
-		ObjectOrientedUtility.write(json);
-		System.out.println("Inventory list has been written on to file");
-		System.out.println("Press 1 to add more inventory rice/wheat/pulses");
-		k=DataStructureUtility.readInteger();
-	}while(k==1);
+				System.out.println("Entered elements has been added to list");
+				String json = objectMapper.writeValueAsString(list2);
+				ObjectOrientedUtility.write(json);
+				System.out.println("Inventory list has been written on to file");
+				System.out.println("Press 1 to add more inventory rice/wheat/pulses");
+				k=DataStructureUtility.readInteger();
+			}while(k==1);
 		String[] s={};
 		main(s);
 	}

@@ -16,7 +16,7 @@ public class StockExtended {
 		while(run==true)
 		{
 			System.out.println("*****************STOCK Management APPLICATION******************");
-			System.out.println("1.Put Stock\n2.Display\n3.display transaction History value\n4.Exit");
+			System.out.println("1.Put Stock\n2.Display\n3.Exit");
 			System.out.println("****************************************************");
 			int choice=DataStructureUtility.readInteger();
 			//String date=s.getFormatedDate( "date");
