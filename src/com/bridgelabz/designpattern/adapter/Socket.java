@@ -1,4 +1,4 @@
-package com.bridgelabzdesignpattern.adapter;
+package com.bridgelabz.designpattern.adapter;
 
 
 	public class Socket {

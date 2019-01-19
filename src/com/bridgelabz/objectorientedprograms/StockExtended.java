@@ -10,8 +10,8 @@ import com.bridgelabz.utility.DataStructureUtility;
 public class StockExtended {
 
 	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
-	//	StockPortfolio stockPortfolio=new StockPortfolio();
-	//	Stock s=new Stock();
+		//	StockPortfolio stockPortfolio=new StockPortfolio();
+		//	Stock s=new Stock();
 		boolean run=true;
 		while(run==true)
 		{
@@ -41,7 +41,7 @@ public class StockExtended {
 			StringBuffer sb1=new StringBuffer("/home/admin1/StockManagement/");
 			String ss1=DataStructureUtility.readString();
 			sb1.append(ss1);
-				StockAgency.displayStackQueueLinkedList(sb1.toString());
+			StockAgency.displayStackQueueLinkedList(sb1.toString());
 			break;
 			default:System.out.println("Please enter the valid option");
 			break;
@@ -52,6 +52,6 @@ public class StockExtended {
 			default:System.out.println("Please select correct choice");break;
 			}
 		}
-		}
+	}
 
 }

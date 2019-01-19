@@ -3,8 +3,8 @@ package com.bridgelabz.objectorientedprograms;
 public class PersonalDetail {
 	private String Firstname;
 	private String Lastname;
-	private Object Address;
-	private long PhoneNumber;
+	private AddressDetails address;
+	private long phoneNumber;
 
 	public String getFirstname() {
 		return Firstname;
@@ -18,17 +18,17 @@ public class PersonalDetail {
 	public void setLastname(String lastname) {
 		Lastname = lastname;
 	}
-	public Object getAddress() {
-		return Address;
+	public AddressDetails getAddress() {
+		return address;
 	}
-	public void setAddress(Object address) {
-		Address = address;
+	public void setAddress(AddressDetails address) {
+		this.address = address;
 	}
 	public long getPhoneNumber() {
-		return PhoneNumber;
+		return phoneNumber;
 	}
 	public void setPhoneNumber(long string) {
-		PhoneNumber =  string;
+		this.phoneNumber =  string;
 	}
   
 }
