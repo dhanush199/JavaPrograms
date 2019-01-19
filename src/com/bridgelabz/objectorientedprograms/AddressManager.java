@@ -1,6 +1,7 @@
 package com.bridgelabz.objectorientedprograms;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,34 +32,31 @@ public class AddressManager {
 	}
 
 	public static void openBook() throws IOException {
-		System.out.println("Files available are:");
-		for (File file : files) {
-			if (file.getName().endsWith(".json"))
-				System.out.println(file.getName());
-		}
-		System.out.println("Choose the address book");
-		String bookName = DataStructureUtility.readString();
-		int flag = 0;
-		for (File file : files) {
-			String filename = file.getName();
-			if (bookName.equals(filename)) {
-				if (file.length() > 0) {
-					System.out.println("Add Details");
-					String string = ObjectOrientedUtility.readFile(filename);
-					persondetails = objectmapper.readValue(string, new TypeReference<List<PersonalDetail>>() {
-					});
-					AddressBook.setpersondetails(persondetails);
-				} /*
-					 * else { System.out.println("Address Book is empty");
-					 * System.out.println("Add new data onto the Address Book"); }
-					 */
-				addressBook();
-				flag = 1;
+		try {
+			System.out.println("Files available are:");
+			for (File file : files) {
+				if (file.getName().endsWith(".json"))
+					System.out.println(file.getName());
 			}
-		}
-		if (flag == 0)
+			System.out.println("Choose the address book");
+			String bookName = DataStructureUtility.readString();
+			//int flag = 0;
+			for (File file : files) {
+				String filename = file.getName();
+				if (bookName.equals(filename)) {
+					if (file.length() > 0) {
+						System.out.println("Add Details");
+						String string = ObjectOrientedUtility.readFile(filename);
+						persondetails = objectmapper.readValue(string, new TypeReference<List<PersonalDetail>>() {
+						});
+						addressbook.setpersondetails(persondetails);
+					} 
+					addressBook();
+				}
+			}}
+		catch(FileNotFoundException e) {
 			System.out.println("File doesnot exist or u have not given extention(.json)");
-	}
+		}}
 
 	public static void saveBook() {
 		System.out.println("List of files");
@@ -72,17 +70,15 @@ public class AddressManager {
 			String filename = file.getName();
 			if (ch_book.equals(filename)) {
 				try {
-					String json = objectmapper.writeValueAsString(AddressBook.getpersondetails());
+					String json = objectmapper.writeValueAsString(addressbook.getpersondetails());
 					ObjectOrientedUtility.writeFile(json, filename);
 					System.out.println("Address book details saved");
 				} catch (Exception e) {
 					System.out.println("Cannot write to file");// handled exception
 					System.out.println("File doesnot exist or u have not given extention(.json)");
-
 				}
 			}
-		}
-		
+		}	
 	}
 
 	public static void closeBook() {
@@ -101,7 +97,7 @@ public class AddressManager {
 		boolean isFilePresent = file.createNewFile();//changed variable name
 		if (isFilePresent) {
 			System.out.println("File is created");
-			String json = objectmapper.writeValueAsString(AddressBook.getpersondetails());
+			String json = objectmapper.writeValueAsString(addressbook.getpersondetails());
 			ObjectOrientedUtility.writeFile(json, book);
 			System.out.println("Address book details saved");
 		} else {
@@ -116,22 +112,23 @@ public class AddressManager {
 		System.out.println("3:Delete person");
 		System.out.println("4:Sort the details");
 		System.out.println("5:Do you want to go back to main ");
+		AddressBook addressBook=new AddressBook();
 		int choice2 = DataStructureUtility.readInteger();
 		switch (choice2) {
 		case 1: {
-			AddressBook.personalDetails(persondetails);
+			addressBook.addPerson();
 			System.out.println("the person details is succesfully added to the book");
-			AddressBook.displayTheAddress();
+			addressBook.displayAddress();
 			break;
 		}
 		case 2: {
-			AddressBook.editPerson();
-			AddressBook.displayTheAddress();
+			addressBook.editPerson();
+			addressBook.displayAddress();
 			break;
 		}
 		case 3: {
-			AddressBook.deletePerson();
-			AddressBook.displayTheAddress();
+			addressBook.deletePerson();
+			addressBook.displayAddress();
 			break;
 		}
 		case 4: {
@@ -141,11 +138,11 @@ public class AddressManager {
 			int choice = DataStructureUtility.readInteger();
 			switch (choice) {
 			case 1: {
-				AddressBook.sortByLastName();
+				addressBook.sortByLastName();
 				break;
 			}
 			case 2: {
-				AddressBook.sortByZipCode();
+				addressBook.sortByZipCode();
 				break;
 			}
 			default:

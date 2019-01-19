@@ -18,12 +18,12 @@ public class AddressBookApp{
 		System.out.println("4: Close book");
 		System.out.println("5: Save book as");
 		System.out.println("6: Exit");
-		String originbook="/home/admin1/Dhanush/Bridgelabz/Myprograms/JavaPrograms/";
+		String originbookPath="/home/admin1/Dhanush/Bridgelabz/Myprograms/JavaPrograms/";
 		int choice=DataStructureUtility.readInteger();
 		switch (choice) {
 		case 1:
 		{
-			AddressManager.createBook(originbook);
+			AddressManager.createBook(originbookPath);
 			break;
 		}
 		case 2:

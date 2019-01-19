@@ -18,7 +18,7 @@ import com.bridgelabz.utility.SinglyLinkedListImpl;
 import com.bridgelabz.utility.StackLinkedList;
 
 public class StockAgency {
-	static List<Stock> liOfStock = new ArrayList<Stock>();
+	static List<Stock> liOfStocks = new ArrayList<Stock>();
 	static Set<Stock> set = new HashSet<Stock>();
 	//static Transactions transactions=new Transactions();
 	static List<Stock> tempList =new ArrayList<Stock>();
@@ -31,10 +31,10 @@ public class StockAgency {
 	@SuppressWarnings("unlikely-arg-type")
 	public static void buy() throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
 		Stock s=new Stock();
-		liOfStock = new ArrayList<Stock>();
+		liOfStocks = new ArrayList<Stock>();
 		String fileArray[]=listFilesInsideDirectory();
 		String accName=searchFile(fileArray);
-		liOfStock=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");	
+		liOfStocks=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");	
 		System.out.println("Enter the name of the stock which you want to Buy");
 		String s1=DataStructureUtility.readString();
 		s.setStockName(s1);
@@ -42,15 +42,13 @@ public class StockAgency {
 		System.out.println(flag);
 		if(flag<0) {
 			System.out.println("Stoke name not found");
-			String[] str1= {};
-			StockApplication.main(str1);
+			StockApplication.main(null);
 		}
 		else {
 			System.out.println("Enter the amount of share you wish to buy");
-			//System.out.println(flag);
-			s=liOfStock.get(index);
+			s=liOfStocks.get(index);
+			updateShare(s);
 			s.setDate();
-			//tempList.add(s);
 			double share=DataStructureUtility.readInteger();
 			if(s.getNumberOfShare()>share && share>0) {
 				System.out.println("Present share=="+s.getNumberOfShare());
@@ -68,8 +66,8 @@ public class StockAgency {
 				ObjectOrientedUtility.writeFile(json, accName);
 				System.out.println("Written successfully");				
 				s.setNumberOfShare(temp-share);				
-				liOfStock.add(s);
-				set.addAll(liOfStock);
+				liOfStocks.add(s);
+				set.addAll(liOfStocks);
 				String json1 = ObjectOrientedUtility.userWriteValueAsString(set);
 				ObjectOrientedUtility.writeFile(json1, "/home/admin1/StockManagement/ss.json");
 				System.out.println("Written successfully");
@@ -78,9 +76,12 @@ public class StockAgency {
 				System.out.println("Please enter a stock less than "+s.getNumberOfShare());
 		}
 	}
+	public static void updateShare(Stock s2) {
+		
+	}
 	public static int checkStockName(String s1) {
 		index=-1;
-		for(Stock ss:liOfStock)
+		for(Stock ss:liOfStocks)
 		{
 			++index;
 			if(ss.getStockName().equals(s1)) {
@@ -94,7 +95,7 @@ public class StockAgency {
 	public static void sell() throws JsonGenerationException, JsonMappingException, IOException {
 		Stock s=new Stock();
 		tempList=new ArrayList<Stock>();
-		liOfStock=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");	
+		liOfStocks=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");	
 		String fileArray[]=listFilesInsideDirectory();
 		String accName=searchFile(fileArray);
 		tempList=StockPortfolio.displayStock1(accName);
@@ -105,7 +106,7 @@ public class StockAgency {
 		System.out.println(flag);
 		if(flag<0)System.out.println("Stoke name not found");
 		else {
-			double shareInCompany=liOfStock.get(flag).getNumberOfShare();
+			double shareInCompany=liOfStocks.get(flag).getNumberOfShare();
 			//liOfStock.remove(flag);
 			StockPortfolio.displayStock();
 			System.out.println("Enter the amount of share you wish to sell");
@@ -132,8 +133,8 @@ public class StockAgency {
 				System.out.println("Written successfully");
 				s.setNumberOfShare(shareInCompany+share1);
 				System.out.println("Company Share = "+s.getNumberOfShare());
-				liOfStock.add(s);
-				String json1 = ObjectOrientedUtility.userWriteValueAsString(liOfStock);
+				liOfStocks.add(s);
+				String json1 = ObjectOrientedUtility.userWriteValueAsString(liOfStocks);
 				ObjectOrientedUtility.writeFile(json1, "/home/admin1/StockManagement/ss.json");
 				System.out.println("Written successfully");
 			}
@@ -149,7 +150,7 @@ public class StockAgency {
 	public static void printStock() throws FileNotFoundException {
 		try{
 			System.out.println("Share details of the company");
-			liOfStock=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");	
+			liOfStocks=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");	
 			System.out.println("///////////////////////////////////////");
 			System.out.println("Shares details of the person");
 			tempList=StockPortfolio.displayStock1("/home/admin1/StockManagement/ps.json");

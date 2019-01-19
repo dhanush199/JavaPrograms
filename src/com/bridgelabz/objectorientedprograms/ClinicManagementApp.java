@@ -13,8 +13,6 @@ import com.bridgelabz.utility.DataStructureUtility;
 
 public class ClinicManagementApp {
 
-
-
 	String originfile="/home/admin1/Tharun/Bridgelabs/programs/JavaPrograms/";
 	static List<Doctor> doctorlist1=new ArrayList<Doctor>();
 	static List<Patient> patientlist1=new ArrayList<Patient>();
