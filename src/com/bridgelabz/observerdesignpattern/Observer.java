@@ -9,4 +9,6 @@ public interface Observer {
 	
 	//attach with subject to observe
 	public void setSubject(Subject sub);
+
+	void setSubject(com.bridgelabz.observerdesignpattern.Subject sub);
 }

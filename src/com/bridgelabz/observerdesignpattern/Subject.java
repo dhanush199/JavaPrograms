@@ -11,5 +11,8 @@ public interface Subject {
 	
 	//method to get updates from subject
 	public Object getUpdate(Observer obj);
+	void register(java.util.Observer obj);
+	void unregister(java.util.Observer obj);
+	Object getUpdate(java.util.Observer obj);
 	
 }

@@ -172,7 +172,7 @@ public class AddressBook {
 	}
 	public void  setpersondetails(List<PersonalDetail> persondetails) {
 		// TODO Auto-generated method stub
-		this.persons=persondetails;
+		AddressBook.persons=persondetails;
 	}
 
 //    public static void setLiOfPerson(List<Person> persons2) {
