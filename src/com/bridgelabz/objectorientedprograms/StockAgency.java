@@ -20,15 +20,14 @@ import com.bridgelabz.utility.StackLinkedList;
 public class StockAgency {
 	static List<Stock> liOfStocks = new ArrayList<Stock>();
 	static Set<Stock> set = new HashSet<Stock>();
-	//static Transactions transactions=new Transactions();
+	//static Transactions transactions=new Transactions()
 	static List<Stock> tempList =new ArrayList<Stock>();
 	static final String str = "/home/admin1/StockManagement/ss.json";
-	static Stock s=null;
+	static Stock stock=null;
 	static int index=-1;
 	static StackLinkedList<String> stack=new StackLinkedList<String>();
 	static QueueLinkedList<String> queue=new QueueLinkedList<String>();
 	static SinglyLinkedListImpl<String> linkedList=new SinglyLinkedListImpl<String>();	
-	@SuppressWarnings("unlikely-arg-type")
 	public static void buy() throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
 		Stock s=new Stock();
 		liOfStocks = new ArrayList<Stock>();
@@ -40,43 +39,46 @@ public class StockAgency {
 		s.setStockName(s1);
 		int flag=checkStockName(s1);
 		System.out.println(flag);
+		updateShare(flag, accName);
+
+	}
+	public static void updateShare(int flag,String accName) throws JsonGenerationException, JsonMappingException, ClassNotFoundException, IOException {
+		
 		if(flag<0) {
 			System.out.println("Stoke name not found");
 			StockApplication.main(null);
 		}
 		else {
 			System.out.println("Enter the amount of share you wish to buy");
-			s=liOfStocks.get(index);
-			updateShare(s);
-			s.setDate();
+			stock=liOfStocks.get(index);
+			stock.setDate();
 			double share=DataStructureUtility.readInteger();
-			if(s.getNumberOfShare()>share && share>0) {
-				System.out.println("Present share=="+s.getNumberOfShare());
-				double temp=s.getNumberOfShare();
-				share=s.getNumberOfShare()-share;
-				s.setTransaction("added");
-				queue.enqueue(s.getDate());
-				stack.push(s.getTransaction());
-				linkedList.add(s.getStockName());
-				s.setNumberOfShare(share);
-				System.out.println("share=="+s.getNumberOfShare());
-				//s.setTransaction("daswd");
-				tempList.add(s);
+			if(stock.getNumberOfShare()>share && share>0) {
+				double tempshare=stock.getNumberOfShare()-share;
+				stock.setTransaction("added");
+				queue.enqueue(stock.getDate());
+				stack.push(stock.getTransaction());
+				linkedList.add(stock.getStockName());
+				stock.setNumberOfShare(share);
+				System.out.println("share=="+stock.getNumberOfShare());
+				tempList.add(stock);
 				String json = ObjectOrientedUtility.userWriteValueAsString(tempList);
-				ObjectOrientedUtility.writeFile(json, accName);
+				System.out.println(json);
+				StringBuffer sb=new StringBuffer("/home/admin1/StockManagement/");
+				sb.append(accName);
+				ObjectOrientedUtility.writeFile(json, sb.toString());
 				System.out.println("Written successfully");				
-				s.setNumberOfShare(temp-share);				
-				liOfStocks.add(s);
+				stock.setNumberOfShare(tempshare);				
+				liOfStocks.add(stock);
+				set.clear();
 				set.addAll(liOfStocks);
 				String json1 = ObjectOrientedUtility.userWriteValueAsString(set);
-				ObjectOrientedUtility.writeFile(json1, "/home/admin1/StockManagement/ss.json");
+				ObjectOrientedUtility.writeFile(json1,"/home/admin1/StockManagement/ss.json");
 				System.out.println("Written successfully");
 			}
 			else
-				System.out.println("Please enter a stock less than "+s.getNumberOfShare());
+				System.out.println("Please enter a stock less than "+stock.getNumberOfShare());
 		}
-	}
-	public static void updateShare(Stock s2) {
 		
 	}
 	public static int checkStockName(String s1) {
@@ -91,9 +93,9 @@ public class StockAgency {
 		}
 		return index;
 	}
-///////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static void sell() throws JsonGenerationException, JsonMappingException, IOException {
-		Stock s=new Stock();
+		Stock stock=new Stock();
 		tempList=new ArrayList<Stock>();
 		liOfStocks=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");	
 		String fileArray[]=listFilesInsideDirectory();
@@ -107,51 +109,49 @@ public class StockAgency {
 		if(flag<0)System.out.println("Stoke name not found");
 		else {
 			double shareInCompany=liOfStocks.get(flag).getNumberOfShare();
-			//liOfStock.remove(flag);
-			StockPortfolio.displayStock();
+			liOfStocks.remove(flag);
+			System.out.println("Flag === "+flag);
+			//liOfStocks.remove(flag);
+			//StockPortfolio.displayStock();
 			System.out.println("Enter the amount of share you wish to sell");
-			s=tempList.get(0);
 			double share1=DataStructureUtility.readInteger();
-			if(s.getNumberOfShare()>share1 && share1>0) {
-				System.out.println("Present shares=="+s.getNumberOfShare());
-				///s.getNumberOfShare();
-				//liOfStock.remove(s);
-				double share=s.getNumberOfShare()-share1;
-				System.out.println("share=="+s.getNumberOfShare());
-				s.setNumberOfShare(share);
-				s.setDate();
-				s.setTransaction("sold");
-				queue.enqueue(s.getDate());
-				stack.push(s.getTransaction());
-				linkedList.add(s.getStockName());
+			stock=tempList.get(0);
+			if(stock.getNumberOfShare()>=share1 && share1>0) {
+				double share=stock.getNumberOfShare()-share1;
+				stock.setNumberOfShare(share);
+				stock.setDate();
+				stock.setTransaction("sold");
+				queue.enqueue(stock.getDate());
+				stack.push(stock.getTransaction());
+				linkedList.add(stock.getStockName());
 				tempList.clear();
-				tempList.add(s);
+				tempList.add(stock);
 				String json = ObjectOrientedUtility.userWriteValueAsString(tempList);
 				StringBuffer sb11=new StringBuffer("/home/admin1/StockManagement//");
 				sb11.append(accName);
 				ObjectOrientedUtility.writeFile(json,sb11.toString());
 				System.out.println("Written successfully");
-				s.setNumberOfShare(shareInCompany+share1);
-				System.out.println("Company Share = "+s.getNumberOfShare());
-				liOfStocks.add(s);
-				String json1 = ObjectOrientedUtility.userWriteValueAsString(liOfStocks);
-				ObjectOrientedUtility.writeFile(json1, "/home/admin1/StockManagement/ss.json");
+				stock.setNumberOfShare(shareInCompany+share1);
+				liOfStocks.add(stock);
+				set.clear();
+				set.addAll(liOfStocks);
+				String json1 = ObjectOrientedUtility.userWriteValueAsString(set);
+				ObjectOrientedUtility.writeFile(json1,"/home/admin1/StockManagement/ss.json");
 				System.out.println("Written successfully");
 			}
 			else
-				System.out.println("Please enter a stock less than "+s.getNumberOfShare());
+				System.out.println("Please enter a stock less than "+stock.getNumberOfShare());
 		}
 	}
 
 	public static void save() {
 		System.out.println("File successfully  saved");
-
 	}
 	public static void printStock() throws FileNotFoundException {
 		try{
 			System.out.println("Share details of the company");
-			liOfStocks=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");	
-			System.out.println("///////////////////////////////////////");
+			liOfStocks=StockPortfolio.displayStock1("/home/admin1/StockManagement/ss.json");
+			System.out.println("........................................");
 			System.out.println("Shares details of the person");
 			tempList=StockPortfolio.displayStock1("/home/admin1/StockManagement/ps.json");
 			System.out.println("Stack/Queue elements are");
@@ -168,10 +168,10 @@ public class StockAgency {
 		String ffname=DataStructureUtility.readString();
 		sb.append(ffname);
 		File stockFile = new File(sb.toString());
-		boolean flag=false;
+		boolean isFileCreated=false;
 
 		try {
-			flag = stockFile.createNewFile();
+			isFileCreated = stockFile.createNewFile();
 
 		} catch (IOException ioe) {
 			System.out.println("Error while Creating File in Java" + ioe);
@@ -199,16 +199,17 @@ public class StockAgency {
 	public static String searchFile(String[] strings) {
 		System.out.println("Enter your account name");
 		String str=DataStructureUtility.readString();
+		int accFound=0;
 		for(String s:strings) {
 			if(s.compareToIgnoreCase(str)==0) {
 				System.out.println("Account found");
+				accFound=1;
 				break;
-			}
-			else {
+			}	}
+			if(accFound==0) {
+				System.out.println("Account not found!! Please creat account for further transactions");
 				str=creatAccount();
-				break;
 			}
-		}
 		return str;
 	}
 

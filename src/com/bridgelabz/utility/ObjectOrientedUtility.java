@@ -179,6 +179,7 @@ public class ObjectOrientedUtility {
 	public static void write(String json) throws IOException
 	{
 		FileWriter fw = new FileWriter("/home/admin1/Dhanush/input.json");
+		@SuppressWarnings("resource")
 		BufferedWriter bw = new BufferedWriter(fw);
 		bw.write(json);
 		bw.flush();
@@ -195,6 +196,7 @@ public class ObjectOrientedUtility {
 	public static void writeFile(String json,String fileName) throws IOException
 	{
 		FileWriter fw = new FileWriter(fileName);
+		@SuppressWarnings("resource")
 		BufferedWriter bw = new BufferedWriter(fw);
 		bw.write(json);
 		bw.flush();
@@ -221,7 +223,7 @@ public class ObjectOrientedUtility {
 	{
 		for (int i = 0; i < list2.size(); i++) {
 			InventoryList it = list2.get(i);
-			System.out.println("Inventory name :" + it.getInventoryName());
+			System.out.println("Inventory name :" + InventoryList.getInventoryName());
 			for (int j = 0; j < it.getListOfInventories().size(); j++) {
 				System.out.println("name :" + it.getListOfInventories().get(j).getName());
 				System.out.println("price :" + it.getListOfInventories().get(j).getPrice());

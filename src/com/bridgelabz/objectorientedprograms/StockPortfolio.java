@@ -18,6 +18,7 @@ public class StockPortfolio {
 	static final String str = "/home/admin1/StockManagement/ss.json";
 	
 	public static void addStock() throws JsonGenerationException, JsonMappingException, IOException, ClassNotFoundException {
+		liOfStock.clear();
 		String string = ObjectOrientedUtility.readFile(str);
 		System.out.println(string);
 		try {
@@ -59,10 +60,12 @@ public class StockPortfolio {
 	}
 
 	public static List<Stock> displayStock1(String fName) throws FileNotFoundException {
-		String ss = ObjectOrientedUtility.readFile(str);
-		System.out.println(ss);
+		//String ss = ObjectOrientedUtility.readFile(fName);
+		StringBuffer sbb=new StringBuffer("/home/admin1/StockManagement//");
+		sbb.append(fName);
+		//System.out.println(ss);
 		try {
-			liOfStock = ObjectOrientedUtility.convertJsonToPOJO(str,  Stock.class);
+			liOfStock = ObjectOrientedUtility.convertJsonToPOJO(sbb.toString(),  Stock.class);
 		} catch (Exception e) {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}

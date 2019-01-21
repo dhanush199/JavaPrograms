@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Stream;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.JsonParseException;
@@ -34,8 +33,6 @@ public class ClinicManagement {
 	static String appointmentFile="/home/admin1/ClinicManagement/appointment.json";
 	static Patient patient=null;
 	static Doctor doctor=null;
-
-
 
 	public static  void addDoctor() throws JsonGenerationException, JsonMappingException, IOException {
 		String string = ObjectOrientedUtility.readFile(doctorFile);
@@ -100,6 +97,7 @@ public class ClinicManagement {
 	}
 	public static void searchDoctor() throws IOException
 	{
+
 		System.out.println("How do you want to search Doctor By");
 		int ch=0;
 		do {
@@ -201,15 +199,15 @@ public class ClinicManagement {
 
 	public static List<Doctor> searchByDoctorSpecialization() {
 		System.out.println("Enter the doctor's specialization to be searched");
-		String docspec = DataStructureUtility.readString();
+		String docSpec = DataStructureUtility.readString();
 		try {
 			for (Doctor doctor : doctorList) {
-				if (docspec.equals(doctor.getSpeciality())) {
-					System.out.println("Doctor of the " + docspec + " specialization is present");
+				if (docSpec.equals(doctor.getSpeciality())) {
+					System.out.println("Doctor of the " + docSpec + " specialization is present");
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("Doctor of the " + docspec + " specialization is not present");
+			System.out.println("Doctor of the " + docSpec + " specialization is not present");
 		}
 		return null;
 	}
@@ -248,8 +246,6 @@ public class ClinicManagement {
 			System.out.println("Patient data doesnot exist\nPlease first add patient detials on to database");
 		}
 	}
-
-
 
 	public static void searchpatient()
 	{
@@ -350,7 +346,7 @@ public class ClinicManagement {
 	}
 	public static void writelistDoctor(String json) throws IOException
 	{
-		FileWriter file = new FileWriter("/home/admin1/Tharun/Filesforjava/doctor.json");
+		FileWriter file = new FileWriter("/home/admin1/ClinicManagement/doctor.json");
 		@SuppressWarnings("resource")
 		BufferedWriter buffer = new BufferedWriter(file);
 		buffer.write(json);
@@ -358,7 +354,7 @@ public class ClinicManagement {
 	}
 	public static void writelistPatient(String json) throws IOException
 	{
-		FileWriter file = new FileWriter("/home/admin1/Tharun/Filesforjava/patient.json");
+		FileWriter file = new FileWriter("/home/admin1/ClinicManagement/patient.json");
 		@SuppressWarnings("resource")
 		BufferedWriter buffer = new BufferedWriter(file);
 		buffer.write(json);
@@ -367,7 +363,7 @@ public class ClinicManagement {
 
 	public static void writelistAppointment(String json) throws IOException
 	{
-		FileWriter file = new FileWriter("/home/admin1/Tharun/Filesforjava/appointment.json");
+		FileWriter file = new FileWriter("/home/admin1/ClinicManagement/appointment.json");
 		@SuppressWarnings("resource")
 		BufferedWriter buffer = new BufferedWriter(file);
 		buffer.write(json);
@@ -408,14 +404,14 @@ public class ClinicManagement {
 	}
 	public static  List<Doctor> displayDoList() throws JsonParseException, JsonMappingException, IOException
 	{ObjectMapper objectmapper=new ObjectMapper();
-	String string = ObjectOrientedUtility.readFile("/home/admin1/Tharun/Filesforjava/doctor.json");
+	String string = ObjectOrientedUtility.readFile("/home/admin1/ClinicManagement/doctor.json");
 	doctorList = objectmapper.readValue(string, new TypeReference<List<Doctor>>() {
 	});
 	return doctorList;
 	}
 	public static  List<Patient> displayPaList() throws JsonParseException, JsonMappingException, IOException
 	{ObjectMapper objectmapper=new ObjectMapper();
-	String string = ObjectOrientedUtility.readFile("/home/admin1/Tharun/Filesforjava/patient.json");
+	String string = ObjectOrientedUtility.readFile("/home/admin1/ClinicManagement/patient.json");
 	patientList = objectmapper.readValue(string, new TypeReference<List<Doctor>>() {
 	});
 	return patientList;
@@ -427,7 +423,7 @@ public class ClinicManagement {
 			appointList = ObjectOrientedUtility.userReadValue(string, Appointment.class);
 			for (int i = 0; i < appointList.size(); i++) {
 				Appointment appointment = appointList.get(i);
-				String doctorName = appointment.getDocName();
+				String doctorName = appointment.getdName();
 				Integer numberOfAppointments = appointment.getListOfPatients().size();
 				map.put(doctorName, numberOfAppointments);
 			}
@@ -474,154 +470,156 @@ public class ClinicManagement {
 	public static void searchDoc(List<Doctor> doctorList, Patient patient) {
 		System.out.println("Enter id");
 		int id = DataStructureUtility.readInteger();
-		Optional<Doctor> isDocIdpresent = doctorList.parallelStream().filter(doctor -> doctor.getdId()==id).findAny();  
-		if(isDocIdpresent.isPresent())
-			//            try {
-			//                for (Doctor doctor : doctorList) {
-			//                    if (id == doctor.getdId()) {
-			for (Appointment appointment : appointList) {
-				Optional<Doctor> isDocFree = doctorList.parallelStream().filter(doctor -> doctor.getdName().equals(appointment.getDocName())).findAny();  
-
-				//	if (doctor.getdName().equals(appointment.getDocName())) {
-				if(isDocFree.isPresent()) {
-					List<Patient> patientAppointmentList = appointment.getListOfPatients();
-					if (patientAppointmentList.size() < 5) {
-						patientAppointmentList.add(patient);
-						appointment.setListOfPatients(patientAppointmentList);
-						System.out.println("Appointment is set");
-						break;
-					} else {
-						System.out.println(
-								"Appointment is full !!! Please wait for the next schedule or Select different doctor");
+		int flag = 1;
+		try {
+			String string = ObjectOrientedUtility.readFile(doctorFile);
+			doctorList = ObjectOrientedUtility.userReadValue(string, Doctor.class);
+			for (Doctor doctor : doctorList) {
+				if (id == doctor.getdId()) {
+					for (Appointment appointment : appointList) {
+						if (doctor.getdName().equals(appointment.getdName())) {
+							List<Patient> patientAppointmentList = appointment.getListOfPatients();
+							if (patientAppointmentList.size() < 5) {
+								for (Patient patient2 : patientAppointmentList) {
+									if (patient2.getPid() == patient.getPid()) {
+										System.out.println("Appointment already set for today for this doctor cannot set again");
+										flag = 0;
+										break;
+									} else {
+										patientAppointmentList.add(patient);
+										appointment.setListOfPatients(patientAppointmentList);
+										System.out.println("Appointment is set");
+										flag = 0;
+										break;
+									}
+								}
+							} else {
+								System.out.println(
+										"Appointment is full !!! Please wait for the next schedule or Select different doctor");
+								flag = 0;
+							}
+							break;
+						}
 					}
-					break;
-				} else {
-					Appointment newAppointment = new Appointment();
-					newAppointment.setDocName(doctor.getdName());
-					List<Patient> newPatientAppointmentList = new ArrayList<>();
-					newPatientAppointmentList.add(patient);
-					newAppointment.setListOfPatients(newPatientAppointmentList);
-					appointList.add(newAppointment);
-					System.out.println("Appointment is set");
+					if (flag == 1) {
+						Appointment appointment2 = new Appointment();
+						List<Patient> patientList1 = new ArrayList<Patient>();
+						patientList1.add(patient);
+						appointment2.setdName(doctor.getdName());
+						appointment2.setListOfPatients(patientList1);
+						appointList.add(appointment2);
+						System.out.println("Appointment is set");
+					}
 				}
 			}
-		if (appointList.size() == 0) {
-			Appointment appointment2 = new Appointment();
-			List<Patient> patientList1 = new ArrayList<Patient>();
-			patientList1.add(patient);
-			appointment2.setDocName(doctor.getdName());
-			appointment2.setListOfPatients(patientList1);
-			appointList.add(appointment2);
-			System.out.println("Appointment is set");
-		}}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Enter the correct id");
+		}
+	}
+	public static List<Doctor> searchById() throws IOException {
+		String string = ObjectOrientedUtility.readFile(doctorFile);
+		try {
+			doctorList = ObjectOrientedUtility.userReadValue(string, Doctor.class);
+			List<Doctor> list = new ArrayList<>();
+			System.out.println("Enter the doctor's id to be searched");
+			int id = DataStructureUtility.readInteger();
+			for (Doctor doctor : doctorList) {
+				if (id == doctor.getdId()) {
+					list.add(doctor);
+				}
+			}
+			return list;
+		} catch (Exception e) {
+			System.out.println("File is empty! Doctor cannot be searched");
+			return null;
+		}
+	}
 
-//	} catch (Exception e) {
-//		System.out.println("Enter the correct id");
-//	}
+	public static List<Doctor> searchBySpecialization() throws IOException {
+		String string = ObjectOrientedUtility.readFile(doctorFile);
+		try {
+			doctorList = ObjectOrientedUtility.userReadValue(string, Doctor.class);
+			List<Doctor> list = new ArrayList<>();
+			System.out.println("Enter the doctor's name to be searched");
+			String specialization = DataStructureUtility.readString();
+			for (Doctor doctor : doctorList) {
+				if (specialization.equals(doctor.getSpeciality())) {
+					list.add(doctor);
+				}
+			}
 
-public static List<Doctor> searchById() throws IOException {
-	String string = ObjectOrientedUtility.readFile(doctorFile);
-	try {
-		doctorList = ObjectOrientedUtility.userReadValue(string, Doctor.class);
-		List<Doctor> list = new ArrayList<>();
-		System.out.println("Enter the doctor's id to be searched");
+			return list;
+		} catch (Exception e) {
+			System.out.println("File is empty! Doctor cannot be searched");
+			return null;
+		}
+
+	}
+	public static List<Doctor> searchByAvailability() throws IOException {
+		String string = ObjectOrientedUtility.readFile(doctorFile);
+		try {
+			doctorList = ObjectOrientedUtility.userReadValue(string, Doctor.class);
+			List<Doctor> list = new ArrayList<>();
+			System.out.println("Enter when you need the doctor (eg: am/pm)");
+			String availability = DataStructureUtility.readString();
+			for (Doctor doctor : doctorList) {
+				if (availability.equals(doctor.getAvailability())) {
+					list.add(doctor);
+				}
+			}
+			return list;
+		} catch (Exception e) {
+			System.out.println("File is empty! Doctor cannot be searched");
+			return null;
+		}
+
+	}
+	public static Patient searchByPatientId() throws IOException {
+		String string = ObjectOrientedUtility.readFile(patientFile);
+		patientList = ObjectOrientedUtility.userReadValue(string, Patient.class);
+		System.out.println("Enter the patient's id to be searched");
 		int id = DataStructureUtility.readInteger();
-		for (Doctor doctor : doctorList) {
-			if (id == doctor.getdId()) {
-				list.add(doctor);
-			}
-		}
-		return list;
-	} catch (Exception e) {
-		System.out.println("File is empty! Doctor cannot be searched");
-		return null;
-	}
-}
-
-public static List<Doctor> searchBySpecialization() throws IOException {
-	String string = ObjectOrientedUtility.readFile(doctorFile);
-	try {
-		doctorList = ObjectOrientedUtility.userReadValue(string, Doctor.class);
-		List<Doctor> list = new ArrayList<>();
-		System.out.println("Enter the doctor's name to be searched");
-		String specialization = DataStructureUtility.readString();
-		for (Doctor doctor : doctorList) {
-			if (specialization.equals(doctor.getSpeciality())) {
-				list.add(doctor);
-			}
-		}
-
-		return list;
-	} catch (Exception e) {
-		System.out.println("File is empty! Doctor cannot be searched");
-		return null;
-	}
-
-}
-public static List<Doctor> searchByAvailability() throws IOException {
-	String string = ObjectOrientedUtility.readFile(doctorFile);
-	try {
-		doctorList = ObjectOrientedUtility.userReadValue(string, Doctor.class);
-		List<Doctor> list = new ArrayList<>();
-		System.out.println("Enter when you need the doctor (eg: am/pm)");
-		String availability = DataStructureUtility.readString();
-		for (Doctor doctor : doctorList) {
-			if (availability.equals(doctor.getAvailability())) {
-				list.add(doctor);
-			}
-		}
-		return list;
-	} catch (Exception e) {
-		System.out.println("File is empty! Doctor cannot be searched");
-		return null;
-	}
-
-}
-public static Patient searchByPatientId() throws IOException {
-	String string = ObjectOrientedUtility.readFile(patientFile);
-	patientList = ObjectOrientedUtility.userReadValue(string, Patient.class);
-	System.out.println("Enter the patient's id to be searched");
-	int id = DataStructureUtility.readInteger();
-	Optional<Patient> isDocIdpresent = patientList.parallelStream().filter(patient -> patient.getPid()==id).findAny();  
+		Optional<Patient> isDocIdpresent = patientList.parallelStream().filter(patient -> patient.getPid()==id).findAny();  
 		if (isDocIdpresent.isPresent()) {
 			return patient;
 		}
-	
-	return null;
-}
-public static Patient searchByPhoneNo() throws IOException {
-	String string = ObjectOrientedUtility.readFile(patientFile);
-	patientList = ObjectOrientedUtility.userReadValue(string, Patient.class);
-	System.out.println("Enter the patient's phone number to search");
-	double phoneNo = DataStructureUtility.readdouble();
 
-	for (Patient patient : patientList) {
-		if (phoneNo == patient.getpNum()) {
-			return patient;
+		return null;
+	}
+	public static Patient searchByPhoneNo() throws IOException {
+		String string = ObjectOrientedUtility.readFile(patientFile);
+		patientList = ObjectOrientedUtility.userReadValue(string, Patient.class);
+		System.out.println("Enter the patient's phone number to search");
+		double phoneNo = DataStructureUtility.readdouble();
+
+		for (Patient patient : patientList) {
+			if (phoneNo == patient.getpNum()) {
+				return patient;
+			}
+		}
+		return null;
+	}
+
+	public static void appoint(Patient patient) throws IOException {
+		System.out.println("Search doctor by- 1 :Name 2:Speciality 3:Availability");
+		int choice = DataStructureUtility.readInteger();
+		switch (choice) {
+		case 1:
+			List<Doctor> doctorList = searchByName();
+			displayDoctor(doctorList);
+			searchDoc(doctorList, patient);
+			break;
+		case 2:
+			List<Doctor> doctorList1 = searchBySpecialization();
+			displayDoctor(doctorList1);
+			searchDoc(doctorList1, patient);
+			break;
+		case 3:
+			List<Doctor> doctorList2 = searchByAvailability();
+			displayDoctor(doctorList2);
+			searchDoc(doctorList2, patient);
+			break;
 		}
 	}
-	return null;
-}
-
-public static void appoint(Patient patient) throws IOException {
-	System.out.println("Search doctor by- 1:Name 2:Speciality 3:Availability");
-	int choice = DataStructureUtility.readInteger();
-	switch (choice) {
-	case 1:
-		List<Doctor> doctorList = searchByName();
-		displayDoctor(doctorList);
-		searchDoc(doctorList, patient);
-		break;
-	case 2:
-		List<Doctor> doctorList1 = searchBySpecialization();
-		displayDoctor(doctorList1);
-		searchDoc(doctorList1, patient);
-		break;
-	case 3:
-		List<Doctor> doctorList2 = searchByAvailability();
-		displayDoctor(doctorList2);
-		searchDoc(doctorList2, patient);
-		break;
-	}
-}
 }
